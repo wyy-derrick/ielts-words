@@ -64,6 +64,10 @@ git push
 
 纯前端，零依赖。数据通过 `<script>` 标签加载，无需构建和服务器。
 
+## 致谢
+
+- 页面交互与 538 考点词词库参考了 [selfache/IELT-538](https://github.com/selfache/IELT-538) 项目，感谢原作者的整理与分享。
+
 ## License
 
 MIT
