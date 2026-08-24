@@ -1,7 +1,7 @@
-// 由 更新词库.py 自动生成（错词表来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-08-22，共 429 词
+// 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json），请勿手改
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-08-24，共 457 词（听力听写 20 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-08-22",
+  "updated": "2026-08-24",
   "banks": [
     {
       "id": "mistakes",
@@ -11,7 +11,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-51 词",
+          "description": "第 1-79 词",
           "words": [
             {
               "id": 1,
@@ -369,6 +369,202 @@ window.__VOCAB_DATA__ = {
               "chinese": "客观的，目标",
               "source": "剑雅17-test2-p3 洞察力和进化",
               "date": "8-21"
+            },
+            {
+              "id": 52,
+              "word": "pouch",
+              "chinese": "小袋",
+              "source": "剑雅17-test3-p1 袋狼",
+              "date": "8-22"
+            },
+            {
+              "id": 53,
+              "word": "belly",
+              "chinese": "肚子",
+              "source": "剑雅17-test3-p1 袋狼",
+              "date": "8-22"
+            },
+            {
+              "id": 54,
+              "word": "captivity",
+              "chinese": "关押",
+              "source": "剑雅17-test3-p1 袋狼",
+              "date": "8-22"
+            },
+            {
+              "id": 55,
+              "word": "nor",
+              "chinese": "也不是",
+              "source": "剑雅17-test3-p1 袋狼",
+              "date": "8-22"
+            },
+            {
+              "id": 56,
+              "word": "prime",
+              "chinese": "主要的",
+              "source": "剑雅17-test4-p1 蝙蝠救星",
+              "date": "8-22"
+            },
+            {
+              "id": 57,
+              "word": "specimens",
+              "chinese": "样本",
+              "source": "剑雅17-test4-p1 蝙蝠救星",
+              "date": "8-22"
+            },
+            {
+              "id": 58,
+              "word": "rarely",
+              "chinese": "很少",
+              "source": "剑雅17-test4-p1 蝙蝠救星",
+              "date": "8-22"
+            },
+            {
+              "id": 59,
+              "word": "merely",
+              "chinese": "仅仅",
+              "source": "剑雅17-test4-p1 蝙蝠救星",
+              "date": "8-22"
+            },
+            {
+              "id": 60,
+              "word": "coins",
+              "chinese": "硬币",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 61,
+              "word": "scene",
+              "chinese": "气氛",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 62,
+              "word": "line",
+              "chinese": "台词",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 63,
+              "word": "frustrating",
+              "chinese": "令人沮丧的",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 64,
+              "word": "interpret",
+              "chinese": "解释",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 65,
+              "word": "mud",
+              "chinese": "泥土",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 66,
+              "word": "destinations",
+              "chinese": "目的地",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 67,
+              "word": "atlas",
+              "chinese": "地图册",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 68,
+              "word": "boil",
+              "chinese": "煮沸",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 69,
+              "word": "diameter",
+              "chinese": "直径",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 70,
+              "word": "tube",
+              "chinese": "管子",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 71,
+              "word": "pan",
+              "chinese": "平底锅",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 72,
+              "word": "by means of",
+              "chinese": "通过",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 73,
+              "word": "cloudy",
+              "chinese": "多云的，浑浊的",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 74,
+              "word": "sap",
+              "chinese": "树液",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 75,
+              "word": "liter",
+              "chinese": "升",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 76,
+              "word": "training",
+              "chinese": "训练",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 77,
+              "word": "plumber",
+              "chinese": "水管工",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 78,
+              "word": "shirts",
+              "chinese": "t恤",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 79,
+              "word": "litter",
+              "chinese": "垃圾",
+              "source": "",
+              "date": "8-24"
             }
           ]
         }
@@ -4350,6 +4546,161 @@ window.__VOCAB_DATA__ = {
               "chinese": "相似的；类似的",
               "ieltsMeaning": "resemble 的同义替换词，be similar to = 与…相似",
               "example": "The two species share similar genetic characteristics despite appearances."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "listening",
+      "name": "听力听写",
+      "description": "听音拼写，英音",
+      "quiz": "spell",
+      "groups": [
+        {
+          "id": 1,
+          "name": "第1组",
+          "description": "第 1-20 词",
+          "words": [
+            {
+              "id": 1,
+              "word": "coins",
+              "chinese": "硬币",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 2,
+              "word": "scene",
+              "chinese": "气氛",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 3,
+              "word": "line",
+              "chinese": "台词",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 4,
+              "word": "frustrating",
+              "chinese": "令人沮丧的",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 5,
+              "word": "interpret",
+              "chinese": "解释",
+              "source": "剑雅17-test1-p3",
+              "date": "8-23"
+            },
+            {
+              "id": 6,
+              "word": "mud",
+              "chinese": "泥土",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 7,
+              "word": "destinations",
+              "chinese": "目的地",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 8,
+              "word": "atlas",
+              "chinese": "地图册",
+              "source": "剑雅17-test3-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 9,
+              "word": "boil",
+              "chinese": "煮沸",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 10,
+              "word": "diameter",
+              "chinese": "直径",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 11,
+              "word": "tube",
+              "chinese": "管子",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 12,
+              "word": "pan",
+              "chinese": "平底锅",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 13,
+              "word": "by means of",
+              "chinese": "通过",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 14,
+              "word": "cloudy",
+              "chinese": "多云的，浑浊的",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 15,
+              "word": "sap",
+              "chinese": "树液",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 16,
+              "word": "liter",
+              "chinese": "升",
+              "source": "剑雅17-test4-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 17,
+              "word": "training",
+              "chinese": "训练",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 18,
+              "word": "plumber",
+              "chinese": "水管工",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 19,
+              "word": "shirts",
+              "chinese": "t恤",
+              "source": "剑雅17-test4-p1",
+              "date": "8-24"
+            },
+            {
+              "id": 20,
+              "word": "litter",
+              "chinese": "垃圾",
+              "source": "",
+              "date": "8-24"
             }
           ]
         }

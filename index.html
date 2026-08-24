@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雅思背词 — 错词表 + 538考点词</title>
+    <title>雅思背词 — 错词表 + 538考点词 + 听力听写</title>
 <style>
 :root {
   --bg: #f5f0eb;
@@ -148,12 +148,56 @@ body {
   letter-spacing: 0.02em;
   margin-bottom: 4px;
 }
-.word-pos {
-  font-size: 0.9rem;
-  color: var(--sub);
-  font-style: italic;
-  margin-bottom: 28px;
-}
+  .word-pos {
+    font-size: 0.9rem;
+    color: var(--sub);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .audio-btn {
+    width: 88px;
+    height: 88px;
+    border: none;
+    border-radius: 50%;
+    background: #fdf3ef;
+    color: var(--accent);
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s, background 0.15s;
+  }
+  .audio-btn:hover { background: #f8e4db; }
+  .audio-btn.playing { transform: scale(1.06); background: #f8e4db; }
+  .spell-hint {
+    font-size: 0.9rem;
+    color: var(--sub);
+    margin-bottom: 20px;
+  }
+  .spell-form {
+    width: 100%;
+    max-width: 460px;
+  }
+  .spell-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 1.15rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    outline: none;
+    background: #fafaf8;
+    color: var(--text);
+  }
+  .spell-input:focus { border-color: var(--accent); }
+  .spell-input.correct { border-color: var(--green); background: var(--green-bg); color: var(--green); }
+  .spell-input.wrong { border-color: var(--red); background: var(--red-bg); color: var(--red); }
+  .spell-feedback {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+  }
 
 /* Options */
 .options {
@@ -410,7 +454,7 @@ body {
 <div class="container">
   <div class="header">
     <h1>雅思背词</h1>
-    <div class="subtitle">错词表 · 538 考点词</div>
+        <div class="subtitle">错词表 · 538 考点词 · 听力听写</div>
   </div>
 
   <!-- Mode tabs -->
@@ -456,8 +500,9 @@ body {
   let testQuestions = [];     // shuffled questions for test mode
   let testIdx = 0;
   let testAnswers = [];       // { wordId, correct, userPicked }
-  let optionBtns = [];
-  let autoAdvanceTimer = null;
+      let optionBtns = [];
+      let autoAdvanceTimer = null;
+      let wordAudio = null;
 
   // ===== localStorage =====
   function storageKey(key) { return 'vocab-' + key; }
@@ -479,11 +524,34 @@ body {
   }
 
   // ===== Helpers =====
-  function currentBank() { return DATA.banks[bankIdx]; }
-  function currentGroup() { return currentBank().groups[groupIdx]; }
-  function currentWords() { return currentGroup().words; }
-  function allBankWords() { return DATA.banks.flatMap(b => b.groups.flatMap(g => g.words)); }
-  function shuffle(arr) {
+      function currentBank() { return DATA.banks[bankIdx]; }
+      function currentGroup() { return currentBank().groups[groupIdx]; }
+      function currentWords() { return currentGroup().words; }
+      function allBankWords() { return DATA.banks.flatMap(b => b.groups.flatMap(g => g.words)); }
+      // 当前词库是否为听音拼写
+      function isSpellQuiz() { return currentBank().quiz === 'spell'; }
+      // 统一拼写后再比对
+      function normalizeSpell(s) { return String(s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+      // 停止当前单词音频
+      function stopWordAudio() {
+        if (!wordAudio) return;
+        try { wordAudio.pause(); } catch (e) {}
+        wordAudio = null;
+      }
+      // 播放单词英音（有道词典 type=1）
+      function playWordAudio(word) {
+        stopWordAudio();
+        const url = 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(word) + '&type=1';
+        wordAudio = new Audio(url);
+        const btn = document.getElementById('btnPlay');
+        if (btn) {
+          wordAudio.addEventListener('play', () => btn.classList.add('playing'));
+          wordAudio.addEventListener('ended', () => btn.classList.remove('playing'));
+          wordAudio.addEventListener('pause', () => btn.classList.remove('playing'));
+        }
+        wordAudio.play().catch(() => {});
+      }
+      function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
     return a;
@@ -518,9 +586,10 @@ body {
       return `<button class="group-btn bank-btn${i === bankIdx ? ' active' : ''}" data-idx="${i}">${b.name}<br><small>${total}词</small></button>`;
     }).join('');
     row.querySelectorAll('.bank-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        if (parseInt(this.dataset.idx) === bankIdx) return;
-        bankIdx = parseInt(this.dataset.idx);
+          btn.addEventListener('click', function() {
+            if (parseInt(this.dataset.idx) === bankIdx) return;
+            stopWordAudio();
+            bankIdx = parseInt(this.dataset.idx);
         groupIdx = 0;
         studyIdx = bankProgress().study[groupIdx] || 0;
         if (mode === 'test') startTest(); else renderStudy();
@@ -536,8 +605,9 @@ body {
       `<button class="group-btn${i === groupIdx ? ' active' : ''}" data-idx="${i}">${g.name}<br><small>${g.words.length}词</small></button>`
     ).join('');
     row.querySelectorAll('.group-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        groupIdx = parseInt(this.dataset.idx);
+          btn.addEventListener('click', function() {
+            stopWordAudio();
+            groupIdx = parseInt(this.dataset.idx);
         studyIdx = bankProgress().study[groupIdx] || 0;
         if (mode === 'test') startTest();
         else renderStudy();
@@ -560,12 +630,13 @@ body {
   }
 
   // ===== STUDY MODE =====
-  function renderStudy() {
-    const words = currentWords();
-    const card = document.getElementById('card');
-    answered = false;
+    function renderStudy() {
+      stopWordAudio();
+      const words = currentWords();
+      const card = document.getElementById('card');
+      answered = false;
 
-    if (studyIdx >= words.length) {
+      if (studyIdx >= words.length) {
       // Group complete
       card.innerHTML = `
         <div class="complete-banner">
@@ -581,8 +652,12 @@ body {
       return;
     }
 
-    const word = words[studyIdx];
-    const { options, correct } = generateOptions(word, words);
+      const word = words[studyIdx];
+      if (isSpellQuiz()) {
+        renderSpellStudy(word);
+        return;
+      }
+      const { options, correct } = generateOptions(word, words);
 
     card.innerHTML = `
       <div class="word-display">${word.word}</div>
@@ -638,15 +713,92 @@ body {
     document.getElementById('answerPanel').classList.add('show');
   }
 
+  // 渲染听音拼写题卡
+  function renderSpellCard(word, opts) {
+    const card = document.getElementById('card');
+    card.innerHTML = `
+      <button type="button" class="audio-btn" id="btnPlay" title="播放英音">🔊</button>
+      <div class="spell-hint">听音，拼出单词</div>
+      <form class="spell-form" id="spellForm">
+        <input class="spell-input" id="spellInput" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="输入拼写">
+        <div class="spell-feedback" id="spellFeedback"></div>
+        <button class="next-btn" type="submit" id="btnSubmit">提交</button>
+      </form>
+      ${opts.answerHtml || ''}
+      ${opts.showEndTest ? '<button class="end-test-btn" id="btnEndTest">结束测试</button>' : ''}`;
+    document.getElementById('btnPlay').addEventListener('click', () => playWordAudio(word.word));
+    playWordAudio(word.word);
+    document.getElementById('spellForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const typed = document.getElementById('spellInput').value;
+      if (!typed.trim()) return;
+      opts.onSubmit(typed);
+    });
+    if (opts.showEndTest) {
+      document.getElementById('btnEndTest').addEventListener('click', () => endTest());
+    }
+    const input = document.getElementById('spellInput');
+    if (input) input.focus();
+  }
+
+  // 背诵模式：听写一题
+  function renderSpellStudy(word) {
+    renderSpellCard(word, {
+      answerHtml: `
+        <div class="answer-panel" id="answerPanel">
+          <div class="word-display" style="font-size:1.6rem;margin-bottom:8px">${word.word}</div>
+          <div class="syn-line">释义：<strong>${word.chinese}</strong></div>
+          ${word.source ? `<div class="ielts-line">来源：${word.source}${word.date ? ' · ' + word.date : ''}</div>` : ''}
+          ${word.example ? `<div class="example-line">例句：${word.example}</div>` : ''}
+          <button class="next-btn" id="btnNext">下一个 →</button>
+        </div>`,
+      onSubmit: typed => handleSpellStudyAnswer(typed, word)
+    });
+    document.getElementById('btnNext').addEventListener('click', () => {
+      studyIdx++;
+      const bp = bankProgress();
+      if (studyIdx > (bp.study[groupIdx] || 0)) bp.study[groupIdx] = studyIdx;
+      saveProgress(progress);
+      renderStudy();
+      updateProgress();
+    });
+    updateProgress();
+  }
+
+  // 判定背诵听写对错并展开答案卡
+  function handleSpellStudyAnswer(typed, word) {
+    if (answered) return;
+    answered = true;
+    const input = document.getElementById('spellInput');
+    const ok = normalizeSpell(typed) === normalizeSpell(word.word);
+    input.disabled = true;
+    input.classList.add(ok ? 'correct' : 'wrong');
+    document.getElementById('btnSubmit').style.display = 'none';
+    if (!ok) {
+      document.getElementById('spellFeedback').innerHTML = `正确答案：<strong>${word.word}</strong>`;
+      document.getElementById('spellFeedback').style.color = 'var(--red)';
+      const bm = bankProgress().mistakes;
+      bm[word.id] = (bm[word.id] || 0) + 1;
+      saveProgress(progress);
+    }
+    document.getElementById('answerPanel').classList.add('show');
+    const btnNext = document.getElementById('btnNext');
+    if (btnNext) btnNext.focus();
+  }
+
   // ===== TEST MODE =====
   function startTest() {
+    stopWordAudio();
     clearTimeout(autoAdvanceTimer);
     const words = currentWords();
-    // For each word, generate a question
-    testQuestions = shuffle(words.map(w => {
-      const { options, correct } = generateOptions(w, words);
-      return { word: w, options, correct };
-    }));
+    if (isSpellQuiz()) {
+      testQuestions = shuffle(words.map(w => ({ word: w, correct: w.word })));
+    } else {
+      testQuestions = shuffle(words.map(w => {
+        const { options, correct } = generateOptions(w, words);
+        return { word: w, options, correct };
+      }));
+    }
     testIdx = 0;
     testAnswers = [];
     renderTestQuestion();
@@ -654,6 +806,7 @@ body {
   }
 
   function renderTestQuestion() {
+    stopWordAudio();
     const card = document.getElementById('card');
     answered = false;
 
@@ -663,6 +816,14 @@ body {
     }
 
     const q = testQuestions[testIdx];
+    if (isSpellQuiz()) {
+      renderSpellCard(q.word, {
+        showEndTest: true,
+        onSubmit: typed => handleSpellTestAnswer(typed, q)
+      });
+      updateProgress();
+      return;
+    }
     card.innerHTML = `
       <div class="word-display">${q.word.word}</div>
       <div class="word-pos">${q.word.pos || ''}</div>
@@ -711,13 +872,40 @@ body {
     }, 800);
   }
 
+  // 判定测试听写对错并短暂展示答案
+  function handleSpellTestAnswer(typed, q) {
+    if (answered) return;
+    answered = true;
+    const correct = q.correct;
+    const isCorrect = normalizeSpell(typed) === normalizeSpell(correct);
+    testAnswers.push({ word: q.word, correct, userPicked: typed.trim(), isCorrect });
+    const input = document.getElementById('spellInput');
+    input.disabled = true;
+    input.classList.add(isCorrect ? 'correct' : 'wrong');
+    document.getElementById('btnSubmit').style.display = 'none';
+    const fb = document.getElementById('spellFeedback');
+    fb.innerHTML = isCorrect ? '拼写正确' : `正确答案：<strong>${correct}</strong>`;
+    fb.style.color = isCorrect ? 'var(--green)' : 'var(--red)';
+    if (!isCorrect) {
+      const bm = bankProgress().mistakes;
+      bm[q.word.id] = (bm[q.word.id] || 0) + 1;
+      saveProgress(progress);
+    }
+    autoAdvanceTimer = setTimeout(() => {
+      testIdx++;
+      renderTestQuestion();
+    }, 1200);
+  }
+
   function endTest() {
+    stopWordAudio();
     clearTimeout(autoAdvanceTimer);
     testIdx = testQuestions.length;
     showTestResult();
   }
 
   function showTestResult() {
+    stopWordAudio();
     const card = document.getElementById('card');
     const total = testAnswers.length;
     if (total === 0) {
@@ -742,11 +930,11 @@ body {
           <div class="mistake-list">
             ${mistakes.map(m => `
               <div class="mistake-item" data-wid="${m.word.id}">
-                <span class="q-word">${m.word.word}</span> (${m.word.pos})
-                — 你选了 <span style="color:var(--red)">${m.userPicked}</span>
+                <span class="q-word">${m.word.word}</span>${m.word.pos ? ` (${m.word.pos})` : ''}
+                — ${isSpellQuiz() ? '你拼了' : '你选了'} <span style="color:var(--red)">${m.userPicked}</span>
                 <div class="detail">
                   正确答案：<strong>${m.correct}</strong>
-                  ${m.word.synonyms ? `<br>全部同义词：${m.word.synonyms.join(' · ')}<br>中文：${m.word.chinese}` : ''}
+                  ${m.word.synonyms ? `<br>全部同义词：${m.word.synonyms.join(' · ')}<br>中文：${m.word.chinese}` : `<br>中文：${m.word.chinese}`}
                   ${m.word.source ? `<br>来源：${m.word.source}${m.word.date ? ' · ' + m.word.date : ''}` : ''}
                   ${m.word.example ? `<br>例句：${m.word.example}` : ''}
                 </div>
@@ -762,6 +950,7 @@ body {
     if (mistakes.length > 0) {
       document.getElementById('btnRetestMistakes').addEventListener('click', () => {
         testQuestions = shuffle(mistakes.map(m => {
+          if (isSpellQuiz()) return { word: m.word, correct: m.word.word };
           const { options, correct } = generateOptions(m.word, currentWords());
           return { word: m.word, options, correct };
         }));
@@ -782,6 +971,7 @@ body {
 
   // ===== Mode switching =====
   function switchMode(newMode) {
+    stopWordAudio();
     mode = newMode;
     document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
     if (mode === 'study') {
