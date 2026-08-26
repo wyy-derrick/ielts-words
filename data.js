@@ -205,7 +205,7 @@ window.__VOCAB_DATA__ = {
             {
               "id": 28,
               "word": "biased",
-              "chinese": "无偏见的",
+              "chinese": "有偏见的",
               "source": "剑雅17-test1-p3 抓国王",
               "date": "8-20"
             },
@@ -757,7 +757,7 @@ window.__VOCAB_DATA__ = {
             },
             {
               "id": 6,
-              "word": "mean",
+              "word": "means",
               "chinese": "手段，方法（n）",
               "source": "剑雅16-test1-p2 错误信息",
               "date": "8-26"
