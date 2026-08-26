@@ -1,7 +1,7 @@
 // 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-08-24，共 457 词（听力听写 20 词另库）
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-08-26，共 545 词（听力听写 60 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-08-24",
+  "updated": "2026-08-26",
   "banks": [
     {
       "id": "mistakes",
@@ -11,7 +11,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-79 词",
+          "description": "第 1-100 词",
           "words": [
             {
               "id": 1,
@@ -141,7 +141,7 @@ window.__VOCAB_DATA__ = {
             },
             {
               "id": 19,
-              "word": "ventilationtion",
+              "word": "ventilation",
               "chinese": "通风",
               "source": "剑雅17-test1-p1 伦敦地铁",
               "date": "8-20"
@@ -323,7 +323,7 @@ window.__VOCAB_DATA__ = {
             },
             {
               "id": 45,
-              "word": "organasim",
+              "word": "organism",
               "chinese": "生物",
               "source": "剑雅17-test2-p3 洞察力和进化",
               "date": "8-21"
@@ -428,143 +428,766 @@ window.__VOCAB_DATA__ = {
             },
             {
               "id": 60,
+              "word": "retailers",
+              "chinese": "零售商",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 61,
+              "word": "virgin",
+              "chinese": "未开发的",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 62,
+              "word": "transparency",
+              "chinese": "透明度",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 63,
+              "word": "criteria",
+              "chinese": "标准",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 64,
+              "word": "insist upon/on",
+              "chinese": "坚持",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 65,
+              "word": "govern",
+              "chinese": "管理，支配",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 66,
+              "word": "cultivation",
+              "chinese": "种植",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 67,
+              "word": "intuitive",
+              "chinese": "直觉的",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 68,
+              "word": "justify",
+              "chinese": "证明。。正当",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 69,
+              "word": "radical",
+              "chinese": "根本的",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 70,
+              "word": "racial",
+              "chinese": "种族的",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 71,
+              "word": "racist",
+              "chinese": "种族主义",
+              "source": "剑雅17-test3-p2 棕榈油",
+              "date": "8-24"
+            },
+            {
+              "id": 72,
+              "word": "would like",
+              "chinese": "想要",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 73,
+              "word": "skyscraper",
+              "chinese": "摩天大楼",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 74,
+              "word": "prohibitive",
+              "chinese": "价格高的让人放弃的，禁止的",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 75,
+              "word": "prohibit",
+              "chinese": "禁止",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 76,
+              "word": "profit",
+              "chinese": "利润",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 77,
+              "word": "excavation",
+              "chinese": "挖掘",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 78,
+              "word": "exceed",
+              "chinese": "超过",
+              "source": "剑雅17-test3-p3 纽约市",
+              "date": "8-24"
+            },
+            {
+              "id": 79,
+              "word": "reprimand",
+              "chinese": "谴责",
+              "source": "剑雅17-test3-p3 教育与经济",
+              "date": "8-25"
+            },
+            {
+              "id": 80,
+              "word": "fine",
+              "chinese": "罚款",
+              "source": "剑雅17-test3-p3 教育与经济",
+              "date": "8-25"
+            },
+            {
+              "id": 81,
+              "word": "equivalent",
+              "chinese": "等价的",
+              "source": "剑雅17-test3-p3 教育与经济",
+              "date": "8-25"
+            },
+            {
+              "id": 82,
+              "word": "compile",
+              "chinese": "汇编",
+              "source": "剑雅17-test3-p3 教育与经济",
+              "date": "8-25"
+            },
+            {
+              "id": 83,
+              "word": "consistent",
+              "chinese": "一致的，持续的",
+              "source": "剑雅17-test3-p3 教育与经济",
+              "date": "8-25"
+            },
+            {
+              "id": 84,
+              "word": "accomplish",
+              "chinese": "完成",
+              "source": "剑雅17-test3-p4 蒙眼象棋",
+              "date": "8-25"
+            },
+            {
+              "id": 85,
+              "word": "accomplished",
+              "chinese": "熟练的，记忆高超的",
+              "source": "剑雅17-test3-p4 蒙眼象棋",
+              "date": "8-25"
+            },
+            {
+              "id": 86,
+              "word": "beneath",
+              "chinese": "在下面",
+              "source": "",
+              "date": "8-26"
+            },
+            {
+              "id": 87,
+              "word": "subtle",
+              "chinese": "微妙的",
+              "source": "剑雅16-test1-p1 网球拍",
+              "date": "8-26"
+            },
+            {
+              "id": 88,
+              "word": "more or less",
+              "chinese": "或多或少，几乎",
+              "source": "剑雅16-test1-p1 网球拍",
+              "date": "8-26"
+            },
+            {
+              "id": 89,
+              "word": "string",
+              "chinese": "连在一起",
+              "source": "剑雅16-test1-p1 网球拍",
+              "date": "8-26"
+            },
+            {
+              "id": 90,
+              "word": "gut",
+              "chinese": "肠道",
+              "source": "剑雅16-test1-p1 网球拍",
+              "date": "8-26"
+            },
+            {
+              "id": 91,
+              "word": "authorities",
+              "chinese": "官方，当局，权威",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 92,
+              "word": "pirate",
+              "chinese": "海盗",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 93,
+              "word": "merchant",
+              "chinese": "商人",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 94,
+              "word": "denial",
+              "chinese": "否定",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 95,
+              "word": "involvement",
+              "chinese": "参与",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 96,
+              "word": "diplomatic",
+              "chinese": "外交的",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 97,
+              "word": "pharaoh",
+              "chinese": "法老",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 98,
+              "word": "disruption",
+              "chinese": "打断",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 99,
+              "word": "eradicate",
+              "chinese": "消灭",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 100,
+              "word": "resort",
+              "chinese": "求助于",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "第2组",
+          "description": "第 101-167 词",
+          "words": [
+            {
+              "id": 1,
+              "word": "wartime",
+              "chinese": "战时",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 2,
+              "word": "combat",
+              "chinese": "战斗",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 3,
+              "word": "district",
+              "chinese": "地区，区域",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 4,
+              "word": "favourable",
+              "chinese": "有利的",
+              "source": "剑雅16-test1-p2 海盗",
+              "date": "8-26"
+            },
+            {
+              "id": 5,
+              "word": "yet",
+              "chinese": "然而",
+              "source": "剑雅16-test1-p2 错误信息",
+              "date": "8-26"
+            },
+            {
+              "id": 6,
+              "word": "mean",
+              "chinese": "手段，方法（n）",
+              "source": "剑雅16-test1-p2 错误信息",
+              "date": "8-26"
+            },
+            {
+              "id": 7,
+              "word": "guard",
+              "chinese": "守卫",
+              "source": "剑雅16-test1-p2 错误信息",
+              "date": "8-26"
+            },
+            {
+              "id": 8,
+              "word": "mass",
+              "chinese": "大规模（adj）质量（n）",
+              "source": "剑雅16-test1-p2 错误信息",
+              "date": "8-26"
+            },
+            {
+              "id": 9,
               "word": "coins",
               "chinese": "硬币",
               "source": "剑雅17-test1-p3",
               "date": "8-23"
             },
             {
-              "id": 61,
+              "id": 10,
               "word": "scene",
               "chinese": "气氛",
               "source": "剑雅17-test1-p3",
               "date": "8-23"
             },
             {
-              "id": 62,
+              "id": 11,
               "word": "line",
               "chinese": "台词",
               "source": "剑雅17-test1-p3",
               "date": "8-23"
             },
             {
-              "id": 63,
+              "id": 12,
               "word": "frustrating",
               "chinese": "令人沮丧的",
               "source": "剑雅17-test1-p3",
               "date": "8-23"
             },
             {
-              "id": 64,
+              "id": 13,
               "word": "interpret",
               "chinese": "解释",
               "source": "剑雅17-test1-p3",
               "date": "8-23"
             },
             {
-              "id": 65,
+              "id": 14,
               "word": "mud",
               "chinese": "泥土",
               "source": "剑雅17-test3-p4",
               "date": "8-24"
             },
             {
-              "id": 66,
+              "id": 15,
               "word": "destinations",
               "chinese": "目的地",
               "source": "剑雅17-test3-p4",
               "date": "8-24"
             },
             {
-              "id": 67,
+              "id": 16,
               "word": "atlas",
               "chinese": "地图册",
               "source": "剑雅17-test3-p4",
               "date": "8-24"
             },
             {
-              "id": 68,
+              "id": 17,
               "word": "boil",
               "chinese": "煮沸",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 69,
+              "id": 18,
               "word": "diameter",
               "chinese": "直径",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 70,
+              "id": 19,
               "word": "tube",
               "chinese": "管子",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 71,
+              "id": 20,
               "word": "pan",
               "chinese": "平底锅",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 72,
+              "id": 21,
               "word": "by means of",
               "chinese": "通过",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 73,
+              "id": 22,
               "word": "cloudy",
               "chinese": "多云的，浑浊的",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 74,
+              "id": 23,
               "word": "sap",
               "chinese": "树液",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 75,
+              "id": 24,
               "word": "liter",
               "chinese": "升",
               "source": "剑雅17-test4-p4",
               "date": "8-24"
             },
             {
-              "id": 76,
+              "id": 25,
               "word": "training",
               "chinese": "训练",
               "source": "剑雅17-test4-p1",
               "date": "8-24"
             },
             {
-              "id": 77,
+              "id": 26,
               "word": "plumber",
               "chinese": "水管工",
               "source": "剑雅17-test4-p1",
               "date": "8-24"
             },
             {
-              "id": 78,
+              "id": 27,
               "word": "shirts",
               "chinese": "t恤",
               "source": "剑雅17-test4-p1",
               "date": "8-24"
             },
             {
-              "id": 79,
+              "id": 28,
+              "word": "practical",
+              "chinese": "实际的",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 29,
               "word": "litter",
               "chinese": "垃圾",
-              "source": "",
+              "source": "剑雅16-test1-p4",
               "date": "8-24"
+            },
+            {
+              "id": 30,
+              "word": "capitalism",
+              "chinese": "资本主义",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 31,
+              "word": "depression",
+              "chinese": "抑郁，萧条",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 32,
+              "word": "opportunity",
+              "chinese": "机会",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 33,
+              "word": "panic",
+              "chinese": "恐慌",
+              "source": "剑雅17-test3-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 34,
+              "word": "fine point",
+              "chinese": "细节",
+              "source": "剑雅17-test3-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 35,
+              "word": "retention",
+              "chinese": "保留",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 36,
+              "word": "incentive",
+              "chinese": "动机",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 37,
+              "word": "voucher",
+              "chinese": "代金券",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 38,
+              "word": "disbelief",
+              "chinese": "怀疑",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 39,
+              "word": "relief",
+              "chinese": "解脱",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 40,
+              "word": "gratitude",
+              "chinese": "感激",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 41,
+              "word": "spectators",
+              "chinese": "观众",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 42,
+              "word": "ugly",
+              "chinese": "丑陋的",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 43,
+              "word": "leather",
+              "chinese": "皮革",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 44,
+              "word": "club",
+              "chinese": "俱乐部，棍子",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 45,
+              "word": "corridor",
+              "chinese": "走廊",
+              "source": "剑雅16-test1-p2",
+              "date": "8-25"
+            },
+            {
+              "id": 46,
+              "word": "precise",
+              "chinese": "准确的",
+              "source": "剑雅16-test1-p2",
+              "date": "8-25"
+            },
+            {
+              "id": 47,
+              "word": "roundabout",
+              "chinese": "环形路",
+              "source": "",
+              "date": ""
+            },
+            {
+              "id": 48,
+              "word": "circular road",
+              "chinese": "环形路",
+              "source": "",
+              "date": ""
+            },
+            {
+              "id": 49,
+              "word": "hectare",
+              "chinese": "公顷",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 50,
+              "word": "acre",
+              "chinese": "英亩",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 51,
+              "word": "pharmacies",
+              "chinese": "药房",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 52,
+              "word": "allergy",
+              "chinese": "过敏",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 53,
+              "word": "bog",
+              "chinese": "沼泽",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 54,
+              "word": "rectangular",
+              "chinese": "长方形的",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 55,
+              "word": "scope",
+              "chinese": "范围",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 56,
+              "word": "stained",
+              "chinese": "玷污的",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 57,
+              "word": "worn",
+              "chinese": "穿坏的，用旧的",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 58,
+              "word": "moss",
+              "chinese": "苔藓",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 59,
+              "word": "seaweed",
+              "chinese": "海草",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 60,
+              "word": "melon",
+              "chinese": "甜瓜",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 61,
+              "word": "deaf",
+              "chinese": "聋的",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 62,
+              "word": "confidentiality",
+              "chinese": "机密性",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 63,
+              "word": "cereal",
+              "chinese": "谷物",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 64,
+              "word": "detach",
+              "chinese": "分离",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 65,
+              "word": "fertilizers",
+              "chinese": "化肥",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 66,
+              "word": "inhibit",
+              "chinese": "抑制",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 67,
+              "word": "earthworm",
+              "chinese": "蚯蚓",
+              "source": "剑雅19-test3",
+              "date": "8-26"
             }
           ]
         }
@@ -4560,7 +5183,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-20 词",
+          "description": "第 1-60 词",
           "words": [
             {
               "id": 1,
@@ -4697,10 +5320,290 @@ window.__VOCAB_DATA__ = {
             },
             {
               "id": 20,
+              "word": "practical",
+              "chinese": "实际的",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 21,
               "word": "litter",
               "chinese": "垃圾",
-              "source": "",
+              "source": "剑雅16-test1-p4",
               "date": "8-24"
+            },
+            {
+              "id": 22,
+              "word": "capitalism",
+              "chinese": "资本主义",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 23,
+              "word": "depression",
+              "chinese": "抑郁，萧条",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 24,
+              "word": "opportunity",
+              "chinese": "机会",
+              "source": "剑雅16-test1-p4",
+              "date": "8-24"
+            },
+            {
+              "id": 25,
+              "word": "panic",
+              "chinese": "恐慌",
+              "source": "剑雅17-test3-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 26,
+              "word": "fine point",
+              "chinese": "细节",
+              "source": "剑雅17-test3-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 27,
+              "word": "retention",
+              "chinese": "保留",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 28,
+              "word": "incentive",
+              "chinese": "动机",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 29,
+              "word": "voucher",
+              "chinese": "代金券",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 30,
+              "word": "disbelief",
+              "chinese": "怀疑",
+              "source": "剑雅17-test4-p3",
+              "date": "8-25"
+            },
+            {
+              "id": 31,
+              "word": "relief",
+              "chinese": "解脱",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 32,
+              "word": "gratitude",
+              "chinese": "感激",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 33,
+              "word": "spectators",
+              "chinese": "观众",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 34,
+              "word": "ugly",
+              "chinese": "丑陋的",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 35,
+              "word": "leather",
+              "chinese": "皮革",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 36,
+              "word": "club",
+              "chinese": "俱乐部，棍子",
+              "source": "剑雅17-test4-p4",
+              "date": "8-25"
+            },
+            {
+              "id": 37,
+              "word": "corridor",
+              "chinese": "走廊",
+              "source": "剑雅16-test1-p2",
+              "date": "8-25"
+            },
+            {
+              "id": 38,
+              "word": "precise",
+              "chinese": "准确的",
+              "source": "剑雅16-test1-p2",
+              "date": "8-25"
+            },
+            {
+              "id": 39,
+              "word": "roundabout",
+              "chinese": "环形路",
+              "source": "",
+              "date": ""
+            },
+            {
+              "id": 40,
+              "word": "circular road",
+              "chinese": "环形路",
+              "source": "",
+              "date": ""
+            },
+            {
+              "id": 41,
+              "word": "hectare",
+              "chinese": "公顷",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 42,
+              "word": "acre",
+              "chinese": "英亩",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 43,
+              "word": "pharmacies",
+              "chinese": "药房",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 44,
+              "word": "allergy",
+              "chinese": "过敏",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 45,
+              "word": "bog",
+              "chinese": "沼泽",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 46,
+              "word": "rectangular",
+              "chinese": "长方形的",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 47,
+              "word": "soil",
+              "chinese": "土壤",
+              "source": "剑雅19-test1",
+              "date": "8-26"
+            },
+            {
+              "id": 48,
+              "word": "scope",
+              "chinese": "范围",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 49,
+              "word": "stained",
+              "chinese": "玷污的",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 50,
+              "word": "worn",
+              "chinese": "穿坏的，用旧的",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 51,
+              "word": "moss",
+              "chinese": "苔藓",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 52,
+              "word": "seaweed",
+              "chinese": "海草",
+              "source": "剑雅19-test2",
+              "date": "8-26"
+            },
+            {
+              "id": 53,
+              "word": "melon",
+              "chinese": "甜瓜",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 54,
+              "word": "deaf",
+              "chinese": "聋的",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 55,
+              "word": "confidentiality",
+              "chinese": "机密性",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 56,
+              "word": "cereal",
+              "chinese": "谷物",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 57,
+              "word": "detach",
+              "chinese": "分离",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 58,
+              "word": "fertilizers",
+              "chinese": "化肥",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 59,
+              "word": "inhibit",
+              "chinese": "抑制",
+              "source": "剑雅19-test3",
+              "date": "8-26"
+            },
+            {
+              "id": 60,
+              "word": "earthworm",
+              "chinese": "蚯蚓",
+              "source": "剑雅19-test3",
+              "date": "8-26"
             }
           ]
         }
