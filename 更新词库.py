@@ -4,8 +4,9 @@
 1. 错词表   —— 来自 plan/雅思错词表.xlsx（会持续更新），所有单词在一起，每满 100 词一组
 2. 538考点词 —— 来自 词库538.json（固定词库，不再更新），保持原来的三组
 3. 听力听写 —— 来自 xlsx「听力错词表」，听音拼写专用
-4. d阅读错词 —— 来自本地 d词表.xlsx（不上传 GitHub），与错词表同样选中文
-5. d听力单词 —— 来自本地 d词表.xlsx（不上传 GitHub），与听力听写同样听音拼写
+4. d阅读错词 —— 来自 d词表.xlsx，独立板块，与错词表同样选中文
+5. d听力单词 —— 来自 d词表.xlsx，独立板块，与听力听写同样听音拼写
+xlsx 不上传 GitHub；生成的词库数据写入 data.js，网页端可以使用。
 
 词表 xlsx 更新后在本地运行本脚本再刷新网页：
     python 更新词库.py
@@ -243,7 +244,7 @@ for g in groups_538:
 mistake_entries = []
 listening_entries = []
 if xlsx_path is None:
-    print('找不到 雅思错词表.xlsx，跳过 data.js，沿用现有词库。')
+    print('找不到 雅思错词表.xlsx，错词表/听力听写沿用现有 data.js，d词表仍写入两个新板块。')
     existing = load_existing_data()
     if existing:
         banks_by_id = {b['id']: b for b in existing.get('banks', [])}
@@ -312,6 +313,19 @@ core_data = {
             'quiz': 'spell',
             'groups': listening_groups,
         },
+        {
+            'id': 'd-reading',
+            'name': 'd阅读错词',
+            'description': 'd词表阅读错词，看英文选中文',
+            'groups': d_reading_groups,
+        },
+        {
+            'id': 'd-listening',
+            'name': 'd听力单词',
+            'description': 'd词表听力单词，听音拼写',
+            'quiz': 'spell',
+            'groups': d_listening_groups,
+        },
     ],
 }
 local_data = {
@@ -320,31 +334,31 @@ local_data = {
         {
             'id': 'd-reading',
             'name': 'd阅读错词',
-            'description': '本地阅读错词，与错词表同样选中文',
+            'description': 'd词表阅读错词，看英文选中文',
             'groups': d_reading_groups,
         },
         {
             'id': 'd-listening',
             'name': 'd听力单词',
-            'description': '本地听力单词，听音拼写',
+            'description': 'd词表听力单词，听音拼写',
             'quiz': 'spell',
             'groups': d_listening_groups,
         },
     ],
 }
 
-if xlsx_path is not None:
-    total = len(mistake_entries) + total_538
-    header = (
-        '// 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json），请勿手改\n'
-        f'// 词表更新后重新运行脚本再 push 即可，最近生成：{updated}，共 {total} 词（听力听写 {len(listening_entries)} 词另库）\n'
-        'window.__VOCAB_DATA__'
-    )
-    write_js(out_path, header, core_data)
-    print(out_path)
+total = len(mistake_entries) + total_538 + len(d_reading) + len(d_listening)
+header = (
+    '// 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改\n'
+    f'// 词表更新后重新运行脚本再 push 即可，最近生成：{updated}，共 {total} 词'
+    f'（听力听写 {len(listening_entries)} 词，d阅读错词 {len(d_reading)} 词，d听力单词 {len(d_listening)} 词另库）\n'
+    'window.__VOCAB_DATA__'
+)
+write_js(out_path, header, core_data)
+print(out_path)
 
 local_header = (
-    '// 由 更新词库.py 从本地 d词表.xlsx 生成，已 gitignore，请勿提交、请勿手改\n'
+    '// 由 更新词库.py 从本地 d词表.xlsx 生成，xlsx 不上传；词库数据已写入 data.js\n'
     f'// 最近生成：{updated}，d阅读错词 {len(d_reading)} 词，d听力单词 {len(d_listening)} 词\n'
     'window.__LOCAL_VOCAB_DATA__'
 )
@@ -357,10 +371,10 @@ print(f'词库2 538考点词: {total_538} 词，{len(groups_538)} 组（固定�
 print(f'词库3 听力听写: {len(listening_entries)} 词，{len(listening_groups)} 组（听音拼写）')
 for g in listening_groups:
     print(f"  {g['name']}: {len(g['words'])} 词（{g['description']}）")
-print(f'词库4 d阅读错词: {len(d_reading)} 词，{len(d_reading_groups)} 组（本地，不上传）')
+print(f'词库4 d阅读错词: {len(d_reading)} 词，{len(d_reading_groups)} 组（独立板块，xlsx 不上传）')
 for g in d_reading_groups:
     print(f"  {g['name']}: {len(g['words'])} 词（{g['description']}）")
-print(f'词库5 d听力单词: {len(d_listening)} 词，{len(d_listening_groups)} 组（本地听音拼写，不上传）')
+print(f'词库5 d听力单词: {len(d_listening)} 词，{len(d_listening_groups)} 组（独立板块，xlsx 不上传）')
 for g in d_listening_groups:
     print(f"  {g['name']}: {len(g['words'])} 词（{g['description']}）")
 print(local_out_path)

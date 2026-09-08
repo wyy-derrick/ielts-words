@@ -486,19 +486,10 @@ body {
 </div>
 
 <script src="data.js"></script>
-<script src="local-data.js"></script>
 <script>
 (function() {
   const DATA = window.__VOCAB_DATA__;
   if (!DATA) { document.getElementById('card').innerHTML = '<p style="color:var(--red)">数据加载失败，请确保 data.js 文件存在。</p>'; return; }
-  // 本地 d词表（gitignore，GitHub 上没有也不影响）
-  if (window.__LOCAL_VOCAB_DATA__ && Array.isArray(window.__LOCAL_VOCAB_DATA__.banks)) {
-    window.__LOCAL_VOCAB_DATA__.banks.forEach(b => {
-      const i = DATA.banks.findIndex(x => x.id === b.id);
-      if (i >= 0) DATA.banks[i] = b;
-      else DATA.banks.push(b);
-    });
-  }
 
   // ===== State =====
   let mode = 'study';         // 'study' | 'test'

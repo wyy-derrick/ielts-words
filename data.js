@@ -1,7 +1,7 @@
-// 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-07，共 574 词（听力听写 77 词另库）
+// 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-08，共 587 词（听力听写 77 词，d阅读错词 4 词，d听力单词 9 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "banks": [
     {
       "id": "mistakes",
@@ -5926,6 +5926,126 @@ window.__VOCAB_DATA__ = {
               "chinese": "严厉的",
               "source": "剑雅19-test4",
               "date": "9-7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-reading",
+      "name": "d阅读错词",
+      "description": "d词表阅读错词，看英文选中文",
+      "groups": [
+        {
+          "id": 1,
+          "name": "第1组",
+          "description": "第 1-4 词",
+          "words": [
+            {
+              "id": 1,
+              "word": "royal",
+              "chinese": "国王的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 2,
+              "word": "informed",
+              "chinese": "了解情况的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 3,
+              "word": "formal",
+              "chinese": "正式的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 4,
+              "word": "hygiene",
+              "chinese": "卫生",
+              "source": "d阅读错词",
+              "date": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-listening",
+      "name": "d听力单词",
+      "description": "d词表听力单词，听音拼写",
+      "quiz": "spell",
+      "groups": [
+        {
+          "id": 1,
+          "name": "第1组",
+          "description": "第 1-9 词",
+          "words": [
+            {
+              "id": 1,
+              "word": "bowl",
+              "chinese": "碗",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 2,
+              "word": "library",
+              "chinese": "图书馆",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 3,
+              "word": "insurance",
+              "chinese": "保险",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 4,
+              "word": "temple",
+              "chinese": "寺庙",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 5,
+              "word": "template",
+              "chinese": "模板",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 6,
+              "word": "monument",
+              "chinese": "纪念碑",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 7,
+              "word": "toxic",
+              "chinese": "有毒的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 8,
+              "word": "powder",
+              "chinese": "粉末",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 9,
+              "word": "gum",
+              "chinese": "树胶",
+              "source": "d听力单词",
+              "date": ""
             }
           ]
         }
