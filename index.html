@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雅思背词 — 错词表 + 538考点词 + 听力听写</title>
+    <title>雅思背词 — 错词表 + 538考点词 + 听力听写 + d词表</title>
 <style>
 :root {
   --bg: #f5f0eb;
@@ -454,7 +454,7 @@ body {
 <div class="container">
   <div class="header">
     <h1>雅思背词</h1>
-        <div class="subtitle">错词表 · 538 考点词 · 听力听写</div>
+        <div class="subtitle">错词表 · 538 考点词 · 听力听写 · d阅读错词 · d听力单词</div>
   </div>
 
   <!-- Mode tabs -->
@@ -486,14 +486,23 @@ body {
 </div>
 
 <script src="data.js"></script>
+<script src="local-data.js"></script>
 <script>
 (function() {
   const DATA = window.__VOCAB_DATA__;
   if (!DATA) { document.getElementById('card').innerHTML = '<p style="color:var(--red)">数据加载失败，请确保 data.js 文件存在。</p>'; return; }
+  // 本地 d词表（gitignore，GitHub 上没有也不影响）
+  if (window.__LOCAL_VOCAB_DATA__ && Array.isArray(window.__LOCAL_VOCAB_DATA__.banks)) {
+    window.__LOCAL_VOCAB_DATA__.banks.forEach(b => {
+      const i = DATA.banks.findIndex(x => x.id === b.id);
+      if (i >= 0) DATA.banks[i] = b;
+      else DATA.banks.push(b);
+    });
+  }
 
   // ===== State =====
   let mode = 'study';         // 'study' | 'test'
-  let bankIdx = 0;            // 0=错词表, 1=538考点词
+  let bankIdx = 0;            // 当前词库下标，进度按 bank.id 独立记忆
   let groupIdx = 0;           // current group within the bank
   let studyIdx = 0;           // current word index in study mode
   let answered = false;       // whether current question has been answered
@@ -621,11 +630,11 @@ body {
     if (mode === 'study') {
       document.getElementById('progressLabel').textContent = '背诵进度';
       document.getElementById('progressCount').textContent = studyIdx + ' / ' + total;
-      document.getElementById('progressFill').style.width = (studyIdx / total * 100) + '%';
+      document.getElementById('progressFill').style.width = (total ? studyIdx / total * 100 : 0) + '%';
     } else {
       document.getElementById('progressLabel').textContent = '测试进度';
       document.getElementById('progressCount').textContent = testIdx + ' / ' + testQuestions.length;
-      document.getElementById('progressFill').style.width = (testIdx / testQuestions.length * 100) + '%';
+      document.getElementById('progressFill').style.width = (testQuestions.length ? testIdx / testQuestions.length * 100 : 0) + '%';
     }
   }
 
@@ -635,6 +644,19 @@ body {
       const words = currentWords();
       const card = document.getElementById('card');
       answered = false;
+
+      if (!words.length) {
+        const localHint = (currentBank().id === 'd-reading' || currentBank().id === 'd-listening')
+          ? '请在本目录 d词表.xlsx 填入单词后运行 python 更新词库.py，再刷新本页。'
+          : '本组暂无单词';
+        card.innerHTML = `
+          <div class="complete-banner">
+            <h2>${currentBank().name} 还没有单词</h2>
+            <p>${localHint}</p>
+          </div>`;
+        updateProgress();
+        return;
+      }
 
       if (studyIdx >= words.length) {
       // Group complete
@@ -1001,7 +1023,7 @@ body {
     DATA.banks.forEach(b => b.groups.forEach(g => g.words.forEach(w => allWords.push({ ...w, bankName: b.name }))));
     const results = allWords.filter(w => {
       return w.word.toLowerCase().includes(q) ||
-        w.chinese.includes(q) ||
+        (w.chinese || '').includes(q) ||
         (w.synonyms || []).some(s => s.toLowerCase().includes(q));
     });
     renderSearchResults(results.slice(0, 20));
@@ -1020,7 +1042,7 @@ body {
         <span class="sr-word">${w.word}</span>
         ${w.pos ? `<span class="sr-pos">${w.pos}</span>` : ''}
         ${w.synonyms ? `<div class="sr-synonyms">同义：${w.synonyms.join(' · ')}</div>` : ''}
-        <div class="sr-chinese">中文：${w.chinese}</div>
+        ${w.chinese ? `<div class="sr-chinese">中文：${w.chinese}</div>` : ''}
         ${w.example ? `<div class="sr-example">例句：${w.example}</div>` : ''}
         ${w.source ? `<div class="sr-example">来源：${w.source}${w.date ? ' · ' + w.date : ''}</div>` : ''}
       </div>
