@@ -1,7 +1,7 @@
 // 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-08，共 587 词（听力听写 77 词，d阅读错词 4 词，d听力单词 9 词另库）
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-09，共 634 词（听力听写 77 词，d阅读错词 26 词，d听力单词 34 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "banks": [
     {
       "id": "mistakes",
@@ -5939,7 +5939,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-4 词",
+          "description": "第 1-26 词",
           "words": [
             {
               "id": 1,
@@ -5968,6 +5968,160 @@ window.__VOCAB_DATA__ = {
               "chinese": "卫生",
               "source": "d阅读错词",
               "date": ""
+            },
+            {
+              "id": 5,
+              "word": "lens",
+              "chinese": "镜头，晶体",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 6,
+              "word": "expertise",
+              "chinese": "专业知识",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 7,
+              "word": "dedication",
+              "chinese": "献身",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 8,
+              "word": "predator",
+              "chinese": "捕食者",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 9,
+              "word": "dehydration",
+              "chinese": "脱水",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 10,
+              "word": "hopelessly",
+              "chinese": "绝望地",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 11,
+              "word": "futile",
+              "chinese": "无用的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 12,
+              "word": "grave",
+              "chinese": "死亡",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 13,
+              "word": "wax",
+              "chinese": "蜡",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 14,
+              "word": "groove",
+              "chinese": "凹槽，习惯",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 15,
+              "word": "firewood",
+              "chinese": "木柴",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 16,
+              "word": "patrol",
+              "chinese": "巡逻",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 17,
+              "word": "maraud",
+              "chinese": "抢",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 18,
+              "word": "dialect",
+              "chinese": "方言",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 19,
+              "word": "variation",
+              "chinese": "变化",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 20,
+              "word": "calf",
+              "chinese": "幼崽",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 21,
+              "word": "maternal",
+              "chinese": "母系的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 22,
+              "word": "exclusively",
+              "chinese": "仅仅",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 23,
+              "word": "fertility",
+              "chinese": "富饶，生育能力",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 24,
+              "word": "span",
+              "chinese": "跨度",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 25,
+              "word": "mingle",
+              "chinese": "社交",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 26,
+              "word": "favourable",
+              "chinese": "有利的",
+              "source": "d阅读错词",
+              "date": ""
             }
           ]
         }
@@ -5982,7 +6136,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-9 词",
+          "description": "第 1-34 词",
           "words": [
             {
               "id": 1,
@@ -6044,6 +6198,181 @@ window.__VOCAB_DATA__ = {
               "id": 9,
               "word": "gum",
               "chinese": "树胶",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 10,
+              "word": "diploma",
+              "chinese": "学位证书",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 11,
+              "word": "Qualification",
+              "chinese": "学位",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 12,
+              "word": "frame",
+              "chinese": "框架",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 13,
+              "word": "friends",
+              "chinese": "朋友",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 14,
+              "word": "interaction",
+              "chinese": "交流",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 15,
+              "word": "obligation",
+              "chinese": "义务",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 16,
+              "word": "cooperation",
+              "chinese": "合作",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 17,
+              "word": "glue",
+              "chinese": "胶水",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 18,
+              "word": "lifeguard",
+              "chinese": "救生员",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 19,
+              "word": "luxury",
+              "chinese": "奢华",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 20,
+              "word": "ingredient",
+              "chinese": "原料",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 21,
+              "word": "mold",
+              "chinese": "模具",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 22,
+              "word": "machinery",
+              "chinese": "机械",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 23,
+              "word": "dried",
+              "chinese": "干燥的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 24,
+              "word": "trader",
+              "chinese": "商人",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 25,
+              "word": "retailer",
+              "chinese": "零售商",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 26,
+              "word": "ball",
+              "chinese": "球",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 27,
+              "word": "elastic",
+              "chinese": "弹性的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 28,
+              "word": "tyre",
+              "chinese": "轮胎",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 29,
+              "word": "vertical",
+              "chinese": "垂直的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 30,
+              "word": "cabin",
+              "chinese": "小木屋",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 31,
+              "word": "grain",
+              "chinese": "谷物",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 32,
+              "word": "tent",
+              "chinese": "帐篷",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 33,
+              "word": "intermediate",
+              "chinese": "居中的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 34,
+              "word": "turn up",
+              "chinese": "到达",
               "source": "d听力单词",
               "date": ""
             }

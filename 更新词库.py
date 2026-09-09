@@ -1,14 +1,17 @@
 #!/home/wyy/anaconda3/bin/python
-"""生成背词工具的 data.js / local-data.js：
+"""生成背词工具的 data.js：
 
-1. 错词表   —— 来自 plan/雅思错词表.xlsx（会持续更新），所有单词在一起，每满 100 词一组
+1. 错词表   —— 环境 A：plan/雅思错词表.xlsx（会持续更新），所有单词在一起，每满 100 词一组
 2. 538考点词 —— 来自 词库538.json（固定词库，不再更新），保持原来的三组
-3. 听力听写 —— 来自 xlsx「听力错词表」，听音拼写专用
-4. d阅读错词 —— 来自 d词表.xlsx，独立板块，与错词表同样选中文
-5. d听力单词 —— 来自 d词表.xlsx，独立板块，与听力听写同样听音拼写
-xlsx 不上传 GitHub；生成的词库数据写入 data.js，网页端可以使用。
+3. 听力听写 —— 环境 A：xlsx「听力错词表」，听音拼写专用
+4. d阅读错词 —— 环境 B：d词表.xlsx 阅读列，独立板块，与错词表同样选中文
+5. d听力单词 —— 环境 B：d词表.xlsx 听力列，独立板块，与听力听写同样听音拼写
 
-词表 xlsx 更新后在本地运行本脚本再刷新网页：
+两套环境各自保留自己的 Excel，都不上传 GitHub。
+本环境缺少某份 Excel 时，对应板块沿用 data.js 里已有内容，不会覆盖另一环境的词库。
+生成的词库数据写入 data.js，网页端可以使用。
+
+词表 xlsx 更新后先 git pull，再运行：
     python 更新词库.py
 依赖 openpyxl。
 """
@@ -230,6 +233,18 @@ def write_js(path, header, payload):
     )
 
 
+def flatten_bank(banks_by_id, bank_id):
+    groups = (banks_by_id.get(bank_id) or {}).get('groups') or []
+    return [w for g in groups for w in g.get('words', [])]
+
+
+def keep_bank_groups(banks_by_id, bank_id, empty_desc):
+    groups = (banks_by_id.get(bank_id) or {}).get('groups')
+    if groups:
+        return groups
+    return build_groups([], empty_desc)
+
+
 # ---- 词库2：538考点词（固定 JSON，不更新） ----
 groups_538 = json.loads(bank_538_path.read_text(encoding='utf-8'))
 total_538 = sum(len(g['words']) for g in groups_538)
@@ -240,27 +255,23 @@ for g in groups_538:
         if w.get('word') and w.get('chinese'):
             zh_catalog[w['word'].lower()] = w['chinese']
 
-# ---- 词库1 / 3：错词表 + 听力听写 ----
+existing = load_existing_data() or {}
+banks_by_id = {b['id']: b for b in existing.get('banks', [])}
+for b in existing.get('banks', []):
+    for g in b.get('groups', []):
+        for w in g.get('words', []):
+            if w.get('word') and w.get('chinese'):
+                zh_catalog[w['word'].lower()] = w['chinese']
+
+# ---- 词库1 / 3：错词表 + 听力听写（环境 A：plan/雅思错词表.xlsx）----
 mistake_entries = []
 listening_entries = []
 if xlsx_path is None:
-    print('找不到 雅思错词表.xlsx，错词表/听力听写沿用现有 data.js，d词表仍写入两个新板块。')
-    existing = load_existing_data()
-    if existing:
-        banks_by_id = {b['id']: b for b in existing.get('banks', [])}
-        for b in existing.get('banks', []):
-            for g in b.get('groups', []):
-                for w in g.get('words', []):
-                    if w.get('word') and w.get('chinese'):
-                        zh_catalog[w['word'].lower()] = w['chinese']
-    else:
-        banks_by_id = {}
-    mistake_groups = banks_by_id.get('mistakes', {}).get('groups') or build_groups([], '暂无错词')
-    listening_groups = banks_by_id.get('listening', {}).get('groups') or build_groups([], '暂无听力词')
-    if banks_by_id.get('mistakes'):
-        mistake_entries = [w for g in mistake_groups for w in g.get('words', [])]
-    if banks_by_id.get('listening'):
-        listening_entries = [w for g in listening_groups for w in g.get('words', [])]
+    print('本环境没有 雅思错词表.xlsx，错词表/听力听写沿用 data.js（另一环境的来源）。')
+    mistake_groups = keep_bank_groups(banks_by_id, 'mistakes', '暂无错词')
+    listening_groups = keep_bank_groups(banks_by_id, 'listening', '暂无听力词')
+    mistake_entries = flatten_bank(banks_by_id, 'mistakes')
+    listening_entries = flatten_bank(banks_by_id, 'listening')
 else:
     wb = load_workbook(xlsx_path, read_only=True, data_only=True)
     seen_all = set()
@@ -282,13 +293,21 @@ else:
     mistake_groups = build_groups(mistake_entries)
     listening_groups = build_groups(listening_entries, '暂无听力词')
 
-# ---- 本地 d词表.xlsx（不上传 GitHub）----
+# ---- 词库4 / 5：d词表（环境 B：本目录 d词表.xlsx，不上传 GitHub）----
 created = ensure_local_xlsx(local_xlsx_path)
 if created:
     print(f'已新建本地词表：{local_xlsx_path}')
 d_reading, d_listening, skipped_reading = read_local_lists(local_xlsx_path, zh_catalog)
-d_reading_groups = build_groups(d_reading, '暂无阅读错词')
-d_listening_groups = build_groups(d_listening, '暂无听力词')
+if d_reading or d_listening:
+    d_reading_groups = build_groups(d_reading, '暂无阅读错词')
+    d_listening_groups = build_groups(d_listening, '暂无听力词')
+else:
+    print('本环境没有 d词表单词，d阅读/d听力沿用 data.js（另一环境的来源）。')
+    d_reading_groups = keep_bank_groups(banks_by_id, 'd-reading', '暂无阅读错词')
+    d_listening_groups = keep_bank_groups(banks_by_id, 'd-listening', '暂无听力词')
+    d_reading = flatten_bank(banks_by_id, 'd-reading')
+    d_listening = flatten_bank(banks_by_id, 'd-listening')
+    skipped_reading = []
 
 updated = date.today().isoformat()
 core_data = {
