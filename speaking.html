@@ -11,6 +11,7 @@
   --text: #2c2416;
   --sub: #8b7355;
   --accent: #c75b39;
+  --accent-hover: #a0482e;
   --border: #e0d5c7;
   --shadow: 0 2px 12px rgba(0,0,0,0.06);
   --radius: 12px;
@@ -26,37 +27,319 @@ body {
   padding: 20px;
 }
 .container { width: 100%; max-width: 640px; }
-.header { text-align: center; margin: 72px 0 24px; }
+.header { text-align: center; margin: 36px 0 20px; }
 .header h1 { font-size: 1.7rem; letter-spacing: 0.02em; }
-.header .subtitle { color: var(--sub); font-size: 0.88rem; margin-top: 7px; }
-.page-nav { margin-bottom: 16px; }
+.header .subtitle { color: var(--sub); font-size: 0.88rem; margin-top: 7px; line-height: 1.6; }
+.page-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
 .home-link { color: var(--sub); font-size: 0.85rem; text-decoration: none; }
 .home-link:hover { color: var(--accent); }
-.card {
+.card-list { display: grid; gap: 14px; }
+.module-card {
+  display: block;
+  width: 100%;
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.module-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+.module-card h2 { font-size: 1.05rem; margin-bottom: 6px; }
+.module-card p { color: var(--sub); font-size: 0.86rem; line-height: 1.6; }
+.module-arrow { float: right; color: var(--accent); font-size: 1.15rem; margin-top: 2px; }
+.detail {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 52px 28px;
   box-shadow: var(--shadow);
-  text-align: center;
+  padding: 22px 22px 28px;
 }
-.card h2 { font-size: 1.25rem; margin-bottom: 12px; }
-.card p { color: var(--sub); font-size: 0.9rem; line-height: 1.7; }
-.card .mark { color: var(--accent); font-size: 2rem; margin-bottom: 16px; }
-@media (max-width: 480px) { .header { margin-top: 44px; } .card { padding: 44px 20px; } }
+.detail-intro {
+  color: var(--sub);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.block {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #fafaf8;
+}
+.block h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.block .en-name { color: var(--accent); font-size: 0.78rem; margin-bottom: 12px; }
+.block h4 {
+  font-size: 0.78rem;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+  margin: 12px 0 6px;
+}
+.speech {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+.zh {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--sub);
+}
+.phrases { display: grid; gap: 8px; margin-top: 4px; }
+.phrase {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.84rem;
+}
+.phrase .en { color: var(--accent); font-weight: 600; }
+.phrase .zh { color: var(--sub); text-align: right; }
+.note { font-size: 0.82rem; color: #6b9080; margin-top: 8px; }
+.article-block { margin-bottom: 18px; }
+.article-block:last-child { margin-bottom: 0; }
+.article-block h3 { font-size: 1rem; margin-bottom: 8px; }
+.article-block p, .article-block li {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+.article-block ul { padding-left: 1.1em; }
+.qa { border-top: 1px dashed var(--border); padding-top: 14px; margin-top: 14px; }
+.qa:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.qa .q { font-weight: 700; margin-bottom: 8px; }
+.placeholder {
+  color: var(--sub);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-align: center;
+  padding: 28px 8px;
+}
+.empty { color: var(--sub); text-align: center; padding: 40px 12px; }
+@media (max-width: 480px) {
+  .header { margin-top: 20px; }
+  .module-card, .detail { padding: 18px 16px; }
+  .phrase { flex-direction: column; gap: 4px; }
+  .phrase .zh { text-align: left; }
+}
 </style>
 </head>
 <body>
 <div class="container">
   <header class="header">
-    <h1>口语模块</h1>
-    <p class="subtitle">IELTS Speaking</p>
+    <h1 id="pageTitle">口语模块</h1>
+    <p class="subtitle" id="pageSubtitle">语言习惯、P1 / P2 / P3 资料与考场演练</p>
   </header>
-  <div class="page-nav"><a class="home-link" href="index.html">← 返回模块选择</a></div>
-  <main class="card">
-    <div class="mark">✦</div>
-    <h2>口语内容建设中</h2>
-    <p>这里将整理 Derrick 的雅思口语题库、回答思路和练习记录。<br>模块准备好后，会在这里继续更新。</p>
-  </main>
+  <nav class="page-nav" id="pageNav"></nav>
+  <main id="app"></main>
 </div>
+<script src="speaking-data.js"></script>
+<script>
+(function () {
+  const DATA = window.__SPEAKING_DATA__;
+  const app = document.getElementById('app');
+  const titleEl = document.getElementById('pageTitle');
+  const subtitleEl = document.getElementById('pageSubtitle');
+  const navEl = document.getElementById('pageNav');
+
+  if (!DATA || !DATA.sections) {
+    app.innerHTML = '<p class="empty">数据加载失败，请确保 speaking-data.js 存在。</p>';
+    return;
+  }
+
+  // 转义文本后再写入 HTML
+  function esc(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // 从 hash 读出当前部分和卡片
+  function parseHash() {
+    const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+    return { sectionId: parts[0] || '', cardId: parts[1] || '' };
+  }
+
+  // 按 id 取部分
+  function findSection(id) {
+    return DATA.sections.find(section => section.id === id);
+  }
+
+  // 按 id 取卡片
+  function findCard(section, id) {
+    return (section.cards || []).find(card => card.id === id);
+  }
+
+  // 画顶部返回链接
+  function renderNav(section, card) {
+    const links = ['<a class="home-link" href="index.html">← 返回模块选择</a>'];
+    if (card) {
+      links.push('<a class="home-link" href="#/' + encodeURIComponent(section.id) + '">← 返回' + esc(section.name) + '</a>');
+    } else if (section) {
+      links.push('<a class="home-link" href="#">← 返回口语首页</a>');
+    }
+    navEl.innerHTML = links.join('');
+  }
+
+  // 画一张可点击的入口卡
+  function renderEntryCard(href, title, summary) {
+    return '<a class="module-card" href="' + href + '">' +
+      '<span class="module-arrow">→</span>' +
+      '<h2>' + esc(title) + '</h2>' +
+      (summary ? '<p>' + esc(summary) + '</p>' : '') +
+      '</a>';
+  }
+
+  // 画五个部分的入口
+  function renderHome() {
+    titleEl.textContent = '口语模块';
+    subtitleEl.textContent = '先选一个部分，再点进对应卡片';
+    renderNav(null, null);
+    app.innerHTML = '<div class="card-list">' + DATA.sections.map(section => {
+      const count = (section.cards || []).length;
+      const summary = (section.summary || '') + (count ? ' · ' + count + ' 张卡片' : '');
+      return renderEntryCard('#/' + encodeURIComponent(section.id), section.name, summary);
+    }).join('') + '</div>';
+  }
+
+  // 画一个部分里的卡片列表
+  function renderSection(section) {
+    titleEl.textContent = section.name;
+    subtitleEl.textContent = section.summary || '点进卡片查看内容';
+    renderNav(section, null);
+    const cards = section.cards || [];
+    if (!cards.length) {
+      app.innerHTML = '<p class="empty">这个部分还没有卡片。</p>';
+      return;
+    }
+    app.innerHTML = '<div class="card-list">' + cards.map(card => {
+      const summary = cardSummary(card);
+      return renderEntryCard('#/' + encodeURIComponent(section.id) + '/' + encodeURIComponent(card.id), card.title, summary);
+    }).join('') + '</div>';
+  }
+
+  // 给入口卡写一句摘要
+  function cardSummary(card) {
+    if (card.type === 'persona') return '5 个模块 + 2 个万能补丁';
+    if (card.type === 'topic') return ((card.questions || []).length || 0) + ' 道真题';
+    if (card.type === 'article') return ((card.blocks || []).length || 0) + ' 个要点';
+    if (card.summary) return card.summary;
+    if (card.type === 'placeholder') return '内容待整理';
+    return '';
+  }
+
+  // 画卡片正文
+  function renderCard(section, card) {
+    titleEl.textContent = card.title;
+    subtitleEl.textContent = section.name;
+    renderNav(section, card);
+    if (card.type === 'persona') app.innerHTML = renderPersona(card);
+    else if (card.type === 'article') app.innerHTML = renderArticle(card);
+    else if (card.type === 'topic') app.innerHTML = renderTopic(card);
+    else app.innerHTML = '<div class="detail"><p class="placeholder">' + esc(card.text || '内容待整理。') + '</p></div>';
+  }
+
+  // 画人设语料：五个模块和两个补丁
+  function renderPersona(card) {
+    const modules = (card.modules || []).map(module => {
+      const phrases = (module.phrases || []).map(item =>
+        '<div class="phrase"><span class="en">' + esc(item.en) + '</span><span class="zh">' + esc(item.zh) + '</span></div>'
+      ).join('');
+      return '<article class="block">' +
+        '<h3>模块' + esc(module.index) + '：' + esc(module.name) + '</h3>' +
+        '<div class="en-name">' + esc(module.enName) + '</div>' +
+        '<h4>必背语料</h4><p class="speech">“' + esc(module.speech) + '”</p>' +
+        '<h4>中文翻译</h4><p class="zh">' + esc(module.zh) + '</p>' +
+        '<h4>提分词伙</h4><div class="phrases">' + phrases + '</div>' +
+        '</article>';
+    }).join('');
+    const patches = (card.patches || []).map(patch =>
+      '<article class="block">' +
+        '<h3>' + esc(patch.name) + '</h3>' +
+        '<div class="en-name">' + esc(patch.scene) + '</div>' +
+        '<h4>话术</h4><p class="speech">“' + esc(patch.speech) + '”</p>' +
+        '<h4>中文翻译</h4><p class="zh">' + esc(patch.zh) + '</p>' +
+        (patch.note ? '<p class="note">' + esc(patch.note) + '</p>' : '') +
+        '</article>'
+    ).join('');
+    return '<div class="detail">' +
+      (card.intro ? '<p class="detail-intro">' + esc(card.intro) + '</p>' : '') +
+      modules +
+      '<p class="detail-intro" style="margin:18px 0 12px">2 个万能逻辑补丁，用来处理特殊情况。</p>' +
+      patches +
+      '</div>';
+  }
+
+  // 画说明类卡片
+  function renderArticle(card) {
+    const blocks = (card.blocks || []).map(block => {
+      const paragraphs = (block.paragraphs || []).map(text => '<p>' + esc(text) + '</p>').join('');
+      const list = block.list && block.list.length
+        ? '<ul>' + block.list.map(item => '<li>' + esc(item) + '</li>').join('') + '</ul>'
+        : '';
+      return '<section class="article-block">' +
+        (block.heading ? '<h3>' + esc(block.heading) + '</h3>' : '') +
+        paragraphs + list +
+        '</section>';
+    }).join('');
+    return '<div class="detail">' + blocks + '</div>';
+  }
+
+  // 画一类 P1 题目：真题和对应答案
+  function renderTopic(card) {
+    const questions = card.questions || [];
+    if (!questions.length) {
+      return '<div class="detail"><p class="placeholder">这类题目的真题和人设答案还没整理。</p></div>';
+    }
+    const items = questions.map(item =>
+      '<article class="qa">' +
+        '<p class="q">' + esc(item.q) + '</p>' +
+        (item.a ? '<p class="speech">' + esc(item.a) + '</p>' : '') +
+        (item.zh ? '<p class="zh">' + esc(item.zh) + '</p>' : '') +
+        (item.note ? '<p class="note">' + esc(item.note) + '</p>' : '') +
+        '</article>'
+    ).join('');
+    return '<div class="detail">' +
+      (card.intro ? '<p class="detail-intro">' + esc(card.intro) + '</p>' : '') +
+      items +
+      '</div>';
+  }
+
+  // 按 hash 决定显示首页、部分或卡片
+  function render() {
+    const { sectionId, cardId } = parseHash();
+    const section = findSection(sectionId);
+    if (!section) {
+      renderHome();
+      return;
+    }
+    const card = cardId ? findCard(section, cardId) : null;
+    if (cardId && !card) {
+      renderSection(section);
+      return;
+    }
+    if (card) renderCard(section, card);
+    else renderSection(section);
+  }
+
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
 </body>
 </html>

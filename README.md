@@ -95,11 +95,13 @@ git push
 ├── index.html       # 网站总入口：选择单词 / 作文 / 口语
 ├── words.html       # 单词模块（界面 + 学习逻辑）
 ├── writing.html     # 作文模块占位页
-├── speaking.html    # 口语模块占位页
+├── speaking.html    # 口语模块
+├── speaking-data.js # 口语卡片数据
 ├── data.js          # 单词数据（更新词库.py 自动生成，勿手改）
 ├── 词库538.json     # 538 考点词源数据（固定，不更新）
 ├── 更新词库.py      # 两套本地 Excel + 词库538.json → data.js
 ├── d词表.xlsx       # 环境 B 源表（gitignore，不上传）
+├── 口语陪练对话.txt  # 口语陪练原文（gitignore，不上传；个人语言习惯由此整理）
 ├── .gitignore
 └── README.md
 ```
