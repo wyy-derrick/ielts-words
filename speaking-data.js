@@ -474,26 +474,30 @@ window.__SPEAKING_DATA__ = {
         {
           "id": "drill-p1",
           "title": "P1 抽题",
-          "type": "placeholder",
-          "text": "之后会从 P1 题目卡里抽题，按人设限时作答。"
+          "type": "drill",
+          "drill": "p1",
+          "summary": "大陆 31 个话题随机抽，小问逐题过，支持优先新题"
         },
         {
           "id": "drill-p2",
           "title": "P2 计时",
-          "type": "placeholder",
-          "text": "之后会提供 1 分钟准备 + 2 分钟计时。"
+          "type": "drill",
+          "drill": "p2",
+          "summary": "1 分钟准备 + 2 分钟作答，还原考场节奏"
         },
         {
           "id": "drill-p3",
           "title": "P3 追问",
-          "type": "placeholder",
-          "text": "之后会顺着 P2 做一轮抽象追问。"
+          "type": "drill",
+          "drill": "p3",
+          "summary": "顺着题卡练抽象追问，逐题过"
         },
         {
           "id": "drill-full",
           "title": "全套模拟",
-          "type": "placeholder",
-          "text": "之后会按 P1 → P2 → P3 走完整流程。"
+          "type": "drill",
+          "drill": "full",
+          "summary": "P1 → P2 → P3 完整流程，共 11–14 分钟"
         }
       ]
     }

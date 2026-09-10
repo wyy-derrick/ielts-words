@@ -138,6 +138,91 @@ body {
   padding: 28px 8px;
 }
 .empty { color: var(--sub); text-align: center; padding: 40px 12px; }
+/* ===== 考场演练 ===== */
+.drill-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.drill-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--sub);
+  cursor: pointer;
+}
+.drill-stat { font-size: 0.78rem; color: var(--sub); }
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-hover); }
+.btn.secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.btn.secondary:hover { background: #fdf3ef; }
+.drill-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  vertical-align: 2px;
+  margin-left: 8px;
+}
+.badge.new { background: var(--accent); color: #fff; }
+.badge.retained { background: var(--border); color: #6b5d4a; }
+.badge.classic { background: #6b9080; color: #fff; }
+.cue-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.cue-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.cue-card .speech { margin-bottom: 10px; }
+.cue-card ul { padding-left: 0; list-style: none; }
+.countdown {
+  font-size: 3.4rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0 4px;
+}
+.countdown.warn { color: #c0392b; }
+.timer-caption { text-align: center; color: var(--sub); font-size: 0.8rem; margin-bottom: 6px; }
+.qidx { font-size: 0.8rem; color: var(--sub); margin-bottom: 10px; }
+.qitem {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.qitem.current { border-color: var(--accent); background: #fdf3ef; }
+.stage { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.stage span {
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--sub);
+}
+.stage span.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.drill-total { margin-left: auto; font-size: 0.78rem; color: var(--sub); font-variant-numeric: tabular-nums; }
 @media (max-width: 480px) {
   .header { margin-top: 20px; }
   .module-card, .detail { padding: 18px 16px; }
@@ -155,6 +240,7 @@ body {
   <nav class="page-nav" id="pageNav"></nav>
   <main id="app"></main>
 </div>
+<script src="speaking-questions.js"></script>
 <script src="speaking-data.js"></script>
 <script>
 (function () {
@@ -288,6 +374,7 @@ body {
     else if (card.type === 'article') app.innerHTML = renderArticle(card);
     else if (card.type === 'topic') app.innerHTML = renderTopic(card);
     else if (card.type === 'script') app.innerHTML = renderScript(card);
+    else if (card.type === 'drill') return renderDrillPage(section, card);
     else app.innerHTML = '<div class="detail"><p class="placeholder">' + esc(card.text || '内容待整理。') + '</p></div>';
   }
 
@@ -397,8 +484,415 @@ body {
       '</div>';
   }
 
+  // ===== 考场演练 =====
+  const QB = window.__SPEAKING_QUESTIONS__;
+  const DRILL_KEY = 'ielts-speaking-drill-v1';
+  let drillTimers = [];
+
+  function clearDrillTimers() {
+    drillTimers.forEach(clearInterval);
+    drillTimers = [];
+  }
+
+  function drillState() {
+    try { return JSON.parse(localStorage.getItem(DRILL_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveDrillState(state) {
+    localStorage.setItem(DRILL_KEY, JSON.stringify(state));
+  }
+  function drillPracticed(kind) { return drillState()[kind] || {}; }
+  function preferNew() { return drillState().preferNew !== false; }
+  function setPreferNew(on) {
+    const state = drillState();
+    state.preferNew = on;
+    saveDrillState(state);
+  }
+  function markPracticed(kind, id) {
+    const state = drillState();
+    if (!state[kind]) state[kind] = {};
+    state[kind][id] = Date.now();
+    saveDrillState(state);
+  }
+
+  // 抽题：没练过的优先；勾了「优先抽新题」时再把新题排到旧题前面
+  function drawOne(pool, kind) {
+    const done = drillPracticed(kind);
+    const freshNotDone = [], oldNotDone = [], freshDone = [], oldDone = [];
+    pool.forEach(item => {
+      const isNew = item.status === 'new';
+      if (isNew && !done[item.id]) freshNotDone.push(item);
+      else if (!isNew && !done[item.id]) oldNotDone.push(item);
+      else if (isNew) freshDone.push(item);
+      else oldDone.push(item);
+    });
+    const order = preferNew()
+      ? [freshNotDone, oldNotDone, freshDone, oldDone]
+      : [freshNotDone.concat(oldNotDone), freshDone.concat(oldDone)];
+    const candidates = order.find(list => list.length) || [];
+    return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+
+  function fmtTime(totalSec) {
+    const sec = Math.max(totalSec, 0);
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function drillBeep(times) {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      for (let i = 0; i < times; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        const t0 = ctx.currentTime + i * 0.22;
+        gain.gain.setValueAtTime(0.0001, t0);
+        gain.gain.exponentialRampToValueAtTime(0.25, t0 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.18);
+        osc.start(t0);
+        osc.stop(t0 + 0.2);
+      }
+    } catch (e) { /* 没有音频环境就安静结束 */ }
+  }
+
+  function startCountdown(seconds, el, onEnd) {
+    const endAt = Date.now() + seconds * 1000;
+    const timer = setInterval(() => {
+      const left = Math.round((endAt - Date.now()) / 1000);
+      el.textContent = fmtTime(left);
+      if (left <= 10) el.classList.add('warn');
+      if (left <= 0) {
+        clearInterval(timer);
+        drillBeep(3);
+        if (onEnd) onEnd();
+      }
+    }, 250);
+    drillTimers.push(timer);
+  }
+
+  function elapsedTick(el) {
+    const t0 = Date.now();
+    const timer = setInterval(() => {
+      el.textContent = '已用 ' + fmtTime(Math.round((Date.now() - t0) / 1000));
+    }, 500);
+    drillTimers.push(timer);
+  }
+
+  function statusBadge(status) {
+    const label = { new: '新题', retained: '保留题', classic: '万年老题' }[status] || '保留题';
+    return ' <span class="badge ' + esc(status) + '">' + label + '</span>';
+  }
+
+  function scriptHintLine(card) {
+    if (!card.script) return '';
+    const names = {
+      '剧本一': '剧本一（港深黑客松）',
+      '剧本二': '剧本二（朋友送的篮球）',
+      '剧本三': '剧本三（机器人队长）'
+    };
+    return '<p class="note">建议套' + esc(names[card.script] || card.script) + '，剧情见「P2资料 · 剧本卡片」。</p>';
+  }
+
+  function drillToolbarHTML() {
+    return '<div class="drill-toolbar">' +
+      '<label class="drill-check"><input type="checkbox" id="preferNewChk"' + (preferNew() ? ' checked' : '') + '>优先抽新题</label>' +
+      '<span class="drill-stat" id="drillStat"></span>' +
+      '</div>';
+  }
+
+  function poolStat(pool, kind) {
+    const done = drillPracticed(kind);
+    const fresh = pool.filter(item => item.status === 'new').length;
+    const doneCount = pool.filter(item => done[item.id]).length;
+    return '题库 ' + esc(QB.version) + ' · 本池 ' + pool.length + ' 题 · 新题 ' + fresh + ' · 已过 ' + doneCount;
+  }
+
+  function cueCardHTML(card, withBadge) {
+    return '<div class="cue-card"><h3>' + esc(card.title) + (withBadge ? statusBadge(card.status) : '') + '</h3>' +
+      '<p class="speech">' + esc(card.cue) + '</p>' +
+      '<ul>' + card.points.map(point => '<li class="qitem" style="cursor:default">' + esc(point) + '</li>').join('') + '</ul>' +
+      scriptHintLine(card) +
+      '</div>';
+  }
+
+  function p3ListHTML(questions) {
+    if (!questions.length) return '<p class="note">这张题卡在题库里没有 P3 追问。</p>';
+    return '<div class="cue-card"><h3>P3 追问</h3>' +
+      '<p class="qidx" id="p3Idx"></p>' +
+      '<ul>' + questions.map(q => '<li class="qitem">' + esc(q) + '</li>').join('') + '</ul>' +
+      '</div>';
+  }
+
+  // P3 逐题过：点题切到那题，「下一问」往后走
+  function bindP3Walk(container, questions) {
+    if (!questions.length) return null;
+    const items = container.querySelectorAll('.cue-card .qitem');
+    const idxEl = container.querySelector('#p3Idx');
+    let cur = 0;
+    function setCur(i) {
+      cur = i;
+      items.forEach(x => x.classList.remove('current'));
+      items[i].classList.add('current');
+      idxEl.textContent = '第 ' + (i + 1) + ' / ' + questions.length + ' 题 · 点题可跳，答完点「下一问」';
+    }
+    items.forEach((li, i) => li.addEventListener('click', () => setCur(i)));
+    const nextBtn = container.querySelector('#p3Next');
+    if (nextBtn) nextBtn.addEventListener('click', () => { if (cur < questions.length - 1) setCur(cur + 1); });
+    setCur(0);
+    return { setCur };
+  }
+
+  // ---- P1 抽题 ----
+  function renderDrillP1(root) {
+    const pool = QB.p1;
+    root.innerHTML =
+      '<p class="detail-intro">抽一个话题，把小问逐题说一遍：点小问切当前题，每题按人设答 2–4 句，不要第一轮说满。</p>' +
+      drillToolbarHTML() +
+      '<div id="drillBody"></div>';
+    const stat = root.querySelector('#drillStat');
+    const body = root.querySelector('#drillBody');
+    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
+    function updateStat() { stat.textContent = poolStat(pool, 'p1'); }
+    function draw() {
+      clearDrillTimers();
+      const topic = drawOne(pool, 'p1');
+      markPracticed('p1', topic.id);
+      updateStat();
+      body.innerHTML =
+        '<div class="cue-card"><h3>' + esc(topic.title) + statusBadge(topic.status) + '</h3>' +
+        '<ul>' + topic.questions.map(q => '<li class="qitem">' + esc(q) + '</li>').join('') + '</ul></div>' +
+        '<p class="qidx" id="qIdx">点上面任意小问开始</p>' +
+        '<div class="drill-actions"><button class="btn" id="redrawBtn">换一个话题</button></div>';
+      const items = body.querySelectorAll('.qitem');
+      const idxEl = body.querySelector('#qIdx');
+      items.forEach((li, i) => li.addEventListener('click', () => {
+        items.forEach(x => x.classList.remove('current'));
+        li.classList.add('current');
+        idxEl.textContent = '第 ' + (i + 1) + ' / ' + topic.questions.length + ' 题';
+      }));
+      body.querySelector('#redrawBtn').addEventListener('click', draw);
+    }
+    updateStat();
+    draw();
+  }
+
+  // ---- P2 计时 ----
+  function renderDrillP2(root) {
+    const pool = QB.p2;
+    root.innerHTML =
+      '<p class="detail-intro">完整还原考场：看题卡 → 准备 1 分钟（可跳过）→ 作答 2 分钟，结束时提示音。练完可接着过 P3。</p>' +
+      drillToolbarHTML() +
+      '<div id="drillBody"></div>';
+    const stat = root.querySelector('#drillStat');
+    const body = root.querySelector('#drillBody');
+    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
+    function updateStat() { stat.textContent = poolStat(pool, 'p2'); }
+    function draw() {
+      clearDrillTimers();
+      const card = drawOne(pool, 'p2');
+      markPracticed('p2', card.id);
+      updateStat();
+      phaseCard(card);
+    }
+    function phaseCard(card) {
+      clearDrillTimers();
+      body.innerHTML = cueCardHTML(card, true) +
+        '<div class="drill-actions">' +
+        '<button class="btn" id="prepBtn">开始准备 1:00</button>' +
+        '<button class="btn secondary" id="skipBtn">换一题</button></div>';
+      body.querySelector('#prepBtn').addEventListener('click', () => phasePrep(card));
+      body.querySelector('#skipBtn').addEventListener('click', draw);
+    }
+    function phasePrep(card) {
+      clearDrillTimers();
+      body.innerHTML = '<p class="timer-caption">准备时间（记几个要点就行，不要写全文）</p>' +
+        '<div class="countdown" id="cd">1:00</div>' +
+        cueCardHTML(card, true) +
+        '<div class="drill-actions"><button class="btn secondary" id="skipPrep">跳过准备，直接作答</button></div>';
+      startCountdown(60, body.querySelector('#cd'), () => phaseSpeak(card));
+      body.querySelector('#skipPrep').addEventListener('click', () => phaseSpeak(card));
+    }
+    function phaseSpeak(card) {
+      clearDrillTimers();
+      body.innerHTML = '<p class="timer-caption">作答时间（最后 10 秒变红，说满更接近考场）</p>' +
+        '<div class="countdown" id="cd">2:00</div>' +
+        cueCardHTML(card, false) +
+        '<div class="drill-actions"><button class="btn secondary" id="endEarly">作答完毕，提前结束</button></div>';
+      startCountdown(120, body.querySelector('#cd'), () => phaseDone(card));
+      body.querySelector('#endEarly').addEventListener('click', () => phaseDone(card));
+    }
+    function phaseDone(card) {
+      clearDrillTimers();
+      body.innerHTML =
+        '<p class="detail-intro">本题完成。可以听听自己的录音回放，或接着把 P3 追问逐题过一遍。</p>' +
+        p3ListHTML(card.p3 || []) +
+        '<div class="drill-actions">' +
+        (card.p3 && card.p3.length ? '<button class="btn secondary" id="p3Next">下一问</button>' : '') +
+        '<button class="btn" id="againBtn">再来一题</button></div>';
+      if (card.p3 && card.p3.length) bindP3Walk(body, card.p3);
+      body.querySelector('#againBtn').addEventListener('click', draw);
+    }
+    updateStat();
+    draw();
+  }
+
+  // ---- P3 追问 ----
+  function renderDrillP3(root) {
+    const pool = QB.p2.filter(card => card.p3 && card.p3.length);
+    root.innerHTML =
+      '<p class="detail-intro">抽一张题卡，练它的 P3 抽象追问。答案比 P1 长：先观点，再 because 理由，最后补一个短例子。</p>' +
+      drillToolbarHTML() +
+      '<div id="drillBody"></div>';
+    const stat = root.querySelector('#drillStat');
+    const body = root.querySelector('#drillBody');
+    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
+    function updateStat() { stat.textContent = poolStat(pool, 'p2'); }
+    function draw() {
+      clearDrillTimers();
+      const card = drawOne(pool, 'p2');
+      markPracticed('p2', card.id);
+      updateStat();
+      body.innerHTML =
+        '<p class="qidx">题卡：' + esc(card.title) + statusBadge(card.status) + '</p>' +
+        p3ListHTML(card.p3) +
+        '<div class="drill-actions">' +
+        '<button class="btn secondary" id="p3Next">下一问</button>' +
+        '<button class="btn" id="redrawBtn">换一张题卡</button></div>';
+      bindP3Walk(body, card.p3);
+      body.querySelector('#redrawBtn').addEventListener('click', draw);
+    }
+    updateStat();
+    draw();
+  }
+
+  // ---- 全套模拟 ----
+  function renderDrillFull(root) {
+    const pool = QB.p2.filter(card => card.p3 && card.p3.length);
+    root.innerHTML =
+      '<p class="detail-intro">按真实考试走完整流程：P1 两个话题 → P2 准备 1 分钟 + 作答 2 分钟 → 同题 P3。整轮 11–14 分钟。</p>' +
+      drillToolbarHTML() +
+      '<div id="drillBody"><div class="drill-actions"><button class="btn" id="startBtn">开始全套模拟</button></div></div>';
+    const stat = root.querySelector('#drillStat');
+    const body = root.querySelector('#drillBody');
+    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
+    stat.textContent = poolStat(pool, 'p2');
+
+    body.querySelector('#startBtn').addEventListener('click', () => {
+      const topics = [];
+      const used = {};
+      while (topics.length < 2) {
+        const topic = drawOne(QB.p1, 'p1');
+        if (used[topic.id]) continue;
+        used[topic.id] = true;
+        topics.push(topic);
+        markPracticed('p1', topic.id);
+      }
+      const card = drawOne(pool, 'p2');
+      markPracticed('p2', card.id);
+      runSession(topics, card);
+    });
+
+    function stageHTML(stage) {
+      return '<div class="stage">' +
+        ['Part 1', 'Part 2', 'Part 3'].map(name =>
+          '<span class="' + (name === stage ? 'on' : '') + '">' + name + '</span>').join('') +
+        '<span class="drill-total" id="totalEl"></span></div>';
+    }
+
+    function runSession(topics, card) {
+      const t0 = Date.now();
+      function phase1() {
+        clearDrillTimers();
+        body.innerHTML = stageHTML('Part 1') +
+          topics.map(topic =>
+            '<div class="cue-card"><h3>' + esc(topic.title) + statusBadge(topic.status) + '</h3>' +
+            '<ul>' + topic.questions.map(q => '<li class="qitem">' + esc(q) + '</li>').join('') + '</ul></div>'
+          ).join('') +
+          '<p class="qidx" id="walkIdx"></p>' +
+          '<div class="drill-actions"><button class="btn" id="toP2">进入 Part 2</button></div>';
+        const items = body.querySelectorAll('.qitem');
+        const idxEl = body.querySelector('#walkIdx');
+        items.forEach((li, i) => li.addEventListener('click', () => {
+          items.forEach(x => x.classList.remove('current'));
+          li.classList.add('current');
+          idxEl.textContent = 'P1 第 ' + (i + 1) + ' / ' + items.length + ' 问';
+        }));
+        items[0].classList.add('current');
+        idxEl.textContent = 'P1 第 1 / ' + items.length + ' 问';
+        elapsedTick(body.querySelector('#totalEl'));
+        body.querySelector('#toP2').addEventListener('click', phase2);
+      }
+      function phase2() {
+        clearDrillTimers();
+        body.innerHTML = stageHTML('Part 2') +
+          '<p class="timer-caption">准备时间（记几个要点就行）</p>' +
+          '<div class="countdown" id="cd">1:00</div>' +
+          cueCardHTML(card, true) +
+          '<div class="drill-actions"><button class="btn secondary" id="skipPrep">跳过准备</button></div>';
+        startCountdown(60, body.querySelector('#cd'), phase2speak);
+        body.querySelector('#skipPrep').addEventListener('click', phase2speak);
+      }
+      function phase2speak() {
+        clearDrillTimers();
+        body.innerHTML = stageHTML('Part 2') +
+          '<p class="timer-caption">作答时间（最后 10 秒变红）</p>' +
+          '<div class="countdown" id="cd">2:00</div>' +
+          cueCardHTML(card, false) +
+          '<div class="drill-actions"><button class="btn secondary" id="endEarly">提前结束</button></div>';
+        startCountdown(120, body.querySelector('#cd'), phase3);
+        body.querySelector('#endEarly').addEventListener('click', phase3);
+      }
+      function phase3() {
+        clearDrillTimers();
+        body.innerHTML = stageHTML('Part 3') +
+          '<p class="qidx">顺着刚才的题卡追问：</p>' +
+          p3ListHTML(card.p3) +
+          '<div class="drill-actions">' +
+          '<button class="btn secondary" id="p3Next">下一问</button>' +
+          '<button class="btn" id="finishBtn">结束模拟</button></div>';
+        bindP3Walk(body, card.p3);
+        body.querySelector('#finishBtn').addEventListener('click', done);
+      }
+      function done() {
+        clearDrillTimers();
+        const total = fmtTime(Math.round((Date.now() - t0) / 1000));
+        body.innerHTML =
+          '<p class="detail-intro">全套完成，总用时 ' + esc(total) + '（真实考试 11–14 分钟）。回头看看抽到的题该套哪个剧本？</p>' +
+          '<div class="drill-actions"><button class="btn" id="againBtn">再来一轮</button></div>';
+        body.querySelector('#againBtn').addEventListener('click', () => renderDrillFull(root));
+      }
+      phase1();
+    }
+  }
+
+  // ---- 演练页入口 ----
+  function renderDrillPage(section, card) {
+    titleEl.textContent = card.title;
+    subtitleEl.textContent = section.name;
+    renderNav(section, card, null);
+    if (!QB || !QB.p1 || !QB.p2) {
+      app.innerHTML = '<div class="detail"><p class="placeholder">题库数据没加载到：确认 speaking-questions.js 存在（本地跑 更新口语题库.py 生成）。</p></div>';
+      return;
+    }
+    const root = document.createElement('div');
+    root.className = 'detail';
+    if (card.drill === 'p1') renderDrillP1(root);
+    else if (card.drill === 'p2') renderDrillP2(root);
+    else if (card.drill === 'p3') renderDrillP3(root);
+    else if (card.drill === 'full') renderDrillFull(root);
+    else root.innerHTML = '<p class="placeholder">未知演练类型。</p>';
+    app.innerHTML = '';
+    app.appendChild(root);
+  }
+
   // 按 hash 决定显示首页、部分、卡片或子卡片
   function render() {
+    clearDrillTimers();
     const { sectionId, cardId, nestedId } = parseHash();
     const section = findSection(sectionId);
     if (!section) {
