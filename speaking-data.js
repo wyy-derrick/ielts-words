@@ -248,7 +248,7 @@ window.__SPEAKING_DATA__ = {
           "title": "剧本卡片",
           "type": "group",
           "summary": "三个故事分工不同，先定剧本再套题",
-          "intro": "三个剧本不要讲成同一类「比赛赢了」。一号是短短几天的科技经历和遇见的人，二号是高中篮球和现在还在看的球，三号是大学里带队的长线成长。只背 I 人版。考场按题目抽细节，不要把三段一次说完。",
+          "intro": "三个剧本不要讲成同一类「比赛赢了」。一号是短短几天的科技经历和遇见的人，二号是高中篮球和现在还在看的球，三号是和老师去哈萨克斯坦开会的学术之旅（老师、波折、旅行文化、学术目标）。只背 I 人版。考场按题目抽细节，不要把三段一次说完。",
           "cards": [
             {
               "id": "hackathon",
@@ -355,55 +355,58 @@ window.__SPEAKING_DATA__ = {
               ]
             },
             {
-              "id": "robot",
-              "title": "剧本三（机器人队长）",
+              "id": "kazakhstan",
+              "title": "剧本三（哈萨克斯坦学术会议）",
               "type": "script",
-              "hook": "长期成长 / 计划 / 老师 / 现场改代码",
-              "intro": "能力与成长万能武器。核心是大学智能小车、老师让我当队长、赛场没信号只能亲手改代码，以及带出下一任队长。这是长线故事，不要和八月黑客松混在一起。",
+              "hook": "老师 / 国际会议 / 旅行文化 / 学术成长",
+              "intro": "老师与学术万能武器。核心是今年六月和老师去哈萨克斯坦参加机器人方向国际会议：老师德国多年研究后回国教书、亲手改论文、航班延误被化解、阿拉木图雪山与马肉宴会。它接「老师 / 决定 / 波折 / 旅行 / 文化 / 目标」，不要讲成黑客松那样的团队比赛。",
               "topics": {
                 "status": "持续更新中",
                 "cover": [
-                  "做困难事情并成功的人、有条理的人、教你新技能的人、尊敬的年长者（老师/教练）",
-                  "帮助别人进步的人、团队中的领导、带出下一任的人",
-                  "重要决定、现场解决问题、计划被打乱、科技问题、学新东西",
-                  "物品：智能小车、自己做了很久的东西、实用的发明",
-                  "地点：实验室（热闹）、比赛场馆（紧张、没信号）",
-                  "长久目标、印象深刻的项目、第一次当负责人"
+                  "尊敬的年长的人、教你新技能的人、有条理的人、机智解决问题的人、做困难事情并成功的人（老师）",
+                  "重要决定、对结果开心的重要决定、改变重要想法（犹豫后接下去开会的机会）",
+                  "计划被打乱、近期改变的计划、早起经历（航班延误与化解）",
+                  "成功的事、骄傲的经历、学新东西（第一次以论文作者身份参加国际会议）",
+                  "去过的城市、推荐旅行的地方、想再去的地方、靠近自然的地方、建筑（阿斯塔纳、阿拉木图雪山）",
+                  "特别场合的食物、饮食文化（马肉、宴会）",
+                  "印象深刻的聚会、有趣的活动、想继续了解的人（会议交流、老师请客喝咖啡）",
+                  "长久目标/抱负（走向国际学术、出国深造）"
                 ]
               },
-              "logic": "这个剧本负责「长时间学新东西 + 一个年长的老师 + 一次现场危机」。黑客松是几天；这个是几年。",
+              "logic": "这个剧本负责「一个长辈式的老师 + 一次国外学术之旅 + 一次现场波折」，还自带旅行、文化、食物素材。分界规则：国外、学术、和长辈、文化体验给这个剧本；国内、比赛、年轻人团队、热闹给剧本一。",
               "logicItems": [
-                { "when": "当考到「人物 / 老师 / 年长者」时：", "then": "我的老师兼教练。他鼓励我，选我做队长。" },
-                { "when": "当考到「教别人 / 帮助别人」时：", "then": "我带出一个学弟，后来他成为下一任队长。" },
-                { "when": "当考到「经历 / 问题 / 决定」时：", "then": "赛场出问题，现场没信号，必须亲手改代码，非常紧张；老师让我当队长时我接下了。" },
-                { "when": "当考到「物品 / 科技」时：", "then": "智能小车，要自己导航、避障。" },
-                { "when": "当考到「地点」时：", "then": "实验室其实很热闹，不是安静的地方；我有时仍需要自己待一会儿想清楚。" },
-                { "when": "当考到「性格 / 学习」时：", "then": "一直在学新东西；先 plan first，再 do my best。" }
+                { "when": "当考到「人物 / 老师 / 年长者」时：", "then": "老师在德国做了很多年研究，回校教书；对学生很好，请聚会喝咖啡，亲手一个词一个词改我论文。" },
+                { "when": "当考到「决定 / 想法」时：", "then": "老师觉得我优秀，我作为论文作者去开会；去之前犹豫紧张，最后收获了自信。" },
+                { "when": "当考到「问题 / 波折」时：", "then": "航班延误；老师及时联系航空公司、和当地主办方沟通，后续安排没受影响。学到 make it clear + do my best。" },
+                { "when": "当考到「地点 / 旅行」时：", "then": "阿斯塔纳和阿拉木图两座城；阿拉木图附近有雪山，风景很好。" },
+                { "when": "当考到「食物 / 文化」时：", "then": "饮食很不一样，吃很多肉、甚至马肉；我们的宴会非常好吃。" },
+                { "when": "当考到「性格 / 习惯」时：", "then": "我和老师一样喜欢先 plan first；他强调休息的重要。" },
+                { "when": "当考到「目标 / 学习」时：", "then": "老师激励我走向国际学术；想继续学新东西、发论文、出国看看。" }
               ],
-              "plot": "大学里我做智能小车，完成导航和避障。做了几年。老师选择我当队长，也鼓励我。最难的一次是比赛现场出了问题，没有信号，只能亲手改代码，非常紧张。实验室里团队很热闹。我一直在学新东西，后来带出一个学弟，他成为了下一任队长。大一加入社团时输过很多次；有一次暑假我没有回家，一直待在实验室，最后结果很好。",
-              "masterNote": "Part B 接 learn new things 和 plan first。现场很吵、很紧张时，用 quiet time：先让自己冷静，把问题 make it clear。老师用「年纪比我大、我尊敬的人」。",
+              "plot": "今年六月，我作为一篇机器人方向论文的作者，跟着老师去哈萨克斯坦参加国际学术会议，走了阿斯塔纳和阿拉木图两座城。老师在德国做了很多年研究，回校教书，对学生很好：请聚会、喝咖啡、亲手一个词一个词改我的论文，还说尽力做但要休息。他和我一样喜欢先做好计划。航班延误了，老师及时联系航空公司、和主办方沟通，后面的安排都没受影响。会上我一开始很紧张，但当地文化开放、人们友善，我慢慢有了自信，敢和学者交流。阿拉木图附近有雪山，风景很好；那边吃很多肉、甚至马肉，我们的宴会非常好吃。这趟下来，老师大大激励了我走向国际学术的想法。",
+              "masterNote": "背熟三段。素材库用法：人物 / 决定 / 波折抽对应层，地点食物只在旅行文化题用。Part B 接 P1 人设：plan first、learn new things、do my best、make me feel good。老师用「在德国研究多年、我尊敬的人」。波折部分强调 make it clear + do my best。",
               "audioNote": "音频待录。先背文字。",
               "parts": [
                 {
                   "id": "a",
                   "name": "Part A：剧情铺垫（20秒）",
-                  "scene": "智能小车 + 老师点名当队长 + 没信号改代码",
-                  "speech": "I'd like to talk about my university robot team. We made a smart car. It had to find the way by itself and avoid obstacles. My teacher chose me to be the captain. He encouraged me, so I said yes. The hardest moment was at a competition. Something went wrong, and there was no internet. I had to change the code by myself, and I was very nervous.",
-                  "zh": "我想讲大学的机器人队。我们做智能小车，要自己找路、避开障碍。我的老师选我当队长，他鼓励我，所以我接下了。最难的一次是比赛现场出了问题，没有网络，我只能自己改代码，当时非常紧张。"
+                  "scene": "今年六月 + 哈萨克斯坦 + 机器人会议 + 论文作者",
+                  "speech": "I'd like to talk about a trip to Kazakhstan this June. My teacher took me to an international conference about robots. I was one of the authors of a paper, so I went there to listen to the talks and to learn. We visited two cities, Astana and Almaty.",
+                  "zh": "我想讲今年六月去哈萨克斯坦的一次旅行。老师带我去参加一个机器人方向的国际学术会议。我是一篇论文的作者之一，所以去听汇报、学东西。我们去了阿斯塔纳和阿拉木图两个城市。"
                 },
                 {
                   "id": "b",
                   "name": "Part B：深度解释与升华（1分30秒）",
-                  "scene": "学新东西 + 先计划 + 热闹实验室 + 老师 + 下一任队长",
-                  "speech": "Speaking of how I handled it... So I like to learn new things, and I like to plan first. At that time the place was noisy, and I felt confused. So I tried to make it clear: what is broken, and what I can change. Then I just did my best. I still remember in my first year I joined the robot club. We lost many times. Before one important competition, I stayed in the lab for the whole summer holiday. I didn't go home. I just wanted to do my best. Later the result was nice. My teacher is older than me, and I respect him. He believed I could lead, even when I was not so sure. The lab is actually lively, not a quiet place. Sometimes I still need to stay alone for a bit to think. I also trained a younger student, and he became the next captain. That makes me feel good, because I didn't only learn new things. I also helped someone else learn.",
-                  "zh": "说到我当时怎么处理……我喜欢学新东西，也喜欢先想清楚再做。那时候现场很吵，我有点乱。所以我先把事情理清楚：哪里坏了，我能改什么。然后就尽力去做。我还记得大一加入机器人社团，输过很多次。有一次重要比赛前，我整个暑假都待在实验室，没有回家，只想尽力做好。后来结果很好。我的老师比我大，我很尊敬他。即使我当时没有那么确定，他也相信我能带队。实验室其实很热闹，不是安静的地方。有时我还是需要自己待一会儿才能想清楚。我还带过一个学弟，后来他成了下一任队长。这让我感觉很好，因为我不只是自己在学新东西，也帮别人学会了。"
+                  "scene": "老师（德国经历 + 改论文 + 有计划） + 航班延误化解 + 会上的自信 + 雪山和食物",
+                  "speech": "Speaking of why this trip is special for me... it is mostly about my teacher. He did research in Germany for many years, and then he came back to teach at my school. He is very kind to students. He invites us to gatherings, and he often buys us coffee. He corrected my paper by hand, word by word. He always says, do your best, but rest is important too. So I think maybe we are similar: we both like to plan first. On this trip, our flight was delayed. But he called the airline and talked to the organizers, so everything after was still fine. I learned from him: when something goes wrong, make it clear, then just do your best. At the conference, at first I was nervous. You know, my English, and it was my first time. But the culture there felt open, and people were friendly. So I slowly felt better, and I got the confidence to talk with scholars. Kazakhstan is beautiful. There are snow mountains near Almaty. The food is very different. They eat a lot of meat, even horse meat. Our banquet was really delicious.",
+                  "zh": "说到这趟为什么对我特别……主要是老师。他在德国做了很多年研究，然后回到我们学校教书。他对学生很好，会请大家聚会，常请我们喝咖啡。他亲手改我的论文，一个词一个词地改。他总说，尽力做，但休息也很重要。所以我觉得我们挺像的：都喜欢先做好计划。这次我们的航班延误了，但他及时联系航空公司，和主办方沟通，后面的安排都没受影响。我从他那里学到：出问题的时候，先把事情理清楚，然后尽力去做。会上我一开始很紧张，我的英语，而且也是第一次。但那里的文化很开放，人们很友善。我慢慢感觉好了一点，有了和学者交流的自信。哈萨克斯坦很美，阿拉木图附近有雪山。吃的也很不一样，他们吃很多肉，甚至有马肉。我们的宴会非常好吃。"
                 },
                 {
                   "id": "c",
                   "name": "Part C：结尾（10秒）",
-                  "scene": "从小车收到成长和传下去",
-                  "speech": "So looking back, this is not only about a smart car. It is about growing, and about helping the next person.",
-                  "zh": "所以回想起来，这不只是一辆智能小车的事。它是关于成长，也是关于把事情交给下一个人。"
+                  "scene": "从会议收到人、经历和梦想",
+                  "speech": "So this trip is not only a conference for me. It gave me a paper, a person to learn from, and a bigger dream for my future.",
+                  "zh": "所以这次旅行对我来说不只是一个会议。它给了我一篇论文、一个值得学习的人，和一个关于未来的更大的梦想。"
                 }
               ]
             }
@@ -413,25 +416,25 @@ window.__SPEAKING_DATA__ = {
           "id": "p2-people",
           "title": "人物类",
           "type": "placeholder",
-          "text": "人物类题卡还没按题整理。先用剧本卡片：威少、女朋友、老师、学弟。"
+          "text": "人物类题卡还没按题整理。先用剧本卡片：威少、女朋友、哈萨克斯坦的老师。"
         },
         {
           "id": "p2-places",
           "title": "地点类",
           "type": "placeholder",
-          "text": "地点类题卡还没按题整理。先用剧本卡片：香港科学园、球场、实验室。"
+          "text": "地点类题卡还没按题整理。先用剧本卡片：香港科学园、球场、阿拉木图雪山。"
         },
         {
           "id": "p2-objects",
           "title": "物品类",
           "type": "placeholder",
-          "text": "物品类题卡还没按题整理。先用剧本卡片：签名队服、朋友送的篮球、智能小车。"
+          "text": "物品类题卡还没按题整理。先用剧本卡片：签名队服、朋友送的篮球、那篇论文。"
         },
         {
           "id": "p2-events",
           "title": "事件类",
           "type": "placeholder",
-          "text": "事件类题卡还没按题整理。先用剧本卡片：黑客松、班赛绝杀、赛场改代码。"
+          "text": "事件类题卡还没按题整理。先用剧本卡片：黑客松、班赛绝杀、航班延误化解。"
         },
         {
           "id": "p3-reasons",
