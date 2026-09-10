@@ -1,5 +1,5 @@
 // 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-10，共 660 词（听力听写 95 词，d阅读错词 26 词，d听力单词 34 词另库）
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-10，共 670 词（听力听写 95 词，d阅读错词 36 词，d听力单词 34 词另库）
 window.__VOCAB_DATA__ = {
   "updated": "2026-09-10",
   "banks": [
@@ -6254,7 +6254,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-26 词",
+          "description": "第 1-36 词",
           "words": [
             {
               "id": 1,
@@ -6435,6 +6435,76 @@ window.__VOCAB_DATA__ = {
               "id": 26,
               "word": "favourable",
               "chinese": "有利的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 27,
+              "word": "distinguished",
+              "chinese": "杰出的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 28,
+              "word": "bankruptcy",
+              "chinese": "破产",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 29,
+              "word": "consolidate",
+              "chinese": "加强",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 30,
+              "word": "elaborate",
+              "chinese": "复杂的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 31,
+              "word": "league",
+              "chinese": "联赛",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 32,
+              "word": "yet",
+              "chinese": "然而（代表转折）",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 33,
+              "word": "fossil",
+              "chinese": "化石",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 34,
+              "word": "amiss",
+              "chinese": "错误的",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 35,
+              "word": "conflict",
+              "chinese": "冲突",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 36,
+              "word": "flaw",
+              "chinese": "缺陷",
               "source": "d阅读错词",
               "date": ""
             }
