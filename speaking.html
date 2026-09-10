@@ -156,6 +156,18 @@ body {
   cursor: pointer;
 }
 .drill-stat { font-size: 0.78rem; color: var(--sub); }
+.link-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--sub);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link-btn:hover { color: var(--accent); }
 .btn {
   display: inline-block;
   padding: 10px 18px;
@@ -514,6 +526,12 @@ body {
     state[kind][id] = Date.now();
     saveDrillState(state);
   }
+  function clearDrillRecords() {
+    const state = drillState();
+    delete state.p1;
+    delete state.p2;
+    saveDrillState(state);
+  }
 
   // 抽题：没练过的优先；勾了「优先抽新题」时再把新题排到旧题前面
   function drawOne(pool, kind) {
@@ -602,7 +620,33 @@ body {
     return '<div class="drill-toolbar">' +
       '<label class="drill-check"><input type="checkbox" id="preferNewChk"' + (preferNew() ? ' checked' : '') + '>优先抽新题</label>' +
       '<span class="drill-stat" id="drillStat"></span>' +
+      '<button class="link-btn" id="clearDrillBtn" type="button">清除练习记录</button>' +
       '</div>';
+  }
+
+  // 工具条统一绑定：优先新题开关 + 清除练习记录（两步确认防误触，只清已练记录，保留开关偏好）
+  function bindDrillToolbar(root, updateStat) {
+    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
+    const btn = root.querySelector('#clearDrillBtn');
+    let armed = false;
+    let resetTimer = null;
+    btn.addEventListener('click', () => {
+      if (!armed) {
+        armed = true;
+        btn.textContent = '再点一次确认清除';
+        resetTimer = setTimeout(() => {
+          armed = false;
+          btn.textContent = '清除练习记录';
+        }, 3000);
+        return;
+      }
+      clearTimeout(resetTimer);
+      armed = false;
+      clearDrillRecords();
+      btn.textContent = '已清除 ✓';
+      updateStat();
+      setTimeout(() => { btn.textContent = '清除练习记录'; }, 1500);
+    });
   }
 
   function poolStat(pool, kind) {
@@ -656,8 +700,8 @@ body {
       '<div id="drillBody"></div>';
     const stat = root.querySelector('#drillStat');
     const body = root.querySelector('#drillBody');
-    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
     function updateStat() { stat.textContent = poolStat(pool, 'p1'); }
+    bindDrillToolbar(root, updateStat);
     function draw() {
       clearDrillTimers();
       const topic = drawOne(pool, 'p1');
@@ -685,13 +729,13 @@ body {
   function renderDrillP2(root) {
     const pool = QB.p2;
     root.innerHTML =
-      '<p class="detail-intro">完整还原考场：看题卡 → 准备 1 分钟（可跳过）→ 作答 2 分钟，结束时提示音。练完可接着过 P3。</p>' +
+      '<p class="detail-intro">P2 和 P3 一起练：看题卡 → 准备 1 分钟（可跳过）→ 作答 2 分钟 → 接着过本题的 P3 抽象追问。P3 答案长一些：观点 + because 理由 + 一个短例子。</p>' +
       drillToolbarHTML() +
       '<div id="drillBody"></div>';
     const stat = root.querySelector('#drillStat');
     const body = root.querySelector('#drillBody');
-    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
     function updateStat() { stat.textContent = poolStat(pool, 'p2'); }
+    bindDrillToolbar(root, updateStat);
     function draw() {
       clearDrillTimers();
       const card = drawOne(pool, 'p2');
@@ -741,35 +785,6 @@ body {
     draw();
   }
 
-  // ---- P3 追问 ----
-  function renderDrillP3(root) {
-    const pool = QB.p2.filter(card => card.p3 && card.p3.length);
-    root.innerHTML =
-      '<p class="detail-intro">抽一张题卡，练它的 P3 抽象追问。答案比 P1 长：先观点，再 because 理由，最后补一个短例子。</p>' +
-      drillToolbarHTML() +
-      '<div id="drillBody"></div>';
-    const stat = root.querySelector('#drillStat');
-    const body = root.querySelector('#drillBody');
-    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
-    function updateStat() { stat.textContent = poolStat(pool, 'p2'); }
-    function draw() {
-      clearDrillTimers();
-      const card = drawOne(pool, 'p2');
-      markPracticed('p2', card.id);
-      updateStat();
-      body.innerHTML =
-        '<p class="qidx">题卡：' + esc(card.title) + statusBadge(card.status) + '</p>' +
-        p3ListHTML(card.p3) +
-        '<div class="drill-actions">' +
-        '<button class="btn secondary" id="p3Next">下一问</button>' +
-        '<button class="btn" id="redrawBtn">换一张题卡</button></div>';
-      bindP3Walk(body, card.p3);
-      body.querySelector('#redrawBtn').addEventListener('click', draw);
-    }
-    updateStat();
-    draw();
-  }
-
   // ---- 全套模拟 ----
   function renderDrillFull(root) {
     const pool = QB.p2.filter(card => card.p3 && card.p3.length);
@@ -779,8 +794,8 @@ body {
       '<div id="drillBody"><div class="drill-actions"><button class="btn" id="startBtn">开始全套模拟</button></div></div>';
     const stat = root.querySelector('#drillStat');
     const body = root.querySelector('#drillBody');
-    root.querySelector('#preferNewChk').addEventListener('change', ev => setPreferNew(ev.target.checked));
-    stat.textContent = poolStat(pool, 'p2');
+    function updateStat() { stat.textContent = poolStat(pool, 'p2'); }
+    bindDrillToolbar(root, updateStat);
 
     body.querySelector('#startBtn').addEventListener('click', () => {
       const topics = [];
@@ -883,7 +898,6 @@ body {
     root.className = 'detail';
     if (card.drill === 'p1') renderDrillP1(root);
     else if (card.drill === 'p2') renderDrillP2(root);
-    else if (card.drill === 'p3') renderDrillP3(root);
     else if (card.drill === 'full') renderDrillFull(root);
     else root.innerHTML = '<p class="placeholder">未知演练类型。</p>';
     app.innerHTML = '';

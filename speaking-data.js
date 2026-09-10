@@ -240,8 +240,8 @@ window.__SPEAKING_DATA__ = {
     },
     {
       "id": "p2",
-      "name": "P2资料",
-      "summary": "三个万能剧本，再按人物 / 地点 / 物品 / 事件套题",
+      "name": "P2&P3资料",
+      "summary": "三个万能剧本先定剧本再套题，P3 顺着 Part 2 追问",
       "cards": [
         {
           "id": "scripts",
@@ -432,35 +432,28 @@ window.__SPEAKING_DATA__ = {
           "title": "事件类",
           "type": "placeholder",
           "text": "事件类题卡还没按题整理。先用剧本卡片：黑客松、班赛绝杀、赛场改代码。"
-        }
-      ]
-    },
-    {
-      "id": "p3",
-      "name": "P3资料",
-      "summary": "抽象追问的题型与展开方式",
-      "cards": [
+        },
         {
           "id": "p3-reasons",
-          "title": "原因类",
+          "title": "P3 原因类",
           "type": "placeholder",
           "text": "Why / What causes... 这类追问的语料待整理。"
         },
         {
           "id": "p3-effects",
-          "title": "影响类",
+          "title": "P3 影响类",
           "type": "placeholder",
           "text": "影响、结果、利弊类追问待整理。"
         },
         {
           "id": "p3-compare",
-          "title": "对比类",
+          "title": "P3 对比类",
           "type": "placeholder",
           "text": "过去和现在、不同人群对比的说法待整理。补丁 A 的过去/现在对比可以先用在这里。"
         },
         {
           "id": "p3-future",
-          "title": "未来类",
+          "title": "P3 未来类",
           "type": "placeholder",
           "text": "Will / In the future 类追问待整理。"
         }
@@ -480,17 +473,10 @@ window.__SPEAKING_DATA__ = {
         },
         {
           "id": "drill-p2",
-          "title": "P2 计时",
+          "title": "P2 计时 + P3 追问",
           "type": "drill",
           "drill": "p2",
-          "summary": "1 分钟准备 + 2 分钟作答，还原考场节奏"
-        },
-        {
-          "id": "drill-p3",
-          "title": "P3 追问",
-          "type": "drill",
-          "drill": "p3",
-          "summary": "顺着题卡练抽象追问，逐题过"
+          "summary": "1 分钟准备 + 2 分钟作答，接着过本题的 P3 追问"
         },
         {
           "id": "drill-full",
