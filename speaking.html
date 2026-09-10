@@ -121,6 +121,15 @@ body {
 .qa { border-top: 1px dashed var(--border); padding-top: 14px; margin-top: 14px; }
 .qa:first-child { border-top: none; padding-top: 0; margin-top: 0; }
 .qa .q { font-weight: 700; margin-bottom: 8px; }
+.block ul { padding-left: 1.1em; margin-top: 4px; }
+.block li {
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+.logic-line { font-size: 0.88rem; line-height: 1.7; color: var(--text); margin-bottom: 8px; }
+.logic-line .when { color: var(--accent); font-weight: 600; }
 .placeholder {
   color: var(--sub);
   font-size: 0.92rem;
@@ -169,10 +178,10 @@ body {
       .replace(/"/g, '&quot;');
   }
 
-  // 从 hash 读出当前部分和卡片
+  // 从 hash 读出当前部分、卡片和子卡片
   function parseHash() {
     const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
-    return { sectionId: parts[0] || '', cardId: parts[1] || '' };
+    return { sectionId: parts[0] || '', cardId: parts[1] || '', nestedId: parts[2] || '' };
   }
 
   // 按 id 取部分
@@ -185,10 +194,18 @@ body {
     return (section.cards || []).find(card => card.id === id);
   }
 
+  // 按 id 取剧本组里的子卡片
+  function findNestedCard(card, id) {
+    return (card.cards || []).find(item => item.id === id);
+  }
+
   // 画顶部返回链接
-  function renderNav(section, card) {
+  function renderNav(section, card, nested) {
     const links = ['<a class="home-link" href="index.html">← 返回模块选择</a>'];
-    if (card) {
+    if (nested) {
+      links.push('<a class="home-link" href="#/' + encodeURIComponent(section.id) + '">← 返回' + esc(section.name) + '</a>');
+      links.push('<a class="home-link" href="#/' + encodeURIComponent(section.id) + '/' + encodeURIComponent(card.id) + '">← 返回' + esc(card.title) + '</a>');
+    } else if (card) {
       links.push('<a class="home-link" href="#/' + encodeURIComponent(section.id) + '">← 返回' + esc(section.name) + '</a>');
     } else if (section) {
       links.push('<a class="home-link" href="#">← 返回口语首页</a>');
@@ -236,6 +253,8 @@ body {
   // 给入口卡写一句摘要
   function cardSummary(card) {
     if (card.type === 'persona') return '5 个模块 + 2 个万能补丁';
+    if (card.type === 'group') return ((card.cards || []).length || 0) + ' 个剧本';
+    if (card.type === 'script') return card.hook || '万能故事母带';
     if (card.type === 'topic') return ((card.questions || []).length || 0) + ' 道真题';
     if (card.type === 'article') return ((card.blocks || []).length || 0) + ' 个要点';
     if (card.summary) return card.summary;
@@ -243,14 +262,32 @@ body {
     return '';
   }
 
-  // 画卡片正文
-  function renderCard(section, card) {
+  // 画一组子卡片，例如三个剧本
+  function renderGroup(section, card) {
     titleEl.textContent = card.title;
-    subtitleEl.textContent = section.name;
-    renderNav(section, card);
+    subtitleEl.textContent = card.summary || section.name;
+    renderNav(section, card, null);
+    const cards = card.cards || [];
+    if (!cards.length) {
+      app.innerHTML = '<p class="empty">这个部分还没有卡片。</p>';
+      return;
+    }
+    const intro = card.intro ? '<p class="detail-intro" style="margin-bottom:14px">' + esc(card.intro) + '</p>' : '';
+    app.innerHTML = intro + '<div class="card-list">' + cards.map(item => {
+      const href = '#/' + encodeURIComponent(section.id) + '/' + encodeURIComponent(card.id) + '/' + encodeURIComponent(item.id);
+      return renderEntryCard(href, item.title, cardSummary(item));
+    }).join('') + '</div>';
+  }
+
+  // 画卡片正文
+  function renderCard(section, card, parent) {
+    titleEl.textContent = card.title;
+    subtitleEl.textContent = parent ? parent.title : section.name;
+    renderNav(section, parent || card, parent ? card : null);
     if (card.type === 'persona') app.innerHTML = renderPersona(card);
     else if (card.type === 'article') app.innerHTML = renderArticle(card);
     else if (card.type === 'topic') app.innerHTML = renderTopic(card);
+    else if (card.type === 'script') app.innerHTML = renderScript(card);
     else app.innerHTML = '<div class="detail"><p class="placeholder">' + esc(card.text || '内容待整理。') + '</p></div>';
   }
 
@@ -320,9 +357,49 @@ body {
       '</div>';
   }
 
-  // 按 hash 决定显示首页、部分或卡片
+  // 画一个万能剧本：话题、逻辑、梗概、母带
+  function renderScript(card) {
+    const topics = card.topics || {};
+    const cover = (topics.cover || []).map(item => '<li>' + esc(item) + '</li>').join('');
+    const logicItems = (card.logicItems || []).map(item =>
+      '<p class="logic-line"><span class="when">' + esc(item.when) + '</span> ' + esc(item.then) + '</p>'
+    ).join('');
+    const parts = (card.parts || []).map(part =>
+      '<article class="block">' +
+        '<h3>' + esc(part.name) + '</h3>' +
+        (part.scene ? '<div class="en-name">' + esc(part.scene) + '</div>' : '') +
+        '<h4>英文母带</h4><p class="speech">' + esc(part.speech) + '</p>' +
+        '<h4>中文翻译</h4><p class="zh">' + esc(part.zh) + '</p>' +
+        '</article>'
+    ).join('');
+    return '<div class="detail">' +
+      (card.intro ? '<p class="detail-intro">' + esc(card.intro) + '</p>' : '') +
+      '<article class="block">' +
+        '<h3>话题</h3>' +
+        '<p class="note">' + esc(topics.status || '持续更新中') + '</p>' +
+        (cover ? '<h4>可覆盖</h4><ul>' + cover + '</ul>' : '') +
+      '</article>' +
+      '<article class="block">' +
+        '<h3>1 核心逻辑</h3>' +
+        (card.logic ? '<p class="speech">' + esc(card.logic) + '</p>' : '') +
+        logicItems +
+      '</article>' +
+      '<article class="block">' +
+        '<h3>2 故事梗概</h3>' +
+        '<p class="zh">' + esc(card.plot || '') + '</p>' +
+      '</article>' +
+      '<article class="block">' +
+        '<h3>3 必背：万能故事母带</h3>' +
+        (card.masterNote ? '<p class="zh">' + esc(card.masterNote) + '</p>' : '') +
+        (card.audioNote ? '<p class="note">' + esc(card.audioNote) + '</p>' : '') +
+      '</article>' +
+      parts +
+      '</div>';
+  }
+
+  // 按 hash 决定显示首页、部分、卡片或子卡片
   function render() {
-    const { sectionId, cardId } = parseHash();
+    const { sectionId, cardId, nestedId } = parseHash();
     const section = findSection(sectionId);
     if (!section) {
       renderHome();
@@ -333,8 +410,24 @@ body {
       renderSection(section);
       return;
     }
-    if (card) renderCard(section, card);
-    else renderSection(section);
+    if (!card) {
+      renderSection(section);
+      return;
+    }
+    if (card.type === 'group') {
+      if (nestedId) {
+        const nested = findNestedCard(card, nestedId);
+        if (!nested) {
+          renderGroup(section, card);
+          return;
+        }
+        renderCard(section, nested, card);
+        return;
+      }
+      renderGroup(section, card);
+      return;
+    }
+    renderCard(section, card);
   }
 
   window.addEventListener('hashchange', render);
