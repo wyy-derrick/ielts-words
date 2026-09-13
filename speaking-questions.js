@@ -1,7 +1,7 @@
 // 由 更新口语题库.py 从 口语题库.xlsx 生成，勿手改；改题请编辑 xlsx 后重跑。
 window.__SPEAKING_QUESTIONS__ = {
   "version": "2026年9-12月（截至0909）",
-  "generatedAt": "2026-09-10",
+  "generatedAt": "2026-09-13",
   "p1": [
     {
       "id": "p1-travelling",
@@ -413,6 +413,39 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you often see your neighbors?",
         "What's the weather like where you live?",
         "Would you recommend your city to others?"
+      ]
+    },
+    {
+      "id": "p1-spare-time",
+      "title": "Spare time",
+      "status": "retained",
+      "questions": [
+        "Do you often have free time?",
+        "What do you usually do in your spare time?",
+        "Which day do you have more free time, Saturday or Sunday?",
+        "Would you like to have more free time in the future?"
+      ]
+    },
+    {
+      "id": "p1-food",
+      "title": "Food",
+      "status": "retained",
+      "questions": [
+        "What is your favourite food?",
+        "What kind of food did you like when you were young?",
+        "Do you eat different foods at different times of the year?",
+        "Has your favourite food changed since you were a child?"
+      ]
+    },
+    {
+      "id": "p1-sports-team",
+      "title": "Sports team",
+      "status": "retained",
+      "questions": [
+        "Have you ever been part of a sports team?",
+        "Are team sports popular in your culture?",
+        "Do you like watching team games? Why?",
+        "What are the differences between team sports and individual sports?"
       ]
     }
   ],
@@ -1525,6 +1558,26 @@ window.__SPEAKING_QUESTIONS__ = {
         "Who tend to change their daily routine more, young people or old people?"
       ],
       "script": ""
+    },
+    {
+      "id": "p2-1bb1c499",
+      "title": "为家人骄傲",
+      "status": "retained",
+      "cue": "Describe a time when you felt proud of a family member",
+      "points": [
+        "When it happened",
+        "Who the person is",
+        "What the person did",
+        "And explain why you felt proud of him/her"
+      ],
+      "p3": [
+        "What kinds of achievements do people usually feel proud of?",
+        "Do you think parents should praise their children when they do well?",
+        "Is it better to praise children or to point out their mistakes?",
+        "How do people in your country show their love to family members?",
+        "Why are some people proud of their family history?"
+      ],
+      "script": "剧本一"
     }
   ]
 };

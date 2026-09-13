@@ -152,6 +152,30 @@ body {
   padding: 28px 8px;
 }
 .empty { color: var(--sub); text-align: center; padding: 40px 12px; }
+/* ===== 串联词与俚语 ===== */
+.phrase-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafaf8;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.phrase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.phrase-en { color: var(--accent); font-weight: 700; font-size: 1.02rem; }
+.phrase-from { font-size: 0.74rem; color: var(--sub); }
+.phrase-zh { font-size: 0.86rem; color: var(--sub); margin-bottom: 8px; }
+.phrase-eg { font-size: 0.9rem; line-height: 1.65; }
+.phrase-egzh { font-size: 0.84rem; line-height: 1.65; color: var(--sub); margin-top: 2px; }
+.hideable { transition: filter 0.15s; }
+#phraseList.memo .hideable { filter: blur(5px); user-select: none; }
+#phraseList.memo .phrase-row.revealed .hideable { filter: none; }
 /* ===== 考场演练 ===== */
 .drill-toolbar {
   display: flex;
@@ -369,6 +393,7 @@ body {
     if (card.type === 'script') return card.hook || '万能故事母带';
     if (card.type === 'topic') return ((card.questions || []).length || 0) + ' 道真题';
     if (card.type === 'article') return ((card.blocks || []).length || 0) + ' 个要点';
+    if (card.type === 'phrases') return ((card.items || []).length || 0) + ' 个，带背默模式';
     if (card.summary) return card.summary;
     if (card.type === 'placeholder') return '内容待整理';
     return '';
@@ -400,6 +425,7 @@ body {
     else if (card.type === 'article') app.innerHTML = renderArticle(card);
     else if (card.type === 'topic') app.innerHTML = renderTopic(card);
     else if (card.type === 'script') app.innerHTML = renderScript(card);
+    else if (card.type === 'phrases') { app.innerHTML = renderPhrases(card); bindPhrases(); }
     else if (card.type === 'drill') return renderDrillPage(section, card);
     else app.innerHTML = '<div class="detail"><p class="placeholder">' + esc(card.text || '内容待整理。') + '</p></div>';
   }
@@ -511,6 +537,45 @@ body {
       '</article>' +
       parts +
       '</div>';
+  }
+
+  // 画串联词/俚语卡片：词条 + 例句，支持背默模式遮中文自查
+  function renderPhrases(card) {
+    const rows = (card.items || []).map(item =>
+      '<article class="phrase-row">' +
+        '<div class="phrase-head"><span class="phrase-en">' + esc(item.en) + '</span>' +
+        (item.from ? '<span class="phrase-from">' + esc(item.from) + '</span>' : '') + '</div>' +
+        '<p class="phrase-zh hideable">' + esc(item.zh) + '</p>' +
+        '<p class="phrase-eg">' + esc(item.eg) + '</p>' +
+        '<p class="phrase-egzh hideable">' + esc(item.egZh) + '</p>' +
+      '</article>'
+    ).join('');
+    return '<div class="detail">' +
+      (card.intro ? '<p class="detail-intro">' + esc(card.intro) + '</p>' : '') +
+      '<div class="drill-actions" style="margin:0 0 14px">' +
+        '<button class="btn secondary" id="memoBtn" type="button">背默模式：遮住中文</button>' +
+      '</div>' +
+      '<div id="phraseList">' + rows + '</div>' +
+      '</div>';
+  }
+
+  // 背默模式：中文打码，点词条临时揭开，再点遮回去
+  function bindPhrases() {
+    const btn = document.getElementById('memoBtn');
+    const list = document.getElementById('phraseList');
+    if (!btn || !list) return;
+    let on = false;
+    btn.addEventListener('click', () => {
+      on = !on;
+      list.classList.toggle('memo', on);
+      btn.classList.toggle('active', on);
+      btn.textContent = on ? '背默模式已开：点词条看中文' : '背默模式：遮住中文';
+    });
+    list.addEventListener('click', ev => {
+      if (!on) return;
+      const row = ev.target.closest('.phrase-row');
+      if (row) row.classList.toggle('revealed');
+    });
   }
 
   // ===== 考场演练 =====
@@ -632,7 +697,7 @@ body {
       '剧本二': '剧本二（朋友送的篮球）',
       '剧本三': '剧本三（哈萨克斯坦学术会议）'
     };
-    return '<p class="note">建议套' + esc(names[script] || script) + '，剧情见「P2&P3资料」。</p>';
+    return '<p class="note">建议套' + esc(names[script] || script) + '，剧情见「P2资料」。</p>';
   }
 
   function drillToolbarHTML() {

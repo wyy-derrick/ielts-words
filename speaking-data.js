@@ -54,7 +54,8 @@ window.__SPEAKING_DATA__ = {
     "改变重要想法": "剧本三（接受国际报告机会）",
     "想要颁布的环保法律": "短题补丁（鼓励公共交通）",
     "当地新闻": "剧本一（黑客松获奖）",
-    "近期改变": "剧本三（主动参加国际交流）"
+    "近期改变": "剧本三（主动参加国际交流）",
+    "为家人骄傲": "剧本一（黑客松获奖，主角换成家人）"
   },
   "sections": [
     {
@@ -171,6 +172,106 @@ window.__SPEAKING_DATA__ = {
                 "第三句：只补一句感受或结果",
                 "追问再展开，第一轮不要说满"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectors",
+      "name": "串联词与俚语",
+      "summary": "6 个万能串联词 + 5 个贴剧本俚语，一轮就能背完",
+      "cards": [
+        {
+          "id": "connector-words",
+          "title": "万能串联词",
+          "type": "phrases",
+          "intro": "每个功能只留一个词，和已有的 So / because / but / Speaking of 不重复。哪个位置卡住就用哪个，一次别堆超过两个。",
+          "items": [
+            {
+              "en": "To be honest, ...",
+              "zh": "说实话，讲真实感受前用",
+              "eg": "To be honest, at first I was afraid to go, because I worried my work was not good enough.",
+              "egZh": "说实话，一开始我不敢去，因为我担心自己的工作不够好。",
+              "from": "剧本三 · 开口/感受"
+            },
+            {
+              "en": "I mean, ...",
+              "zh": "我是说，把刚才的话换个说法讲清楚",
+              "eg": "I usually like some quiet place. I mean, it's not that I don't like people; I just feel tired when it's too noisy.",
+              "egZh": "我平时喜欢安静的地方。我是说，不是不喜欢人，只是太吵会让我觉得累。",
+              "from": "P1人设 · 解释"
+            },
+            {
+              "en": "The thing is, ...",
+              "zh": "问题是，点出真正的困难",
+              "eg": "The thing is, our model worked in simulation, but it failed on the real robot arm.",
+              "egZh": "问题是，我们的模型在仿真里能跑，放到真实机械臂上就失败了。",
+              "from": "剧本一 · 困难"
+            },
+            {
+              "en": "For instance, ...",
+              "zh": "比如说，举例专用",
+              "eg": "Small habits work better. For instance, I play ball with my friends once a week.",
+              "egZh": "小习惯更有效。比如说，我每周和朋友打一次球。",
+              "from": "P3主题七 · 举例"
+            },
+            {
+              "en": "Plus, ...",
+              "zh": "而且，再加一个小细节",
+              "eg": "The coffee shop had a beautiful sea view. Plus, the staff chatted with me about Hong Kong.",
+              "egZh": "咖啡店有漂亮的海景。而且，店员还和我聊了香港。",
+              "from": "剧本一 · 补充"
+            },
+            {
+              "en": "In the long run, ...",
+              "zh": "从长远看，收尾升华",
+              "eg": "It was just one report, but in the long run, it gave me the confidence to join more international conferences.",
+              "egZh": "那只是一次报告，但从长远看，它给了我参加更多国际会议的信心。",
+              "from": "剧本三 · 收尾"
+            }
+          ]
+        },
+        {
+          "id": "idiom-words",
+          "title": "贴剧本俚语",
+          "type": "phrases",
+          "intro": "每个俚语挂在一个现成剧情上，想剧情就能想起用法，不用单独死记。",
+          "items": [
+            {
+              "en": "step out of my comfort zone",
+              "zh": "走出舒适区",
+              "eg": "Going to Kazakhstan pushed me out of my comfort zone, but my teacher encouraged me to take the chance.",
+              "egZh": "去哈萨克斯坦让我走出了舒适区，但老师鼓励我抓住机会。",
+              "from": "剧本三 · 决定/改变"
+            },
+            {
+              "en": "we made it",
+              "zh": "我们做到了，结果落点",
+              "eg": "There were only three seconds left. I took the shot, and somehow it went in. We made it!",
+              "egZh": "只剩三秒，我投了出去，居然进了。我们做到了！",
+              "from": "剧本二 · 比赛高潮"
+            },
+            {
+              "en": "a game changer",
+              "zh": "改变局面的关键",
+              "eg": "Fixing the robot arm before the pitching was a game changer; after that, the judges really liked our project.",
+              "egZh": "pitching 前修好机械臂是扭转局面的关键，之后评委非常喜欢我们的项目。",
+              "from": "剧本一 · 转折"
+            },
+            {
+              "en": "totally worth it",
+              "zh": "完全值得，累但有收获",
+              "eg": "I was tired but proud, because finishing the report was totally worth it.",
+              "egZh": "我又累又自豪，因为完成报告完全值得。",
+              "from": "剧本三 · 感受收尾"
+            },
+            {
+              "en": "once in a lifetime",
+              "zh": "一生一次，夸旅行/经历",
+              "eg": "For me, it was a once-in-a-lifetime trip: an international conference, mysterious buildings and snow mountains.",
+              "egZh": "对我来说这是一生一次的旅行：国际会议、神秘的建筑和雪山。",
+              "from": "剧本三 · 旅行/地点"
             }
           ]
         }
@@ -296,8 +397,8 @@ window.__SPEAKING_DATA__ = {
     },
     {
       "id": "p2",
-      "name": "P2&P3资料",
-      "summary": "三个万能剧本先定剧本再套题，P3 顺着 Part 2 追问",
+      "name": "P2资料",
+      "summary": "三个万能剧本先定剧本再套题，只管 Part 2",
       "cards": [
         {
           "id": "scripts",
@@ -832,29 +933,342 @@ window.__SPEAKING_DATA__ = {
             }
           ]
         },
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "P3资料",
+      "summary": "8 个主题 × 每主题只背 1 个观点，双语 + 可套真题",
+      "cards": [
         {
-          "id": "p3-reasons",
-          "title": "P3 原因类",
-          "type": "placeholder",
-          "text": "Why / What causes... 这类追问的语料待整理。"
+          "id": "p3-howto",
+          "title": "怎么用这8个观点",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "一个观点打一片",
+              "paragraphs": [
+                "P3 大部分题不需要新素材。先认出题目属于哪个主题，再把那一个观点换个人称说出去：观点 + because 理由 + 一个很短的例子（人设或剧本里现成的）。每个主题只背 1 个观点，8 个观点就是全部记忆量。"
+              ]
+            },
+            {
+              "heading": "答题节奏（比 P1 长一点）",
+              "list": [
+                "第一句：So / Actually / I think maybe + 直接回答",
+                "第二句：because / so + 补一句理由",
+                "第三句：一个很短的例子，来自人设或剧本",
+                "收尾可以加一句 So that's why...，不说满，说稳就行"
+              ]
+            },
+            {
+              "heading": "两种死局直接用补丁",
+              "paragraphs": [
+                "二选一（quickly or slowly / young or old / spend or save）：用补丁 B「Well, it really depends. Sometimes I..., but most of the time I...」，两边各给半句，最后落在自己这边。",
+                "过去和现在对比（Has life quality improved? / food today and in the past）：用补丁 A 的思路「Uh actually, in the past it was different, but now...」；问社会就把 I 换成 people / it。"
+              ]
+            },
+            {
+              "heading": "对不上就退回人设",
+              "paragraphs": [
+                "如果题目和八个主题都对不上，就用模块4「useful」或模块2「plan first」顶一句：I think it is useful / I like to plan first, because...。P3 不追求说满，追求说稳。"
+              ]
+            }
+          ]
         },
         {
-          "id": "p3-effects",
-          "title": "P3 影响类",
-          "type": "placeholder",
-          "text": "影响、结果、利弊类追问待整理。"
+          "id": "p3-theme-education",
+          "title": "主题一：教育与学习",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think maybe interest and practice matter more than talent. Because if you are interested, you will keep doing it and enjoy it. Talent only helps at the very beginning. So most of the time, people do well because they keep trying, not because they are born smart."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得兴趣和练习比天赋更重要。因为如果有兴趣，你就会一直做下去，也很享受。天赋只在最开始有点用。所以大多数时候，人们做得好是因为一直坚持，而不是天生聪明。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点接模块5「learn new things」。例子用剧本二（发小先示范、我跟着练）或剧本三（老师逐词改论文，写作是练出来的）。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "Is talent important in sports?（钦佩的运动员）",
+                "Do you think children are born smart or they learn to become smart?（机智解决问题的人）",
+                "Do you think it is easier for children to learn new skills than for adults?（小时候学到的新技能）",
+                "Why is self-discipline important when learning a new skill?（教你新技能的人）",
+                "Should students have physical education and do sports at school?",
+                "Do you think art classes are important for children?（擅长做手工的人）",
+                "Should schools teach children about animals?（包含动物的故事或书）",
+                "Why should children have ambitions?（长久目标/抱负）"
+              ]
+            }
+          ]
         },
         {
-          "id": "p3-compare",
-          "title": "P3 对比类",
-          "type": "placeholder",
-          "text": "过去和现在、不同人群对比的说法待整理。补丁 A 的过去/现在对比可以先用在这里。"
+          "id": "p3-theme-tech",
+          "title": "主题二：科技与AI",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think technology is a useful tool, but we should not depend on it too much. Because it makes things faster and helps us know more. But if we let it do everything, maybe we will stop thinking by ourselves. So I use it to help me, not to replace me."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得科技是有用的工具，但不能太依赖它。因为它让事情更快，也帮我们知道得更多。但如果什么都让它做，可能我们就不会自己思考了。所以我用它来帮我，而不是代替我。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点接模块4「useful、不追新」。例子用剧本一（仿真模型失败，靠团队自己分工排查，科技落地要靠人）。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "What are the advantages and disadvantages of AI?（遇到的科技问题）",
+                "Do you think students are overly reliant on AI? / Should children learn to use AI?",
+                "Has technology changed people's friendships?（发小）",
+                "Do you think online communication will replace face-to-face communication?（发小）",
+                "How does technology help people make plans?（近期改变的计划）",
+                "Which is more helpful, watching videos or reading books?（有趣视频）"
+              ]
+            }
+          ]
         },
         {
-          "id": "p3-future",
-          "title": "P3 未来类",
-          "type": "placeholder",
-          "text": "Will / In the future 类追问待整理。"
+          "id": "p3-theme-money",
+          "title": "主题三：金钱与工作",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think money is a tool, not a goal, and creating chances matters more than just saving. Because if you only spend less, it grows really slowly. If you earn more by doing something useful, you can live well and still save money. My phone was bought in this way, so I really believe it."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得钱是工具，不是目标，而且主动创造机会比只是省钱更重要。因为只是少花钱，钱涨得很慢。如果靠做有用的事多赚一点，你既能生活得好，也照样能存下钱。我的手机就是这么买的，所以我真的相信这一点。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点来自剧本二（主动进取赚奖金买手机）+ 模块4「useful」。讲生意题时换成女朋友素材：会沟通、能理解别人的需要，所以生意能成功。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "Is it easier to spend money or save money?（攒钱买特别物品）",
+                "Should parents teach their children to spend money freely or to save money? / Should schools teach children how to manage money?",
+                "Should people spend time on charity, or just money?",
+                "Why do some people start their own business? / What makes a business successful?（拥有成功商业的人）",
+                "Does money equal success?（做困难事情并成功的人）",
+                "Do you think doing a job that you like is more important than other things?（快乐人士）",
+                "Why is some doctors' pay high and others' low?（想从事医疗行业的人）"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3-theme-plan",
+          "title": "主题四：计划与决定",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I like to plan first, but I also accept that plans can change. Because a plan makes things clear, and then I can just do my best. When something goes wrong, I make the new situation clear and adjust, instead of getting upset. So this is how I handle both plans and decisions."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我喜欢先做计划，但我也接受计划会变。因为计划能把事情理清楚，然后我就可以尽力去做。出了问题时，我会先把新情况理清楚再调整，而不是先烦躁。计划和决定我都是这么处理的。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点就是模块2「plan first」原样上场。二选一题（quickly or slowly）先甩补丁 B「Well, it really depends」；改计划的例子用剧本三（航班延误后把报告调到最后）。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "Which is better, to make a decision quickly or slowly?（重要决定）",
+                "How can we tell the difference between an important and an easy decision?",
+                "What if people in a group have different opinions on a decision?（在团队中工作）",
+                "Do people often change their plans?（近期改变的计划）",
+                "What should people do to prepare for a job interview? / What should people wear to a job interview?（看过的名人采访）",
+                "What are the benefits for people to obey rules?（保护环境的法律）",
+                "Is it important to plan a holiday ahead?（推荐旅行过的地方）"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3-theme-city",
+          "title": "主题五：城市与环境",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think development and the environment should go together, step by step. Because people need a good life now, but the environment is for the future. So first make the green choice convenient, like better public transport and more quiet green places. Then people will follow it by themselves."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得发展和环境应该一起走，一步一步来。因为人们现在就需要好生活，但环境是为了将来。所以先把环保的选择变方便，比如更好的公共交通和更多安静的绿地。这样人们自己就会跟着做。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点来自短题补丁「鼓励公共交通的环保法律」+ 模块1「quiet place」。老建筑题加一句：old buildings are the memory of a place, special for me。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "Which is more important, protecting the environment or developing the economy?（喜欢的城市自然之地）",
+                "Do you think there should be many natural places in cities?",
+                "Is it a good trend to have more big cities? / Which cities are overcrowded?（拥挤地方）",
+                "Will people use bikes more or less in cities in the future? / Will there be more or less green space?",
+                "Which area is exposed to noise more, the city or the countryside?（嘈杂地）",
+                "Do you think all old buildings should be demolished? / Are old buildings valuable?（喜欢的建筑）",
+                "Some people think pets should not be kept in cities. What do you think?（包含动物的故事或书）"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3-theme-people",
+          "title": "主题六：人际与家庭",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think a good relationship is mostly about respect and real communication. Because when people really listen and don't laugh at others, everyone feels included. My childhood friend was like that, so everyone liked him. So when there is a problem, I try to talk about it directly but politely."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得好的关系主要靠尊重和真诚的沟通。因为当人们认真倾听、不嘲笑别人的时候，每个人都会有归属感。我的发小就是这样，所以大家都喜欢他。所以出了问题，我会试着直接但礼貌地说出来。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点来自剧本二发小（从不嘲笑初学者）。讲「受欢迎 / 好老师」时换成剧本一女朋友：会表达、能感染人，所以受欢迎。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "Why is there a generation gap between the young and the old? / What can young and old people learn from each other?（尊敬的比你年长的人）",
+                "What can we do to bring family members closer together?（和朋友度过的愉快夜晚）",
+                "Why do people want to be popular? / Why are some students popular in school?（受欢迎的人）",
+                "What are the qualities of being a good teacher?（受欢迎的人）",
+                "How can people consider others' feelings when chatting in public?（嘈杂地）",
+                "Why do some people feel angry when others don't reply to their message?（很久没收到回复的信息）",
+                "Many people regard pets as members of their family. What do you think?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3-theme-health",
+          "title": "主题七：健康与生活",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think staying healthy is about small habits, not big efforts. Because if you start too hard, you feel tired and want to give up. A simple routine works better, like playing ball with friends once a week. So being consistent matters more than being strong, and it also helps me feel less stressed."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得保持健康靠小习惯，不是靠猛练。因为一开始太狠，人会又累又想放弃。简单的规律更有效，比如每周和朋友打一次球。所以规律比强壮更重要，还能帮我减压。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点来自剧本二（陪朋友从短时间简单训练开始）+ 模块1（累了就安静待一会儿、relax myself）。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "What effect does stress have on health? / Do you think stress is important in people's lives?（浪费时间的活动）",
+                "Which group pays more attention to health, young people or old people?（帮别人提升健康）",
+                "What qualities should an athlete have?（钦佩的运动员）",
+                "Why do people get up early? / Why do some people like to stay up late?（早起经历）",
+                "How do you balance life and work? / Is it good to have a daily routine?",
+                "What can people do when they feel bored?（去过的无聊地方）"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3-theme-culture",
+          "title": "主题八：媒体与文化",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "核心观点（只背这一个）",
+              "paragraphs": [
+                "So I think the surface is just the entrance, and the story behind is what really matters. Because a movie, a dish or a building becomes interesting when you know why people made it. In Kazakhstan, the religious buildings looked mysterious at first, until my teacher told me the history. So I always try to learn the background, and then everything feels more special for me."
+              ]
+            },
+            {
+              "heading": "中文意思",
+              "paragraphs": [
+                "中文翻译：所以我觉得表面只是入口，背后的故事才真正重要。因为一部电影、一道菜或一座建筑，知道人们为什么做它之后就会变得有意思。在哈萨克斯坦，那些宗教建筑一开始让我觉得很神秘，直到老师给我讲了历史。所以我总会去了解背景，然后一切对我来说都变得更特别。"
+              ]
+            },
+            {
+              "heading": "观点从哪来",
+              "paragraphs": [
+                "备考提醒：观点来自剧本三（宗教建筑 + 会议宴会）+ 模块3「special for me」。广告、采访、视频题换成剧本二威少：他没假装成功容易，他讲的是刻苦训练，所以内容有能量。"
+              ]
+            },
+            {
+              "heading": "能套的真题（大致参考）",
+              "list": [
+                "What is the most important factor in an advertisement? / Why are many advertisements endorsed by celebrities?（名人出演的广告）",
+                "Can movies help people better understand the cultural background of a country?（最不喜欢的电影）",
+                "Why do tourists like taking photos while they are travelling?（喜欢拍照的人）",
+                "Why are there special foods on special occasions or events?（特别场合的食物）",
+                "Do people prefer local or international news?（当地新闻）",
+                "Which is better for knowing more about a country, travelling or reading books?（不喜欢的短途旅行）",
+                "Is it important to learn how people in the past lived?（学习并喜欢历史的人）"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -868,7 +1282,7 @@ window.__SPEAKING_DATA__ = {
           "title": "P1 抽题",
           "type": "drill",
           "drill": "p1",
-          "summary": "大陆 31 个话题随机抽，小问逐题过，支持优先新题"
+          "summary": "大陆话题随机抽，小问逐题过，支持优先新题"
         },
         {
           "id": "drill-p2",
