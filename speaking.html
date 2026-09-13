@@ -438,7 +438,10 @@ body {
   // 画说明类卡片
   function renderArticle(card) {
     const blocks = (card.blocks || []).map(block => {
-      const paragraphs = (block.paragraphs || []).map(text => '<p>' + esc(text) + '</p>').join('');
+      const paragraphs = (block.paragraphs || []).map(text => {
+        const className = text.startsWith('中文翻译：') ? 'zh' : text.startsWith('备考提醒：') ? 'note' : 'speech';
+        return '<p class="' + className + '">' + esc(text) + '</p>';
+      }).join('');
       const list = block.list && block.list.length
         ? '<ul>' + block.list.map(item => '<li>' + esc(item) + '</li>').join('') + '</ul>'
         : '';
@@ -621,13 +624,15 @@ body {
   }
 
   function scriptHintLine(card) {
-    if (!card.script) return '';
+    const mapped = DATA.p2QuestionScripts && DATA.p2QuestionScripts[card.title];
+    const script = mapped || card.script;
+    if (!script) return '';
     const names = {
       '剧本一': '剧本一（港深黑客松）',
       '剧本二': '剧本二（朋友送的篮球）',
       '剧本三': '剧本三（哈萨克斯坦学术会议）'
     };
-    return '<p class="note">建议套' + esc(names[card.script] || card.script) + '，剧情见「P2资料 · 剧本卡片」。</p>';
+    return '<p class="note">建议套' + esc(names[script] || script) + '，剧情见「P2&P3资料」。</p>';
   }
 
   function drillToolbarHTML() {
