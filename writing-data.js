@@ -1,4 +1,4 @@
-// 作文模块数据。模板空位用 ____ 表示，中文提示写在 «» 里；改模板只动这个文件，勿改 writing.html。
+// 作文模块数据。模板空位用 ____ 表示，中文提示写在 «» 里；改模板或话题素材只动这个文件，勿改 writing.html。
 window.__WRITING_DATA__ = {
   "sections": [
     {
@@ -794,6 +794,291 @@ window.__WRITING_DATA__ = {
                   "zh": "总之，这一问题由……等因素驱动，又反过来造成了……等深远影响。显然，这一趋势的影响需要密切关注。"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task2-vocab",
+      "name": "大作文话题素材",
+      "summary": "教育 / 科技 / 社会 / 环境：每类 8 条，套进模板就能写",
+      "cards": [
+        {
+          "id": "how-to",
+          "title": "怎么用这批素材",
+          "type": "article",
+          "blocks": [
+            {
+              "heading": "模板有骨架，这里只补填空",
+              "paragraphs": [
+                "五类题型模板已经决定了段落顺序。缺的不是更多句式，而是「观点 / 解释 / 例子 / 方案」里要填的内容。下面按教育、科技、社会、环境各收 8 条：一条短短语 + 一句能直接改写进模板的例句。",
+                "看题先对号入座：学校、留学、图书馆、父母施压 → 教育；手机、机器人、社交媒体、线上医疗 → 科技；收入、犯罪、广告、家庭、城市 → 社会；污染、绿地、回收、交通、淡水 → 环境。对不上就打开社会卡，多数题都能借到理由。"
+              ]
+            },
+            {
+              "heading": "往模板空位里怎么填",
+              "paragraphs": [
+                "利弊分析 / 同意与否 / 双边讨论：短语填「观点一 / 观点二」；例句改几个词后填进 because 或 For instance。让步段从同一张卡另抽 1 条当反方，再用你的主观点削弱它。",
+                "问题解决：原因段用「导致…」那几条，方案段优先用「出台更严法规 / 鼓励公共交通 / 重复使用」这类。原因影响类同理：原因 1 条 + 影响 1 条就够写满两段。",
+                "每类只有 8 条，够写 250 词。宁可用熟词写对，不要考场上换生词。背默模式遮中文，先盯短语，例句只作填空示范，不必整句死记。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "education",
+          "title": "教育",
+          "type": "phrases",
+          "intro": "对应题库：学校行为、在家教育、能力分组、留学交换、图书馆、父母施压、大学更难。短语填观点，例句改写后填 because / For instance。",
+          "items": [
+            {
+              "en": "all-round development",
+              "zh": "全面发展（学校该不该教品行、体育，不只盯考试）",
+              "eg": "Schools should promote all-round development rather than focusing only on exam results.",
+              "egZh": "学校应促进全面发展，而不是只盯着考试成绩。",
+              "from": "学校职责"
+            },
+            {
+              "en": "instil good behaviour",
+              "zh": "培养良好行为（学校 vs 家庭谁该教品行）",
+              "eg": "It is unrealistic to expect schools to instil good behaviour without support from parents.",
+              "egZh": "没有家长配合，指望学校单独培养良好行为并不现实。",
+              "from": "学校 vs 家庭"
+            },
+            {
+              "en": "mixed-ability classes",
+              "zh": "混合能力班级（按成绩分班还是混在一起）",
+              "eg": "Mixed-ability classes allow weaker students to learn from their peers.",
+              "egZh": "混合能力班级能让较弱的学生向同伴学习。",
+              "from": "能力分组"
+            },
+            {
+              "en": "one-to-one attention",
+              "zh": "一对一关注（在家教育的核心优点；反方补社交）",
+              "eg": "Homeschooling can offer one-to-one attention, but children may miss out on social skills.",
+              "egZh": "在家教育能提供一对一关注，但孩子可能会缺少社交技能。",
+              "from": "在家教育"
+            },
+            {
+              "en": "broaden their horizons",
+              "zh": "开阔眼界（留学、交换生、学国际新闻）",
+              "eg": "Studying abroad can broaden students' horizons and make them more independent.",
+              "egZh": "出国留学能开阔学生的眼界，并让他们更独立。",
+              "from": "留学 / 交换"
+            },
+            {
+              "en": "academic pressure",
+              "zh": "学业压力（父母逼成功、过度竞争）",
+              "eg": "Excessive academic pressure often leads to anxiety rather than better performance.",
+              "egZh": "过重的学业压力往往带来焦虑，而不是更好的成绩。",
+              "from": "父母施压"
+            },
+            {
+              "en": "independent learning",
+              "zh": "自主学习（大学比中学难、成人是否该自学技能）",
+              "eg": "University is harder mainly because students are expected to rely on independent learning.",
+              "egZh": "大学更难，主要是因为学生被要求依靠自主学习。",
+              "from": "大学更难"
+            },
+            {
+              "en": "reliable sources",
+              "zh": "可靠来源（图书馆还有没有必要、知识存在网上）",
+              "eg": "Libraries still matter because they help students find reliable sources instead of random online information.",
+              "egZh": "图书馆仍然重要，因为它帮学生找到可靠来源，而不是网上的随意信息。",
+              "from": "图书馆 vs 网络"
+            }
+          ]
+        },
+        {
+          "id": "technology",
+          "title": "科技",
+          "type": "phrases",
+          "intro": "对应题库：网络信息、面对面沟通、社交媒体、隐私、机器人、科技与犯罪、老人用手机、线上医疗。利弊题左右各抽 1 条就能写成让步。",
+          "items": [
+            {
+              "en": "readily available",
+              "zh": "随时可得（网上获取新闻/知识；反方补虚假信息）",
+              "eg": "Information is now readily available online, which saves time but also spreads false news.",
+              "egZh": "信息现在在网上随时可得，这节省了时间，但也传播了假新闻。",
+              "from": "网络信息"
+            },
+            {
+              "en": "face-to-face interaction",
+              "zh": "面对面交流（手机电脑是否让人不会当面沟通）",
+              "eg": "Heavy use of phones can reduce face-to-face interaction and weaken social skills.",
+              "egZh": "过度使用手机会减少面对面交流，并削弱社交能力。",
+              "from": "沟通能力"
+            },
+            {
+              "en": "stay connected",
+              "zh": "保持联系（社交媒体的主要好处）",
+              "eg": "Social media helps people stay connected with friends, yet it can also create anxiety.",
+              "egZh": "社交媒体帮人们与朋友保持联系，但也可能带来焦虑。",
+              "from": "社交媒体"
+            },
+            {
+              "en": "personal data",
+              "zh": "个人数据（住址、银行卡放到网上）",
+              "eg": "Putting personal data online is convenient for shopping, but it increases the risk of theft.",
+              "egZh": "把个人数据放到网上购物很方便，但也增加了被盗用的风险。",
+              "from": "网络隐私"
+            },
+            {
+              "en": "replace human labour",
+              "zh": "取代人力（机器人做家务或工作）",
+              "eg": "Robots can replace human labour in repetitive tasks, which raises productivity but threatens some jobs.",
+              "egZh": "机器人能在重复性工作中取代人力，这提高了效率，但也威胁到部分岗位。",
+              "from": "机器人"
+            },
+            {
+              "en": "cybercrime",
+              "zh": "网络犯罪（科技减少犯罪还是助长犯罪）",
+              "eg": "Technology can help the police track criminals, but it also makes cybercrime easier to commit.",
+              "egZh": "科技能帮助警方追踪罪犯，但也让网络犯罪更容易实施。",
+              "from": "科技与犯罪"
+            },
+            {
+              "en": "the digital divide",
+              "zh": "数字鸿沟（老人用手机最少、图书馆 vs 电脑）",
+              "eg": "The digital divide means older people gain fewer benefits from the Internet than the young.",
+              "egZh": "数字鸿沟意味着老年人从互联网中获得的好处少于年轻人。",
+              "from": "老年人数字"
+            },
+            {
+              "en": "remote medical services",
+              "zh": "远程医疗服务（线上问诊；反方补误诊）",
+              "eg": "Remote medical services are convenient for minor illnesses, but they cannot fully replace a physical check-up.",
+              "egZh": "远程医疗服务对小病很方便，但不能完全替代当面检查。",
+              "from": "线上医疗"
+            }
+          ]
+        },
+        {
+          "id": "society",
+          "title": "社会",
+          "type": "phrases",
+          "intro": "对应题库：收入差距、犯罪与监狱、广告、工作生活、健康饮食、名人榜样、城市拥挤、家庭结构。对不上前三类的题，优先来这里找理由。",
+          "items": [
+            {
+              "en": "the income gap",
+              "zh": "收入差距（贫富差距、高管高薪、薪酬上限）",
+              "eg": "Narrowing the income gap may make society fairer, but it could also reduce the incentive to work hard.",
+              "egZh": "缩小收入差距可能让社会更公平，但也可能削弱努力工作的动力。",
+              "from": "收入平等"
+            },
+            {
+              "en": "rehabilitation",
+              "zh": "教育改造（监狱 vs 教育、刑满再犯罪）",
+              "eg": "Education is more effective than prison because rehabilitation can stop people from re-offending.",
+              "egZh": "教育比监禁更有效，因为改造能阻止人再次犯罪。",
+              "from": "犯罪对策"
+            },
+            {
+              "en": "misleading advertising",
+              "zh": "误导性广告（禁广告、广告是否有用）",
+              "eg": "Advertising can inform consumers, but misleading advertising often encourages unnecessary spending.",
+              "egZh": "广告能告知消费者，但误导性广告常常鼓励不必要的消费。",
+              "from": "广告"
+            },
+            {
+              "en": "work-life balance",
+              "zh": "工作与生活平衡（加班、换工作、搬家）",
+              "eg": "Many people struggle to maintain a work-life balance, which makes them less happy even if they earn more.",
+              "egZh": "许多人难以保持工作与生活的平衡，即使赚得更多也更不快乐。",
+              "from": "工作生活"
+            },
+            {
+              "en": "personal responsibility",
+              "zh": "个人责任（垃圾食品、政府该不该管饮食）",
+              "eg": "A healthy diet is mainly a matter of personal responsibility, although government rules can still help.",
+              "egZh": "健康饮食主要是个人责任，不过政府规定仍然能起到帮助。",
+              "from": "健康饮食"
+            },
+            {
+              "en": "set a good example",
+              "zh": "树立榜样（明星、运动员该不该被模仿）",
+              "eg": "Famous people should set a good example, because many young people copy their behaviour.",
+              "egZh": "名人应该树立好榜样，因为许多年轻人会模仿他们的行为。",
+              "from": "名人榜样"
+            },
+            {
+              "en": "urban overcrowding",
+              "zh": "城市过度拥挤（大城市太大、交通、住房）",
+              "eg": "Urban overcrowding leads to traffic jams and housing shortages, which lowers the quality of life.",
+              "egZh": "城市过度拥挤带来交通堵塞和住房短缺，从而降低生活质量。",
+              "from": "城市拥挤"
+            },
+            {
+              "en": "family support",
+              "zh": "家庭支持（独自生活、父亲居家、晚育）",
+              "eg": "Living alone offers more freedom, but people may lose family support in difficult times.",
+              "egZh": "独自生活更自由，但人们在困难时期可能会失去家庭支持。",
+              "from": "家庭结构"
+            }
+          ]
+        },
+        {
+          "id": "environment",
+          "title": "环境",
+          "type": "phrases",
+          "intro": "对应题库：个人 vs 政府环保、绿地、石油、经济增长、抛弃型社会、物种减少、无车日/自行车、淡水。问题解决题优先背后 4 条当方案。",
+          "items": [
+            {
+              "en": "take personal responsibility",
+              "zh": "个人担责（个人能否改善环境；让步段承认个人作用有限）",
+              "eg": "Individuals can take personal responsibility by using less energy, but large companies still cause most pollution.",
+              "egZh": "个人可以通过少耗能来担责，但大部分污染仍来自大公司。",
+              "from": "环保责任"
+            },
+            {
+              "en": "impose stricter regulations",
+              "zh": "出台更严法规（政府/大公司才能起作用；方案段首选）",
+              "eg": "Governments should impose stricter regulations on factories, which would reduce pollution more effectively than individual action alone.",
+              "egZh": "政府应对工厂出台更严法规，这比仅靠个人行动更能减少污染。",
+              "from": "政府企业"
+            },
+            {
+              "en": "carbon emissions",
+              "zh": "碳排放（无车日、自行车、私家车）",
+              "eg": "Encouraging public transport can cut carbon emissions and ease traffic in city centres.",
+              "egZh": "鼓励公共交通能减少碳排放，并缓解市中心交通。",
+              "from": "交通出行"
+            },
+            {
+              "en": "urban greenery",
+              "zh": "城市绿地（绿地改住房、公园改菜园）",
+              "eg": "Replacing urban greenery with housing may solve a shortage of homes, but it harms public health.",
+              "egZh": "用住房取代城市绿地或许能缓解住房短缺，但会损害公众健康。",
+              "from": "绿地 / 公园"
+            },
+            {
+              "en": "a throw-away culture",
+              "zh": "一次性消费文化（食物浪费、消费品、回收）",
+              "eg": "A throw-away culture leads to more waste, so people should reuse items instead of buying new ones.",
+              "egZh": "一次性消费文化带来更多垃圾，所以人们应重复使用物品，而不是不断买新的。",
+              "from": "抛弃型社会"
+            },
+            {
+              "en": "habitat destruction",
+              "zh": "栖息地破坏（偏远地区找石油、动植物减少）",
+              "eg": "Searching for oil in remote areas often causes habitat destruction and threatens wildlife.",
+              "egZh": "在偏远地区寻找石油常常破坏栖息地，并威胁野生动物。",
+              "from": "物种 / 石油"
+            },
+            {
+              "en": "sustainable development",
+              "zh": "可持续发展（经济增长 vs 环境、国际合作）",
+              "eg": "Economic growth should go together with sustainable development, rather than damaging the environment.",
+              "egZh": "经济增长应与可持续发展并行，而不是破坏环境。",
+              "from": "经济 vs 环境"
+            },
+            {
+              "en": "scarce resources",
+              "zh": "稀缺资源（淡水该不该管制、食物长途运输）",
+              "eg": "Fresh water is a scarce resource, so governments have a duty to control wasteful use.",
+              "egZh": "淡水是稀缺资源，因此政府有责任控制浪费性使用。",
+              "from": "淡水 / 食物"
             }
           ]
         }
