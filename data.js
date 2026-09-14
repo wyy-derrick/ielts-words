@@ -1,7 +1,7 @@
 // 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-10，共 670 词（听力听写 95 词，d阅读错词 36 词，d听力单词 34 词另库）
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-14，共 684 词（听力听写 95 词，d阅读错词 36 词，d听力单词 48 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-09-10",
+  "updated": "2026-09-14",
   "banks": [
     {
       "id": "mistakes",
@@ -6521,7 +6521,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-34 词",
+          "description": "第 1-48 词",
           "words": [
             {
               "id": 1,
@@ -6758,6 +6758,104 @@ window.__VOCAB_DATA__ = {
               "id": 34,
               "word": "turn up",
               "chinese": "到达",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 35,
+              "word": "switch",
+              "chinese": "切换",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 36,
+              "word": "leak",
+              "chinese": "",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 37,
+              "word": "leaflet",
+              "chinese": "传单",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 38,
+              "word": "mime",
+              "chinese": "比划",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 39,
+              "word": "sequence",
+              "chinese": "顺序",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 40,
+              "word": "worksheet",
+              "chinese": "练习题",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 41,
+              "word": "bend",
+              "chinese": "弯曲",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 42,
+              "word": "muddy",
+              "chinese": "泥泞的",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 43,
+              "word": "soar",
+              "chinese": "上升",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 44,
+              "word": "beer",
+              "chinese": "啤酒",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 45,
+              "word": "desert",
+              "chinese": "沙漠",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 46,
+              "word": "basin",
+              "chinese": "盆地",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 47,
+              "word": "shellfish",
+              "chinese": "贝类",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 48,
+              "word": "africa",
+              "chinese": "非洲",
               "source": "d听力单词",
               "date": ""
             }
