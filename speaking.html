@@ -358,12 +358,13 @@ body {
       '</a>';
   }
 
-  // 画五个部分的入口
+  // 画口语首页：考前急救入口 + 各资料部分
   function renderHome() {
     titleEl.textContent = '口语模块';
     subtitleEl.textContent = '先选一个部分，再点进对应卡片';
     renderNav(null, null);
-    app.innerHTML = '<div class="card-list">' + DATA.sections.map(section => {
+    const examCard = renderEntryCard('exam-notes.html', '考前急救', '模考里你真正会犯的错，开考前扫一遍');
+    app.innerHTML = '<div class="card-list">' + examCard + DATA.sections.map(section => {
       const count = (section.cards || []).length;
       const summary = (section.summary || '') + (count ? ' · ' + count + ' 张卡片' : '');
       return renderEntryCard('#/' + encodeURIComponent(section.id), section.name, summary);
