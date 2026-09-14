@@ -27,9 +27,9 @@ body {
   padding: 20px;
 }
 .container { width: 100%; max-width: 640px; }
-.header { text-align: center; margin: 72px 0 24px; }
+.header { text-align: center; margin: 36px 0 20px; }
 .header h1 { font-size: 1.7rem; letter-spacing: 0.02em; }
-.header .subtitle { color: var(--sub); font-size: 0.88rem; margin-top: 7px; }
+.header .subtitle { color: var(--sub); font-size: 0.88rem; margin-top: 7px; line-height: 1.6; }
 .page-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .home-link {
   display: inline-flex;
@@ -47,31 +47,847 @@ body {
 }
 .home-link:hover,
 .home-link:active { color: var(--accent); border-color: var(--accent); }
-.card {
+.card-list { display: grid; gap: 14px; }
+.module-card {
+  display: block;
+  width: 100%;
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.module-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+.module-card h2 { font-size: 1.05rem; margin-bottom: 6px; }
+.module-card p { color: var(--sub); font-size: 0.86rem; line-height: 1.6; }
+.module-arrow { float: right; color: var(--accent); font-size: 1.15rem; margin-top: 2px; }
+.detail {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 52px 28px;
   box-shadow: var(--shadow);
-  text-align: center;
+  padding: 22px 22px 28px;
 }
-.card h2 { font-size: 1.25rem; margin-bottom: 12px; }
-.card p { color: var(--sub); font-size: 0.9rem; line-height: 1.7; }
-.card .mark { color: var(--accent); font-size: 2rem; margin-bottom: 16px; }
-@media (max-width: 480px) { .header { margin-top: 44px; } .card { padding: 44px 20px; } }
+.detail-intro {
+  color: var(--sub);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.empty { color: var(--sub); text-align: center; padding: 40px 12px; }
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-hover); }
+.btn.secondary { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.btn.secondary:hover { background: #fdf3ef; }
+.drill-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+/* ===== 说明卡 ===== */
+.article-block { margin-bottom: 18px; }
+.article-block:last-child { margin-bottom: 0; }
+.article-block h3 { font-size: 1rem; margin-bottom: 8px; }
+.article-block p {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+.article-block p:last-child { margin-bottom: 0; }
+/* ===== 词汇卡（背默遮中文） ===== */
+.phrase-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafaf8;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.phrase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.phrase-en { color: var(--accent); font-weight: 700; font-size: 1.02rem; }
+.phrase-from { font-size: 0.74rem; color: var(--sub); }
+.phrase-zh { font-size: 0.86rem; color: var(--sub); margin-bottom: 8px; }
+.phrase-eg { font-size: 0.9rem; line-height: 1.65; }
+.phrase-egzh { font-size: 0.84rem; line-height: 1.65; color: var(--sub); margin-top: 2px; }
+.hideable { transition: filter 0.15s; }
+#phraseList.memo .hideable { filter: blur(5px); user-select: none; }
+#phraseList.memo .phrase-row.revealed .hideable { filter: none; }
+/* ===== 模板卡 ===== */
+.tpl-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #fdf3ef;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.76rem;
+  margin-bottom: 12px;
+}
+.tense-note {
+  background: #fdf3ef;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--accent-hover);
+  margin-bottom: 16px;
+}
+.tense-note b { font-weight: 700; }
+.tpl-p {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafaf8;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.tpl-p:last-child { margin-bottom: 0; }
+.tpl-p h3 { font-size: 0.98rem; margin-bottom: 6px; }
+.tpl-note { font-size: 0.8rem; line-height: 1.6; color: var(--sub); margin-bottom: 10px; }
+.tpl-line { padding: 8px 0; border-top: 1px dashed var(--border); }
+.tpl-line:first-of-type { border-top: none; padding-top: 0; }
+.tpl-en { font-size: 0.92rem; line-height: 1.8; color: var(--text); }
+.tpl-en .blank {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent);
+  padding: 0 2px;
+}
+.tpl-en .hint { color: var(--sub); font-size: 0.8rem; }
+.tpl-zh { font-size: 0.83rem; line-height: 1.65; color: var(--sub); margin-top: 4px; }
+.tpl-memo .tpl-en { filter: blur(5px); user-select: none; }
+.tpl-p.revealed .tpl-en { filter: none; }
+.tpl-memo-tip { font-size: 0.78rem; color: var(--sub); margin-top: 10px; }
+/* ===== 考场演练 ===== */
+.drill-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.drill-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--sub);
+  cursor: pointer;
+}
+.drill-stat { font-size: 0.78rem; color: var(--sub); }
+.type-select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  max-width: 100%;
+}
+.link-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--sub);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link-btn:hover { color: var(--accent); }
+.badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  vertical-align: 2px;
+  margin-left: 8px;
+}
+.badge.qtype { background: var(--accent); color: #fff; }
+.cue-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.cue-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+.cue-card .speech { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.7; }
+.countdown {
+  font-size: 3.4rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  margin: 6px 0 4px;
+}
+.countdown.warn { color: #c0392b; }
+.timer-caption { text-align: center; color: var(--sub); font-size: 0.8rem; margin-bottom: 6px; }
+.qidx { font-size: 0.8rem; color: var(--sub); margin: 6px 0; line-height: 1.6; }
+.tpl-link { color: var(--accent); }
+.essay-area {
+  width: 100%;
+  min-height: 260px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  resize: vertical;
+}
+.essay-area:focus { outline: none; border-color: var(--accent); }
+.wordcount {
+  font-size: 0.82rem;
+  color: var(--sub);
+  margin-top: 6px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wordcount.ok { color: #6b9080; font-weight: 600; }
+.history-list { list-style: none; padding-left: 0; margin: 0; }
+.qitem {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.qitem .his-meta { display: block; color: var(--sub); font-size: 0.76rem; margin-top: 2px; }
+@media (max-width: 480px) {
+  .header { margin-top: 20px; }
+  .module-card, .detail { padding: 18px 16px; }
+  .phrase { flex-direction: column; gap: 4px; }
+  .phrase .zh { text-align: left; }
+}
 </style>
 </head>
 <body>
 <div class="container">
   <header class="header">
-    <h1>作文模块</h1>
-    <p class="subtitle">IELTS Writing</p>
+    <h1 id="pageTitle">作文模块</h1>
+    <p class="subtitle" id="pageSubtitle">小作文图表模板、大作文题型模板与考场模拟</p>
   </header>
-  <div class="page-nav"><a class="home-link" href="index.html">← 返回模块选择</a></div>
-  <main class="card">
-    <div class="mark">✦</div>
-    <h2>作文内容建设中</h2>
-    <p>这里将整理 Derrick 的雅思写作素材、范文和练习记录。<br>模块准备好后，会在这里继续更新。</p>
-  </main>
+  <nav class="page-nav" id="pageNav"></nav>
+  <main id="app"></main>
 </div>
+<script src="writing-questions.js"></script>
+<script src="writing-data.js"></script>
+<script>
+(function () {
+  const DATA = window.__WRITING_DATA__;
+  const app = document.getElementById('app');
+  const titleEl = document.getElementById('pageTitle');
+  const subtitleEl = document.getElementById('pageSubtitle');
+  const navEl = document.getElementById('pageNav');
+
+  if (!DATA || !DATA.sections) {
+    app.innerHTML = '<p class="empty">数据加载失败，请确保 writing-data.js 存在。</p>';
+    return;
+  }
+
+  // 转义文本后再写入 HTML
+  function esc(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // 从 hash 读出当前部分和卡片
+  function parseHash() {
+    const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+    return { sectionId: parts[0] || '', cardId: parts[1] || '' };
+  }
+
+  function findSection(id) {
+    return DATA.sections.find(section => section.id === id);
+  }
+
+  function findCard(section, id) {
+    return (section.cards || []).find(card => card.id === id);
+  }
+
+  // 画顶部返回链接
+  function renderNav(section, card) {
+    const links = ['<a class="home-link" href="index.html">← 返回模块选择</a>'];
+    if (card) {
+      links.push('<a class="home-link" href="#/' + encodeURIComponent(section.id) + '">← 返回' + esc(section.name) + '</a>');
+    } else if (section) {
+      links.push('<a class="home-link" href="#">← 返回作文首页</a>');
+    }
+    navEl.innerHTML = links.join('');
+  }
+
+  // 画一张可点击的入口卡
+  function renderEntryCard(href, title, summary) {
+    return '<a class="module-card" href="' + href + '">' +
+      '<span class="module-arrow">→</span>' +
+      '<h2>' + esc(title) + '</h2>' +
+      (summary ? '<p>' + esc(summary) + '</p>' : '') +
+      '</a>';
+  }
+
+  // 给入口卡写一句摘要
+  function cardSummary(card) {
+    if (card.type === 'article') return ((card.blocks || []).length) + ' 个要点';
+    if (card.type === 'phrases') return ((card.items || []).length) + ' 个，带背默模式';
+    if (card.type === 'template') return ((card.paragraphs || []).length) + ' 段模板，带背默模式';
+    if (card.type === 'drill') return card.summary || '随机抽题 · 计时模拟';
+    return '';
+  }
+
+  // 画两个板块的入口
+  function renderHome() {
+    titleEl.textContent = '作文模块';
+    subtitleEl.textContent = '先选一个板块，再点进对应卡片';
+    renderNav(null, null);
+    app.innerHTML = '<div class="card-list">' + DATA.sections.map(section => {
+      const count = (section.cards || []).length;
+      const summary = (section.summary || '') + (count ? ' · ' + count + ' 张卡片' : '');
+      return renderEntryCard('#/' + encodeURIComponent(section.id), section.name, summary);
+    }).join('') + '</div>';
+  }
+
+  // 画一个板块里的卡片列表
+  function renderSection(section) {
+    titleEl.textContent = section.name;
+    subtitleEl.textContent = section.summary || '点进卡片查看内容';
+    renderNav(section, null);
+    const cards = section.cards || [];
+    if (!cards.length) {
+      app.innerHTML = '<p class="empty">这个板块还没有卡片。</p>';
+      return;
+    }
+    app.innerHTML = '<div class="card-list">' + cards.map(card =>
+      renderEntryCard('#/' + encodeURIComponent(section.id) + '/' + encodeURIComponent(card.id), card.title, cardSummary(card))
+    ).join('') + '</div>';
+  }
+
+  // 画说明类卡片
+  function renderArticle(card) {
+    const blocks = (card.blocks || []).map(block => {
+      const paragraphs = (block.paragraphs || []).map(text =>
+        '<p>' + esc(text) + '</p>'
+      ).join('');
+      return '<section class="article-block">' +
+        (block.heading ? '<h3>' + esc(block.heading) + '</h3>' : '') +
+        paragraphs +
+        '</section>';
+    }).join('');
+    return '<div class="detail">' + blocks + '</div>';
+  }
+
+  // 模板句子：____ 画成空位，«» 里的中文提示小字标出
+  function fmtEn(text) {
+    return esc(text)
+      .replace(/«([^»]*)»/g, '<span class="hint">($1)</span>')
+      .replace(/_{2,}/g, '<span class="blank">____</span>');
+  }
+
+  // 画模板卡：适用题型 + 时态提示 + 逐段句式，背默模式遮英文留中文
+  function renderTemplate(card) {
+    const paragraphs = (card.paragraphs || []).map(p => {
+      const lines = (p.sentences || []).map(s =>
+        '<div class="tpl-line">' +
+          '<p class="tpl-en">' + fmtEn(s.en) + '</p>' +
+          (s.zh ? '<p class="tpl-zh">' + esc(s.zh) + '</p>' : '') +
+        '</div>'
+      ).join('');
+      return '<article class="tpl-p">' +
+        '<h3>' + esc(p.label) + '</h3>' +
+        (p.note ? '<p class="tpl-note">' + esc(p.note) + '</p>' : '') +
+        lines +
+        '</article>';
+    }).join('');
+    return '<div class="detail">' +
+      (card.tag ? '<span class="tpl-tag">' + esc(card.tag) + '</span>' : '') +
+      (card.intro ? '<p class="detail-intro" style="margin-top:12px">' + esc(card.intro) + '</p>' : '') +
+      (card.tense ? '<div class="tense-note"><b>时态提醒：</b>' + esc(card.tense) + '</div>' : '') +
+      '<div class="drill-actions" style="margin:0 0 14px">' +
+        '<button class="btn secondary" id="memoBtn" type="button">背默模式：遮住英文</button>' +
+      '</div>' +
+      '<div id="tplList">' + paragraphs + '</div>' +
+      '<p class="tpl-memo-tip">背默模式下点段落临时揭开英文，再点遮回去，照中文提示默写句式。</p>' +
+      '</div>';
+  }
+
+  // 背默模式：整卡打码，点段落揭开 / 遮回
+  function bindTemplateMemo() {
+    const btn = document.getElementById('memoBtn');
+    const list = document.getElementById('tplList');
+    if (!btn || !list) return;
+    let on = false;
+    btn.addEventListener('click', () => {
+      on = !on;
+      list.classList.toggle('tpl-memo', on);
+      btn.textContent = on ? '背默模式已开：点段落看英文' : '背默模式：遮住英文';
+    });
+    list.addEventListener('click', ev => {
+      if (!on) return;
+      const block = ev.target.closest('.tpl-p');
+      if (block) block.classList.toggle('revealed');
+    });
+  }
+
+  // 画词汇卡：词条 + 例句，背默模式遮中文自查
+  function renderPhrases(card) {
+    const rows = (card.items || []).map(item =>
+      '<article class="phrase-row">' +
+        '<div class="phrase-head"><span class="phrase-en">' + esc(item.en) + '</span>' +
+        (item.from ? '<span class="phrase-from">' + esc(item.from) + '</span>' : '') + '</div>' +
+        '<p class="phrase-zh hideable">' + esc(item.zh) + '</p>' +
+        '<p class="phrase-eg">' + esc(item.eg) + '</p>' +
+        '<p class="phrase-egzh hideable">' + esc(item.egZh) + '</p>' +
+      '</article>'
+    ).join('');
+    return '<div class="detail">' +
+      (card.intro ? '<p class="detail-intro">' + esc(card.intro) + '</p>' : '') +
+      '<div class="drill-actions" style="margin:0 0 14px">' +
+        '<button class="btn secondary" id="memoBtn" type="button">背默模式：遮住中文</button>' +
+      '</div>' +
+      '<div id="phraseList">' + rows + '</div>' +
+      '</div>';
+  }
+
+  // 背默模式：中文打码，点词条临时揭开，再点遮回去
+  function bindPhrases() {
+    const btn = document.getElementById('memoBtn');
+    const list = document.getElementById('phraseList');
+    if (!btn || !list) return;
+    let on = false;
+    btn.addEventListener('click', () => {
+      on = !on;
+      list.classList.toggle('memo', on);
+      btn.textContent = on ? '背默模式已开：点词条看中文' : '背默模式：遮住中文';
+    });
+    list.addEventListener('click', ev => {
+      if (!on) return;
+      const row = ev.target.closest('.phrase-row');
+      if (row) row.classList.toggle('revealed');
+    });
+  }
+
+  // ===== 考场演练（大作文 Task 2） =====
+  const QB = window.__WRITING_QUESTIONS__;
+  const DRILL_KEY = 'ielts-writing-drill-v1';
+  const EXAM_SECONDS = 40 * 60;
+  const EXAM_WARN = 5 * 60; // 最后 5 分钟变红
+  const TPL_NAMES = {
+    'pros-cons': '利弊分析类',
+    'agree-disagree': '同意与否类',
+    'discuss-both': '双边讨论类',
+    'problem-solution': '问题解决类',
+    'cause-effect': '原因影响类'
+  };
+  let drillTimers = [];
+  let draftSaveTimer = null;
+
+  function clearDrillTimers() {
+    drillTimers.forEach(clearInterval);
+    drillTimers = [];
+    clearTimeout(draftSaveTimer);
+  }
+
+  function drillState() {
+    try { return JSON.parse(localStorage.getItem(DRILL_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveDrillState(state) {
+    localStorage.setItem(DRILL_KEY, JSON.stringify(state));
+  }
+  function drillDone() { return drillState().done || {}; }
+  function preferFresh() { return drillState().preferFresh !== false; }
+  function setPreferFresh(on) {
+    const state = drillState();
+    state.preferFresh = on;
+    saveDrillState(state);
+  }
+  function typeFilter() { return drillState().typeFilter || ''; }
+  function setTypeFilter(id) {
+    const state = drillState();
+    state.typeFilter = id;
+    saveDrillState(state);
+  }
+  function typeMeta(id) {
+    return QB.types.find(t => t.id === id) || { id: id, name: id, tpl: '', tplName: '' };
+  }
+  function questionTpl(q) {
+    const id = q.tpl || typeMeta(q.type).tpl;
+    return { id: id, name: TPL_NAMES[id] || '' };
+  }
+  function markPracticed(id) {
+    const state = drillState();
+    if (!state.done) state.done = {};
+    state.done[id] = Date.now();
+    saveDrillState(state);
+  }
+  function addHistory(q) {
+    const state = drillState();
+    if (!state.history) state.history = [];
+    state.history.unshift({ id: q.id, tag: q.tag, type: q.type, at: Date.now(), words: 0, dur: 0 });
+    state.history = state.history.slice(0, 100);
+    saveDrillState(state);
+  }
+  function touchHistory(q, words, dur) {
+    const state = drillState();
+    if (!state.history) return;
+    const row = state.history.find(item => item.id === q.id);
+    if (row) {
+      row.words = words;
+      row.dur = dur;
+      saveDrillState(state);
+    }
+  }
+  function saveDraft(id, text) {
+    const state = drillState();
+    if (!state.drafts) state.drafts = {};
+    if (text.trim()) state.drafts[id] = { text: text, at: Date.now() };
+    else delete state.drafts[id];
+    saveDrillState(state);
+  }
+  function clearDrillRecords() {
+    const state = drillState();
+    delete state.done;
+    delete state.history;
+    delete state.drafts;
+    saveDrillState(state);
+  }
+
+  function poolFor(filter) {
+    return filter ? QB.questions.filter(q => q.type === filter) : QB.questions.slice();
+  }
+
+  // 抽题：没练过的优先，练过的沉底；关掉开关则全池混抽
+  function drawOne(pool) {
+    const done = drillDone();
+    const fresh = pool.filter(q => !done[q.id]);
+    const candidates = preferFresh() ? fresh.concat(pool.filter(q => done[q.id])) : pool.slice();
+    return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+
+  function fmtTime(totalSec) {
+    const sec = Math.max(totalSec, 0);
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function drillBeep(times) {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      for (let i = 0; i < times; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        const t0 = ctx.currentTime + i * 0.22;
+        gain.gain.setValueAtTime(0.0001, t0);
+        gain.gain.exponentialRampToValueAtTime(0.25, t0 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.18);
+        osc.start(t0);
+        osc.stop(t0 + 0.2);
+      }
+    } catch (e) { /* 没有音频环境就安静结束 */ }
+  }
+
+  function startCountdown(seconds, warnSec, el, onEnd) {
+    const endAt = Date.now() + seconds * 1000;
+    const timer = setInterval(() => {
+      const left = Math.round((endAt - Date.now()) / 1000);
+      el.textContent = fmtTime(left);
+      if (left <= warnSec) el.classList.add('warn');
+      if (left <= 0) {
+        clearInterval(timer);
+        drillBeep(3);
+        if (onEnd) onEnd();
+      }
+    }, 250);
+    drillTimers.push(timer);
+  }
+
+  function timeAgo(ts) {
+    const diff = Math.max(0, Date.now() - ts);
+    const min = Math.floor(diff / 60000);
+    if (min < 1) return '刚刚';
+    if (min < 60) return min + ' 分钟前';
+    const hr = Math.floor(min / 60);
+    if (hr < 24) return hr + ' 小时前';
+    const day = Math.floor(hr / 24);
+    if (day < 30) return day + ' 天前';
+    return new Date(ts).toLocaleDateString();
+  }
+
+  function wordCount(text) {
+    return text.trim() ? text.trim().split(/\s+/).length : 0;
+  }
+
+  function typeBadge(q) {
+    return ' <span class="badge qtype">' + esc(typeMeta(q.type).name) + '</span>';
+  }
+
+  function tplHint(q) {
+    const tpl = questionTpl(q);
+    if (!tpl.id || !tpl.name) return '';
+    return '<p class="qidx">建议套用<a class="tpl-link" href="#/task2/' + encodeURIComponent(tpl.id) + '">「' + esc(tpl.name) + '」模板</a>，动笔前可先回看句式。</p>';
+  }
+
+  function questionCardHTML(q) {
+    const draft = (drillState().drafts || {})[q.id];
+    const draftLine = draft && draft.text && draft.at
+      ? '<p class="qidx">这篇有本地存稿（' + esc(timeAgo(draft.at)) + '保存），开计时后可以接着写。</p>'
+      : '';
+    return '<div class="cue-card">' +
+      '<h3>' + esc(q.tag) + typeBadge(q) + '</h3>' +
+      '<p class="speech">' + esc(q.text) + '</p>' +
+      draftLine + tplHint(q) +
+      '</div>';
+  }
+
+  function drillToolbarHTML(filter) {
+    const options = ['<option value="">全部题型（' + QB.questions.length + ' 题）</option>'].concat(QB.types.map(t =>
+      '<option value="' + esc(t.id) + '"' + (t.id === filter ? ' selected' : '') + '>' + esc(t.name) + '（' + poolFor(t.id).length + ' 题）</option>'
+    ));
+    return '<div class="drill-toolbar">' +
+      '<select class="type-select" id="typeFilter" aria-label="题型筛选">' + options.join('') + '</select>' +
+      '<label class="drill-check"><input type="checkbox" id="preferFreshChk"' + (preferFresh() ? ' checked' : '') + '>优先抽未练</label>' +
+      '<span class="drill-stat" id="drillStat"></span>' +
+      '<button class="link-btn" id="clearDrillBtn" type="button">清除练习记录</button>' +
+      '</div>';
+  }
+
+  // 工具条：题型筛选 + 优先未练开关 + 清除练习记录（两步确认防误触，保留开关偏好）
+  function bindDrillToolbar(root, updateStat, redraw) {
+    root.querySelector('#typeFilter').addEventListener('change', ev => {
+      setTypeFilter(ev.target.value);
+      redraw();
+    });
+    root.querySelector('#preferFreshChk').addEventListener('change', ev => setPreferFresh(ev.target.checked));
+    const btn = root.querySelector('#clearDrillBtn');
+    let armed = false;
+    let resetTimer = null;
+    btn.addEventListener('click', () => {
+      if (!armed) {
+        armed = true;
+        btn.textContent = '再点一次确认清除';
+        resetTimer = setTimeout(() => {
+          armed = false;
+          btn.textContent = '清除练习记录';
+        }, 3000);
+        return;
+      }
+      clearTimeout(resetTimer);
+      armed = false;
+      clearDrillRecords();
+      btn.textContent = '已清除 ✓';
+      updateStat();
+      updateHistoryCard(root);
+      setTimeout(() => { btn.textContent = '清除练习记录'; }, 1500);
+    });
+  }
+
+  function poolStat(pool) {
+    const done = drillDone();
+    const doneCount = pool.filter(q => done[q.id]).length;
+    return '全库 ' + QB.questions.length + ' 题 · 本池 ' + pool.length + ' 题 · 已过 ' + doneCount;
+  }
+
+  function updateHistoryCard(root) {
+    const holder = root.querySelector('#historyHolder');
+    if (!holder) return;
+    const history = drillState().history || [];
+    if (!history.length) {
+      holder.innerHTML = '<div class="cue-card"><h3>练习历史</h3>' +
+        '<p class="qidx">还没练过题。抽一题写完交卷，这里会记下时间和字数（存浏览器本地）。</p></div>';
+      return;
+    }
+    const rows = history.slice(0, 8).map(item => {
+      const bits = [timeAgo(item.at)];
+      if (item.words) bits.push(item.words + ' 词');
+      if (item.dur) bits.push('用时 ' + fmtTime(item.dur));
+      return '<li class="qitem">[' + esc(typeMeta(item.type).name) + '] ' + esc(item.tag) +
+        '<span class="his-meta">' + esc(bits.join(' · ')) + '</span></li>';
+    }).join('');
+    holder.innerHTML = '<div class="cue-card"><h3>练习历史</h3>' +
+      '<p class="qidx">共 ' + history.length + ' 条 · 最近 ' + Math.min(8, history.length) + ' 条 · 存浏览器本地</p>' +
+      '<ul class="history-list">' + rows + '</ul></div>';
+  }
+
+  function renderDrillExam(root) {
+    root.innerHTML =
+      '<p class="detail-intro">模拟真实考试：随机抽一道大作文，40 分钟写满 250 词。题库 ' + esc(QB.version) + '，建议先花 5 分钟列提纲。交卷后本题记入历史，练过的自动沉底。</p>' +
+      drillToolbarHTML(typeFilter()) +
+      '<div id="drillBody"></div>' +
+      '<div id="historyHolder" style="margin-top:16px"></div>';
+    const stat = root.querySelector('#drillStat');
+    const body = root.querySelector('#drillBody');
+    let startedAt = 0;
+
+    function updateStat() { stat.textContent = poolStat(poolFor(typeFilter())); }
+    function updateStatAndHistory() {
+      updateStat();
+      updateHistoryCard(root);
+    }
+
+    function draw() {
+      clearDrillTimers();
+      const q = drawOne(poolFor(typeFilter()));
+      startedAt = 0;
+      markPracticed(q.id);
+      addHistory(q);
+      updateStatAndHistory();
+      phaseCard(q);
+    }
+
+    function phaseCard(q) {
+      clearDrillTimers();
+      body.innerHTML = questionCardHTML(q) +
+        '<div class="drill-actions">' +
+        '<button class="btn" id="startBtn">开始 40:00 计时</button>' +
+        '<button class="btn secondary" id="skipBtn">换一题</button></div>';
+      body.querySelector('#startBtn').addEventListener('click', () => phaseWrite(q));
+      body.querySelector('#skipBtn').addEventListener('click', draw);
+    }
+
+    function phaseWrite(q) {
+      clearDrillTimers();
+      startedAt = Date.now();
+      const draft = (drillState().drafts || {})[q.id];
+      const saved = draft && draft.text ? draft.text : '';
+      body.innerHTML =
+        '<p class="timer-caption">考试时间 40 分钟 · 最后 5 分钟变红 · 时间到有提示音</p>' +
+        '<div class="countdown" id="cd">' + fmtTime(EXAM_SECONDS) + '</div>' +
+        questionCardHTML(q) +
+        '<textarea class="essay-area" id="essayArea" placeholder="在这里写你的大作文……">' + esc(saved) + '</textarea>' +
+        '<p class="wordcount" id="wc"></p>' +
+        '<div class="drill-actions">' +
+        '<button class="btn" id="submitBtn">交卷，结束本题</button>' +
+        '<button class="btn secondary" id="giveupBtn">放弃本题，换下一题</button></div>';
+      const area = body.querySelector('#essayArea');
+      const wc = body.querySelector('#wc');
+      function refreshWc() {
+        const n = wordCount(area.value);
+        wc.textContent = '已写 ' + n + ' 词' + (n >= 250 ? ' · 已达 250 词 ✓' : ' · 目标 250 词');
+        wc.classList.toggle('ok', n >= 250);
+      }
+      refreshWc();
+      area.addEventListener('input', () => {
+        refreshWc();
+        clearTimeout(draftSaveTimer);
+        draftSaveTimer = setTimeout(() => saveDraft(q.id, area.value), 600);
+      });
+      startCountdown(EXAM_SECONDS, EXAM_WARN, body.querySelector('#cd'), () => finish(q));
+      body.querySelector('#submitBtn').addEventListener('click', () => finish(q));
+      body.querySelector('#giveupBtn').addEventListener('click', draw);
+    }
+
+    function finish(q) {
+      clearDrillTimers();
+      const area = document.getElementById('essayArea');
+      const text = area ? area.value : '';
+      saveDraft(q.id, text);
+      const words = wordCount(text);
+      const dur = startedAt ? Math.round((Date.now() - startedAt) / 1000) : 0;
+      touchHistory(q, words, dur);
+      updateStatAndHistory();
+      body.innerHTML =
+        '<p class="detail-intro">本题完成：用时 ' + esc(fmtTime(dur)) + '，写了 ' + words + ' 词。' +
+        (words && words < 250
+          ? '考场要求至少 250 词，这次还差 ' + (250 - words) + ' 词。'
+          : '字数达标，可以对照模板复盘结构，交卷前记得查一遍动词时态。') +
+        '</p>' +
+        questionCardHTML(q) +
+        '<div class="drill-actions"><button class="btn" id="againBtn">再来一题</button></div>';
+      body.querySelector('#againBtn').addEventListener('click', draw);
+    }
+
+    bindDrillToolbar(root, updateStat, () => {
+      updateStat();
+      draw();
+    });
+    updateStat();
+    updateHistoryCard(root);
+    draw();
+  }
+
+  // ---- 演练页入口 ----
+  function renderDrillPage(section, card) {
+    titleEl.textContent = card.title;
+    subtitleEl.textContent = section.name;
+    renderNav(section, card, null);
+    if (!QB || !QB.questions || !QB.types) {
+      app.innerHTML = '<div class="detail"><p class="empty">题库数据没加载到：确认 writing-questions.js 存在。</p></div>';
+      return;
+    }
+    const root = document.createElement('div');
+    root.className = 'detail';
+    renderDrillExam(root);
+    app.innerHTML = '';
+    app.appendChild(root);
+  }
+
+  // 画卡片正文
+  function renderCard(section, card) {
+    titleEl.textContent = card.title;
+    subtitleEl.textContent = section.name;
+    renderNav(section, card);
+    if (card.type === 'article') app.innerHTML = renderArticle(card);
+    else if (card.type === 'template') { app.innerHTML = renderTemplate(card); bindTemplateMemo(); }
+    else if (card.type === 'phrases') { app.innerHTML = renderPhrases(card); bindPhrases(); }
+    else if (card.type === 'drill') return renderDrillPage(section, card);
+    else app.innerHTML = '<div class="detail"><p class="empty">内容待整理。</p></div>';
+  }
+
+  // 按 hash 决定显示首页、板块或卡片
+  function render() {
+    clearDrillTimers();
+    const { sectionId, cardId } = parseHash();
+    const section = findSection(sectionId);
+    if (!section) {
+      renderHome();
+      return;
+    }
+    const card = cardId ? findCard(section, cardId) : null;
+    if (!card) {
+      renderSection(section);
+      return;
+    }
+    renderCard(section, card);
+  }
+
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
 </body>
 </html>
