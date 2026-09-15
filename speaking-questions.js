@@ -1,7 +1,7 @@
 // 由 更新口语题库.py 从 口语题库.xlsx 生成，勿手改；改题请编辑 xlsx 后重跑。
 window.__SPEAKING_QUESTIONS__ = {
-  "version": "2026年9-12月（截至0909）",
-  "generatedAt": "2026-09-13",
+  "version": "2026年9-12月（截至0915）",
+  "generatedAt": "2026-09-15",
   "p1": [
     {
       "id": "p1-travelling",
@@ -66,7 +66,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Were there any kind of fruits and vegetables you disliked as a child?",
         "What kind of fruits and vegetables do you dislike?",
         "Where do you usually buy fruit and vegetables?",
-        "How often do you eat fruit and vegetables?"
+        "How often do you eat fruit and vegetables?",
+        "Do you like eating vegetables?",
+        "Did you like eating vegetables when you were a child?",
+        "Do people often grow vegetables by themselves?"
       ]
     },
     {
@@ -117,6 +120,20 @@ window.__SPEAKING_QUESTIONS__ = {
       ]
     },
     {
+      "id": "p1-feeling-bored",
+      "title": "Feeling bored",
+      "status": "new",
+      "questions": [
+        "Do you think childhood is boring or adulthood is boring?",
+        "Did you ever find school boring when you were a child?",
+        "What sort of things do you find most boring now?",
+        "Do you often feel bored?",
+        "What do you do to stop yourself feeling bored?",
+        "When would you feel bored?",
+        "What do you do when you feel bored?"
+      ]
+    },
+    {
       "id": "p1-music",
       "title": "Music",
       "status": "retained",
@@ -124,7 +141,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you prefer sad or happy music?",
         "Does happy music make you feel more excited?",
         "Have you taken any music classes?",
-        "Do you listen to music while doing other things?"
+        "Do you listen to music while doing other things?",
+        "Do you learn music lessons at school?",
+        "Do you like music?",
+        "What kinds of music do you listen to?"
       ]
     },
     {
@@ -160,7 +180,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you like to keep things tidy?",
         "Did you keep your room tidy as a child?",
         "How do you keep your work or study space tidy?",
-        "Do you think that it is necessary to be tidy?"
+        "Do you think that it is necessary to be tidy?",
+        "What do you think of those who don't care about tidiness?",
+        "What do you think of those who are overly concerned about tidiness?",
+        "Are you a tidy person now?"
       ]
     },
     {
@@ -197,7 +220,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you like shopping?",
         "How often do you go shopping?",
         "Do you prefer online shopping or in-store shopping?",
-        "Have you ever returned anything you bought online?"
+        "Have you ever returned anything you bought online?",
+        "Do you think expensive products are always better than cheaper ones?",
+        "Do you compare prices when you shop?",
+        "Is it difficult for you to make choices when you shop?"
       ]
     },
     {
@@ -222,8 +248,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you still like going to parks now?",
         "Would you like to see more parks in your city?",
         "Are there any parks you want to go to in the future?",
-        "Would you prefer to play in a personal garden or public garden？ How are the parks today different from those you visited as a kid?",
-        "What do you like to do when visiting a park？ Would you like to play in a public garden or park？?"
+        "Would you prefer to play in a personal garden or public garden?",
+        "How are the parks today different from those you visited as a kid?",
+        "What do you like to do when visiting a park?",
+        "Would you like to play in a public garden or park?"
       ]
     },
     {
@@ -247,7 +275,8 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you like looking at yourself in the mirror?",
         "How often?",
         "Have you ever bought mirrors?",
-        "Do you usually take a mirror with you？ Would you use mirrors to decorate your room?"
+        "Do you usually take a mirror with you?",
+        "Would you use mirrors to decorate your room?"
       ]
     },
     {
@@ -273,7 +302,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Who do you want to sing for?",
         "Do you think singing can bring happiness to people?",
         "Do you like listening to others singing?",
-        "Have you ever taken a singing class?"
+        "Have you ever taken a singing class?",
+        "Do you enjoy singing in the car?",
+        "Did you learn to sing when you were at school?",
+        "Did you like singing when you were a child?"
       ]
     },
     {
@@ -310,7 +342,11 @@ window.__SPEAKING_QUESTIONS__ = {
         "What type of headphones do you use?",
         "When would you use headphones?",
         "In what conditions would you not use headphones?",
-        "Is wearing headphones comfortable?"
+        "Is wearing headphones comfortable?",
+        "How often do you wear headphones?",
+        "Do you think headphones are useful?",
+        "Are headphones popular in your country?",
+        "In what situations should people not wear headphones?"
       ]
     },
     {
@@ -488,7 +524,10 @@ window.__SPEAKING_QUESTIONS__ = {
         "Other than making money, what is more important for a company?",
         "Does money equal success?",
         "How can companies help protect the environment?",
-        "Is it difficult to do business in today's world?"
+        "Is it difficult to do business in today's world?",
+        "What's the difference between ordinary people and successful people?",
+        "What are the factors leading to people's success?",
+        "In your country, what industry is it easier to be successful in?"
       ],
       "script": "剧本三"
     },
@@ -509,7 +548,8 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do you think teachers are able to spot the unhappy children?",
         "Should teachers know what children are doing all the time?",
         "What would make a student happy at school?",
-        "Do you think doing a job that you like is more important than other things?"
+        "Do you think doing a job that you like is more important than other things?",
+        "What was the happiest thing about your secondary school life?"
       ],
       "script": ""
     },
@@ -530,7 +570,9 @@ window.__SPEAKING_QUESTIONS__ = {
         "What should people do to prepare for a job interview?",
         "Why do some people think interviews are a waste of time?",
         "Why do some people dislike being interviewed?",
-        "What kinds of people are usually interviewed?"
+        "What kinds of people are usually interviewed?",
+        "What kinds of things do famous people often say in an interview?",
+        "What can we do to get a job interview?"
       ],
       "script": ""
     },
@@ -732,7 +774,8 @@ window.__SPEAKING_QUESTIONS__ = {
         "What impact can artistic buildings have on society?",
         "Do children these days still like doing arts and crafts?",
         "Why do some children enjoy making things by hand?",
-        "Do you think art classes are important for children?"
+        "Do you think art classes are important for children?",
+        "What are the benefits of students learning to make things by hand?"
       ],
       "script": ""
     },
@@ -750,7 +793,9 @@ window.__SPEAKING_QUESTIONS__ = {
       "p3": [
         "What are the differences between young people’s leisure time activities and those ofold people?",
         "What can we do to bring family members closer together?",
-        "How do people get along in a big family?"
+        "How do people get along in a big family?",
+        "Do young people prefer spending time with family or with friends?",
+        "What are the differences between what old people and young people do in the evening?"
       ],
       "script": "剧本一"
     },
@@ -784,7 +829,8 @@ window.__SPEAKING_QUESTIONS__ = {
         "Where it was",
         "When you went there",
         "Who you went there with",
-        "What you did there"
+        "What you did there",
+        "And explain how you felt about the experience"
       ],
       "p3": [
         "Do you think it is a good trend to have more big cities?",
@@ -970,6 +1016,45 @@ window.__SPEAKING_QUESTIONS__ = {
       "p3": [
         "What effect does stress have on health?",
         "Which group pays more attention to health, young people or old people?"
+      ],
+      "script": ""
+    },
+    {
+      "id": "p2-8aada76b",
+      "title": "节约时间的方法/改变",
+      "status": "new",
+      "cue": "Describe a way/change that helps you save a lot of time",
+      "points": [
+        "What it is",
+        "How you implement it",
+        "How difficult it is",
+        "And explain how you feel about the way/change"
+      ],
+      "p3": [
+        "Is it necessary for children to learn time management?",
+        "What can schools do to help students learn time management?",
+        "What can people do to save time?",
+        "Does technology help people save time? How and why?",
+        "Do you think parents should be responsible for teaching children to save time?",
+        "Do people who can manage time well become successful more easily?"
+      ],
+      "script": "剧本三"
+    },
+    {
+      "id": "p2-d464eae4",
+      "title": "令人兴奋的书",
+      "status": "new",
+      "cue": "Describe an exciting book that you enjoyed reading",
+      "points": [
+        "What kind of book it was",
+        "Why you decided to read it",
+        "What the book was about",
+        "Why you found it exciting"
+      ],
+      "p3": [
+        "What kinds of books are popular in China?",
+        "Do you think people should read the original book before watching the movie?",
+        "Are books on success useful to everyone?"
       ],
       "script": ""
     },
@@ -1184,7 +1269,8 @@ window.__SPEAKING_QUESTIONS__ = {
         "Why do you think parents still make plans for their children nowadays?",
         "How does technology help people make plans?",
         "What kind of plans do people often make?",
-        "Do you think people like the process of making plans more, or the moment ofcarrying them out?"
+        "Do you think people like the process of making plans more, or the moment ofcarrying them out?",
+        "How would you tell your friends when you must change plans?"
       ],
       "script": ""
     },
@@ -1247,7 +1333,9 @@ window.__SPEAKING_QUESTIONS__ = {
         "What are the advantages of watching sports events online?",
         "What sports matches are suitable for children to attend?",
         "Why do some people spend a lot going to other countries to watch sportsevents?",
-        "What sports games are popular in your country?"
+        "What sports games are popular in your country?",
+        "What are the main differences between watching a sports event live in a stadium and watching it on TV?",
+        "What types of sports matches are suitable for children to watch?"
       ],
       "script": "剧本二"
     },
@@ -1478,7 +1566,14 @@ window.__SPEAKING_QUESTIONS__ = {
         "Why are some young people keen on being fans of superstars?",
         "Is it good for a person to be ambitious?",
         "Do you think it is necessary to be ambitious when working in a team in a company?",
-        "Should parents support their children in pursuing their ambitions?"
+        "Should parents support their children in pursuing their ambitions?",
+        "Why are young people ambitious for higher positions?",
+        "What kinds of ambitions do people have?",
+        "What should people do to achieve their goals?",
+        "Why should parents encourage children to have ambitions?",
+        "Should parents interfere with their children's ambitions?",
+        "Is there any difference between children's ambitions and those of grown-ups?",
+        "What goals do young people usually have?"
       ],
       "script": "剧本三"
     },
@@ -1535,7 +1630,12 @@ window.__SPEAKING_QUESTIONS__ = {
         "Do people read the newspaper where you live?",
         "Do people prefer local or international news?",
         "Do you think it's important to have a national identity?",
-        "How can people develop their national identity?"
+        "How can people develop their national identity?",
+        "Are there a lot of people talking about local news?",
+        "Do young people or the elderly care more about local news?",
+        "Do people in your country prefer following local news or national news?",
+        "Why do some people want to be very involved in their community?",
+        "Do you think local communities were stronger in the past than they are today?"
       ],
       "script": ""
     },

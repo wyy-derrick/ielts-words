@@ -27,6 +27,8 @@ window.__SPEAKING_DATA__ = {
     "喜欢的建筑": "剧本一（香港科学园）",
     "印象深刻的聚会": "剧本三（会议宴会）",
     "帮别人提升健康": "剧本二（陪朋友打球）",
+    "节约时间的方法/改变": "剧本三（把事情理清楚）",
+    "令人兴奋的书": "短题补丁（《流浪地球》）",
     "喜欢或不喜欢的高建筑": "剧本一（香港科学园）",
     "有趣视频": "剧本二（威少比赛集锦）",
     "去过的无聊地方": "剧本三（延误时的机场）",
@@ -534,7 +536,8 @@ window.__SPEAKING_DATA__ = {
                   "特别场合的食物、饮食文化（马肉、宴会）",
                   "印象深刻的聚会、有趣或无聊的活动、想继续了解的人（会议交流、实验室组会、老师请咖啡）",
                   "喜欢历史和擅长语言的人、种植物的人（老师）",
-                  "长久目标/抱负（走向国际学术、出国深造）"
+                  "长久目标/抱负（走向国际学术、出国深造）",
+                  "节约时间的方法/改变（先把事情理清楚再做）"
                 ]
               },
               "logic": "这个剧本负责「一个长辈式的老师 + 一次国外学术之旅 + 一次计划被打乱后的坚持」，还自带历史、语言、植物、建筑、文化和食物微素材。分界规则：国外、学术、和长辈、文化体验给这个剧本；国内、比赛、年轻人团队、热闹给剧本一。",
@@ -547,7 +550,8 @@ window.__SPEAKING_DATA__ = {
                 { "when": "当考到「历史 / 语言」时：", "then": "老师喜欢听历史，也擅长学习语言；他曾在德国研究多年，可以用德语和英语处理学习、工作与旅行中的交流。" },
                 { "when": "当考到「植物 / 生活习惯」时：", "then": "老师喜欢在家种植物来放松和陶冶情操；他做研究很有计划，但也强调休息的重要。" },
                 { "when": "当考到「浪费时间」时：", "then": "实验室组会有时很低效：老师态度很好，但同学们准备不足、不配合，讨论很久却没有清楚结果。" },
-                { "when": "当考到「目标 / 学习」时：", "then": "这次报告让我想继续学新东西、做好研究、发表论文，以后参加更多国际会议或出国深造。" }
+                { "when": "当考到「目标 / 学习」时：", "then": "这次报告让我想继续学新东西、做好研究、发表论文，以后参加更多国际会议或出国深造。" },
+                { "when": "当考到「节约时间 / 时间管理」时：", "then": "我改成先把明天要做的事列清楚，再按顺序做；老师改论文也是先把主要观点说清楚。这样少做无用功。" }
               ],
               "plot": "今年六月，我作为机器人方向论文的作者，跟老师去哈萨克斯坦参加国际学术会议。开始时我担心自己的工作做得不够好，所以不敢去。老师在德国研究多年，态度温和，也很会规划。他亲手逐词改我的论文并鼓励我接受机会。国内段航班延误后，我们赶不上原定报告。老师立即联系主办方，把报告调整到最后。到我们讲时已经没什么人了，但我仍然完成了项目报告，因此更有信心。老师平时喜欢听历史、擅长学习语言，也喜欢在家种植物来放松。哈萨克斯坦有很多神秘的宗教建筑，阿拉木图附近还有雪山。会议宴会有很多肉，甚至马肉。这趟旅行让我看到不同文化，也让我更确定未来要继续做研究、参加国际交流。",
               "masterNote": "背熟三段，但按题目抽层：人物用老师，决定用「担心工作不够好但接受机会」，波折用「航班延误 + 调到最后 + 人少仍讲完」，地点用宗教建筑和雪山，食物用会议宴会。Part B 接 plan first、learn new things、do my best、make it clear。",
@@ -608,7 +612,7 @@ window.__SPEAKING_DATA__ = {
                 "科技、团队、女朋友、年轻队友、香港、建筑、咖啡店：剧本一",
                 "篮球、发小、威少、运动、旧物、手机、童年技能：剧本二",
                 "老师、决定、计划变化、国际会议、历史语言、植物、旅行文化：剧本三",
-                "法律、电影、动物故事等不适合硬套的题：使用「P2短题补丁」"
+                "法律、电影、书、动物故事等不适合硬套的题：使用「P2短题补丁」"
               ]
             }
           ]
@@ -833,6 +837,21 @@ window.__SPEAKING_DATA__ = {
               ]
             },
             {
+              "heading": "节约时间：先把明天要做的事列清楚",
+              "paragraphs": [
+                "英文可说素材：A change that helps me save time is making a simple plan the night before. I write down two or three things I must finish the next day, so I do not waste time deciding what to do first. It was not very difficult, but I had to keep doing it every day. I feel better now because I can just follow the list and do my best.",
+                "中文翻译：一个帮我节约很多时间的改变，是前一天晚上先做一个简单计划。我会写下第二天必须完成的两三件事，这样就不用浪费时间决定先做什么。这件事并不难，但我必须每天坚持。现在我感觉更好，因为我可以按清单去做，并尽力完成。"
+              ]
+            },
+            {
+              "heading": "令人兴奋的书：《流浪地球》",
+              "paragraphs": [
+                "英文可说素材：An exciting book I enjoyed is The Wandering Earth. I decided to read it because I am interested in technology and space exploration. It is about people making a huge plan to move the Earth and save humanity. I found it exciting because the story was imaginative, and it also showed teamwork and a very big scientific challenge.",
+                "中文翻译：我读过一本令人兴奋的书，是《流浪地球》。我决定读它，是因为我对科技和太空探索感兴趣。它讲的是人们制定一个巨大的计划来推动地球、拯救人类。我觉得它令人兴奋，因为故事富有想象力，也展现了团队合作和一项非常大的科学挑战。",
+                "备考提醒：如果考官问的是让你开心的书，也可以用同一本，把 exciting 改成 it made me feel excited and a bit hopeful。"
+              ]
+            },
+            {
               "heading": "喜欢的电影：《流浪地球》",
               "paragraphs": [
                 "英文可说素材：A movie I really like is The Wandering Earth. I watched it at home because I am interested in technology and space exploration. It is about people making a huge plan to save the Earth and humanity. I liked it because the story was imaginative, but it also showed teamwork, responsibility and the exploration of places beyond Earth.",
@@ -1044,6 +1063,7 @@ window.__SPEAKING_DATA__ = {
                 "Has technology changed people's friendships?（发小）",
                 "Do you think online communication will replace face-to-face communication?（发小）",
                 "How does technology help people make plans?（近期改变的计划）",
+                "Does technology help people save time? How and why?（节约时间的方法/改变）",
                 "Which is more helpful, watching videos or reading books?（有趣视频）"
               ]
             }
@@ -1118,7 +1138,9 @@ window.__SPEAKING_DATA__ = {
                 "Do people often change their plans?（近期改变的计划）",
                 "What should people do to prepare for a job interview? / What should people wear to a job interview?（看过的名人采访）",
                 "What are the benefits for people to obey rules?（保护环境的法律）",
-                "Is it important to plan a holiday ahead?（推荐旅行过的地方）"
+                "Is it important to plan a holiday ahead?（推荐旅行过的地方）",
+                "Is it necessary for children to learn time management?（节约时间的方法/改变）",
+                "Do people who can manage time well become successful more easily?（节约时间的方法/改变）"
               ]
             }
           ]
@@ -1265,7 +1287,9 @@ window.__SPEAKING_DATA__ = {
                 "Why are there special foods on special occasions or events?（特别场合的食物）",
                 "Do people prefer local or international news?（当地新闻）",
                 "Which is better for knowing more about a country, travelling or reading books?（不喜欢的短途旅行）",
-                "Is it important to learn how people in the past lived?（学习并喜欢历史的人）"
+                "Is it important to learn how people in the past lived?（学习并喜欢历史的人）",
+                "Do you think people should read the original book before watching the movie?（令人兴奋的书）",
+                "Are books on success useful to everyone?（令人兴奋的书）"
               ]
             }
           ]
