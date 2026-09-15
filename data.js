@@ -1,7 +1,7 @@
 // 由 更新词库.py 自动生成（错词表/听力听写来自 plan/雅思错词表.xlsx，538考点词来自 词库538.json，d词表来自 d词表.xlsx），请勿手改
-// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-14，共 684 词（听力听写 95 词，d阅读错词 36 词，d听力单词 48 词另库）
+// 词表更新后重新运行脚本再 push 即可，最近生成：2026-09-15，共 697 词（听力听写 95 词，d阅读错词 41 词，d听力单词 56 词另库）
 window.__VOCAB_DATA__ = {
-  "updated": "2026-09-14",
+  "updated": "2026-09-15",
   "banks": [
     {
       "id": "mistakes",
@@ -6254,7 +6254,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-36 词",
+          "description": "第 1-41 词",
           "words": [
             {
               "id": 1,
@@ -6507,6 +6507,41 @@ window.__VOCAB_DATA__ = {
               "chinese": "缺陷",
               "source": "d阅读错词",
               "date": ""
+            },
+            {
+              "id": 37,
+              "word": "grain",
+              "chinese": "谷物",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 38,
+              "word": "mosaic",
+              "chinese": "马赛克",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 39,
+              "word": "criticise/criticize",
+              "chinese": "批评",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 40,
+              "word": "revenue",
+              "chinese": "收入",
+              "source": "d阅读错词",
+              "date": ""
+            },
+            {
+              "id": 41,
+              "word": "roam",
+              "chinese": "漫游",
+              "source": "d阅读错词",
+              "date": ""
             }
           ]
         }
@@ -6521,7 +6556,7 @@ window.__VOCAB_DATA__ = {
         {
           "id": 1,
           "name": "第1组",
-          "description": "第 1-48 词",
+          "description": "第 1-56 词",
           "words": [
             {
               "id": 1,
@@ -6856,6 +6891,62 @@ window.__VOCAB_DATA__ = {
               "id": 48,
               "word": "africa",
               "chinese": "非洲",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 49,
+              "word": "cheese",
+              "chinese": "奶酪",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 50,
+              "word": "chess",
+              "chinese": "象棋",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 51,
+              "word": "recreational",
+              "chinese": "娱乐",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 52,
+              "word": "portrait",
+              "chinese": "肖像",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 53,
+              "word": "photograph",
+              "chinese": "照片",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 54,
+              "word": "stick",
+              "chinese": "粘，突出",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 55,
+              "word": "weave",
+              "chinese": "编",
+              "source": "d听力单词",
+              "date": ""
+            },
+            {
+              "id": 56,
+              "word": "sew",
+              "chinese": "缝",
               "source": "d听力单词",
               "date": ""
             }
