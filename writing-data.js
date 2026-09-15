@@ -417,381 +417,213 @@ window.__WRITING_DATA__ = {
     {
       "id": "task2",
       "name": "大作文 Task 2",
-      "summary": "五类题型的四段模板，主体段和让步段句式通用",
+      "summary": "两大万能四段模板 + CAE 论证链，背熟直接套题",
       "cards": [
         {
-          "id": "pros-cons",
-          "title": "利弊分析类",
+          "id": "good-bad",
+          "title": "好坏类",
           "type": "template",
-          "tag": "题目问：这个趋势是好是坏？",
-          "intro": "四段结构：① 开头亮立场 → ② 主体段 2 个支持理由 → ③ 让步段（先承认反方再削弱）→ ④ 结尾重申。本模板立场固定写「利大于弊」，若反着写把 advantages / disadvantages 互换即可。",
+          "tag": "advantages outweigh / positive or negative / should / discuss both views",
+          "intro": "原先利弊分析、同意与否、双边讨论已收进这一张。四段：开头亮立场 → Body 1 打透第一个优点（CAE）→ Body 2 第二个优点并让步拉回 → 结尾重申。考场抽到观点型、好坏型、比较型、讨论型都套这一套。立场默认写「利大于弊 / 应该做」；若要反对，把 I believe that 后面换成弊大于利即可。",
           "tense": "以一般现在时为主；举例可用过去时",
           "paragraphs": [
             {
-              "label": "① 开头：引出趋势 + 亮立场",
-              "note": "先说这个趋势越来越常见，再一句固定句式表态：利大于弊。",
+              "label": "① 开头：改写题目 + 明确立场",
+              "note": "背景句点出题目核心行为/趋势，第二句先带出反方，再亮自己的立场。不要在开头展开论证。",
               "sentences": [
                 {
-                  "en": "The trend of ____«主题短语» is increasingly common in today's world, prompting a discussion about its consequences.",
-                  "zh": "……的趋势在当今世界越来越普遍，引发了关于其影响的讨论。"
+                  "en": "In today's world, the issue of ____«题目核心行为/趋势» has attracted much discussion.",
+                  "zh": "在当今世界，……的问题引起了大量讨论。"
                 },
                 {
-                  "en": "While this trend is not without its issues, I am of the firm opinion that its advantages significantly outweigh its disadvantages.",
-                  "zh": "虽然这一趋势并非没有问题，但我坚定认为其利远大于弊。"
+                  "en": "While some argue that ____«反方观点/潜在弊端», I believe that ____«自己立场：利大于弊 / 应该做某事».",
+                  "zh": "虽然有人认为……，但我认为……。"
                 }
               ]
             },
             {
-              "label": "② 主体段：2 个支持理由",
-              "note": "公式：观点句 → because 解释 → 例证 → Furthermore 第二个观点 → as it shows 再解释。",
+              "label": "② Body 1：第一个优点（CAE 展开）",
+              "note": "本段只打一个优点：观点句 → 条件 C → 行动 A → 效果 E → 举例扣回。写透比堆两个浅观点更稳。",
               "sentences": [
                 {
-                  "en": "The primary argument supporting this perspective centers on the fact that ____«观点一».",
-                  "zh": "支持这一立场的主要论点是……。"
+                  "en": "First, ____«核心观点：某行为带来好处1».",
+                  "zh": "首先，……。"
                 },
                 {
-                  "en": "This is largely because ____«解释观点一», a notion that is widely accepted.",
-                  "zh": "这主要是因为……，这一点已被广泛认同。"
+                  "en": "In a context where ____«现状/条件C», ____«行为A» enables ____«对象T» to ____«效果E».",
+                  "zh": "在……的情况下，……使……能够……。"
                 },
                 {
-                  "en": "A clear example of this is ____«例子», which clearly highlights this benefit.",
-                  "zh": "一个明显的例子是……，它清楚地体现了这一好处。"
-                },
-                {
-                  "en": "Furthermore, it is worth noting that ____«观点二». This provides a secondary reason, as it shows ____«解释观点二».",
-                  "zh": "此外，值得一提的是……；这提供了第二个理由，说明……。"
+                  "en": "For example, ____«具体例子», which clearly shows that ____«扣回观点：该好处确实重要».",
+                  "zh": "例如，……，这清楚地说明……。"
                 }
               ]
             },
             {
-              "label": "③ 让步段：承认反方再削弱",
-              "note": "公式：反方观点 → citing 解释 → While this point has some merit 转折削弱 → especially true 补一刀 → For instance 例证。",
+              "label": "③ Body 2：第二个优点 + 让步拉回",
+              "note": "先抛第二个优点，再 Admittedly 让半步，However 说明好处 2 更强或该弊端其实也可转化。最后举例扣回。",
               "sentences": [
                 {
-                  "en": "On the other hand, proponents of the opposing view argue that ____«反方合理性观点», often citing the idea that ____«反方的解释».",
-                  "zh": "另一方面，反方主张……，常援引的理由是……。"
+                  "en": "Second, ____«核心观点：某行为带来好处2».",
+                  "zh": "其次，……。"
                 },
                 {
-                  "en": "While this point has some merit, it is less important than the fact that ____«削弱反方的关键事实».",
-                  "zh": "这一点虽有道理，但远不如……重要。"
+                  "en": "Admittedly, some may claim that ____«反方观点/弊端», which might ____«潜在负面影响».",
+                  "zh": "诚然，有人可能认为……，这或许会……。"
                 },
                 {
-                  "en": "This is especially true when considering ____«解释». For instance, ____«例子».",
-                  "zh": "考虑到……时尤其如此。例如，……。"
+                  "en": "However, this concern is outweighed by the fact that ____«解释为什么好处2更强 / 该弊端其实也是好处».",
+                  "zh": "然而，这一担忧比不上……。"
+                },
+                {
+                  "en": "For instance, ____«举例». Therefore, ____«扣回观点：好处2更显著».",
+                  "zh": "例如，……。因此，……。"
                 }
               ]
             },
             {
-              "label": "④ 结尾：重申立场",
-              "note": "一句话收尾，reiterate my stance 呼应开头。",
+              "label": "④ 结尾：总结立场",
+              "note": "承认反方一句，点名两个优点，重申立场。不要加新观点。",
               "sentences": [
                 {
-                  "en": "In conclusion, after a detailed analysis of this trend, I reiterate my stance that the merits of ____«该现象短语» are ultimately more significant than its drawbacks.",
-                  "zh": "总之，经过详细分析，我重申：……的好处终究大于其弊端。"
+                  "en": "In conclusion, although ____«反方观点/弊端» may exist, the benefits of ____«好处1» and ____«好处2» are more substantial.",
+                  "zh": "总之，虽然……可能存在，但……和……带来的好处更为显著。"
+                },
+                {
+                  "en": "I firmly believe that ____«重申立场».",
+                  "zh": "我坚信……。"
                 }
               ]
             }
           ]
         },
         {
-          "id": "agree-disagree",
-          "title": "同意与否类",
+          "id": "report-analysis",
+          "title": "分析报告类",
           "type": "template",
-          "tag": "题目给一个观点，问你同不同意",
-          "intro": "四段结构与利弊类完全一样，只有开头和结尾换句式：开头用 The assertion that … 转述题目观点并表态 strongly agree / disagree，结尾用 having weighed the opposing arguments 收。",
+          "tag": "reasons / problems / solutions / why + is it positive",
+          "intro": "原先问题解决、原因影响已收进这一张。四段：开头点现象并预告 → Body 1 第一个原因或问题 → Body 2 第二个原因/方案或影响 → 结尾总结并给应对。考场抽到报告型、混合型都套这一套。若题目是「原因 + 是否积极」，把开头第二句换成分析原因并判断积极/消极。",
           "tense": "以一般现在时为主；举例可用过去时",
           "paragraphs": [
             {
-              "label": "① 开头：转述观点 + 表态",
-              "note": "agree / disagree 二选一填好，后面两段全部为这个立场服务。",
+              "label": "① 开头：改写题目 + 预告内容",
+              "note": "第一句写现象。第二句预告本文写原因和方案；若题目问「原因 + 是否积极」，改用下面第三句。",
               "sentences": [
                 {
-                  "en": "The assertion that ____«题目中的观点» has become a topic of significant discussion.",
-                  "zh": "「……」这一主张已成为热议话题。"
+                  "en": "In recent years, the trend/phenomenon of ____«题目核心现象» has become increasingly common.",
+                  "zh": "近年来，……的趋势 / 现象变得越来越普遍。"
                 },
                 {
-                  "en": "From my perspective, I strongly agree/disagree with this statement, and this essay will outline the reasoning behind this view.",
-                  "zh": "就我而言，我非常同意 / 不同意这一说法，本文将阐述理由。"
+                  "en": "This essay will examine the main reasons behind this development and propose practical solutions.",
+                  "zh": "本文将分析这一现象的主要原因，并提出切实可行的解决方案。"
+                },
+                {
+                  "en": "This essay will analyze the underlying causes and argue that it is generally a positive/negative development.",
+                  "zh": "本文将分析深层原因，并认为这总体上是一种积极 / 消极的发展。（原因 + 是否积极题用这句替换上一句）"
                 }
               ]
             },
             {
-              "label": "② 主体段：2 个支持理由",
-              "note": "与利弊类通用：观点 → 解释 → 例证 → 第二观点 → 再解释。",
+              "label": "② Body 1：第一个原因 / 问题",
+              "note": "主题句点出原因 1 或问题 1，再用宏观条件 C 推出结果 E，举例后小结影响大。",
               "sentences": [
                 {
-                  "en": "The primary argument supporting this perspective centers on the fact that ____«观点一».",
-                  "zh": "支持这一立场的主要论点是……。"
+                  "en": "The primary factor driving this phenomenon is ____«原因1/问题1».",
+                  "zh": "推动这一现象的首要因素是……。"
                 },
                 {
-                  "en": "This is largely because ____«解释观点一», a notion that is widely accepted.",
-                  "zh": "这主要是因为……，这一点已被广泛认同。"
+                  "en": "At the macro level, ____«宏观解释/条件C». This gives rise to ____«结果E».",
+                  "zh": "在宏观层面，……。这导致了……。"
                 },
                 {
-                  "en": "A clear example of this is ____«例子», which clearly highlights this benefit.",
-                  "zh": "一个明显的例子是……，它清楚地体现了这一点。"
-                },
-                {
-                  "en": "Furthermore, it is worth noting that ____«观点二». This provides a secondary reason, as it shows ____«解释观点二».",
-                  "zh": "此外，值得一提的是……；这提供了第二个理由，说明……。"
+                  "en": "For example, ____«举例». Thus, ____«小结：该原因/问题确实存在且影响大».",
+                  "zh": "例如，……。因此，……。"
                 }
               ]
             },
             {
-              "label": "③ 让步段：承认反方再削弱",
-              "note": "与利弊类通用。",
+              "label": "③ Body 2：第二个原因 / 问题 + 方案或影响",
+              "note": "可以写第二个原因，也可以直接给方案或积极/消极影响。Specifically 把行动接到效果上，Moreover 再补一句。",
               "sentences": [
                 {
-                  "en": "On the other hand, proponents of the opposing view argue that ____«反方合理性观点», often citing the idea that ____«反方的解释».",
-                  "zh": "另一方面，反方主张……，常援引的理由是……。"
+                  "en": "Another significant factor/solution is ____«原因2/方案».",
+                  "zh": "另一个重要因素 / 方案是……。"
                 },
                 {
-                  "en": "While this point has some merit, it is less important than the fact that ____«削弱反方的关键事实».",
-                  "zh": "这一点虽有道理，但远不如……重要。"
+                  "en": "Specifically, ____«行动A» can ____«效果E», as it addresses ____«根源/目标».",
+                  "zh": "具体来说，……能够……，因为它针对的是……。"
                 },
                 {
-                  "en": "This is especially true when considering ____«解释». For instance, ____«例子».",
-                  "zh": "考虑到……时尤其如此。例如，……。"
+                  "en": "For instance, ____«举例». Moreover, ____«补充说明：另一个方案或积极影响».",
+                  "zh": "例如，……。此外，……。"
+                },
+                {
+                  "en": "This demonstrates that ____«扣回：该方案/影响有效».",
+                  "zh": "这表明……。"
                 }
               ]
             },
             {
-              "label": "④ 结尾：重申立场",
-              "note": "having weighed the opposing arguments 是这段结尾的标志句。",
+              "label": "④ 结尾：总结 + 建议",
+              "note": "先收原因/问题，再落到方案或合理应对。不要突然抛新点。",
               "sentences": [
                 {
-                  "en": "In conclusion, having weighed the opposing arguments, my position remains that ____«你坚定的立场», as the supporting arguments are more robust.",
-                  "zh": "总之，权衡双方论点后，我的立场依然是……，因为支持它的论据更有力。"
+                  "en": "In conclusion, ____«总结原因/问题» are the main drivers/challenges.",
+                  "zh": "总之，……是主要驱动力 / 挑战。"
+                },
+                {
+                  "en": "Through ____«解决方案/合理应对», the negative effects can be mitigated / the positive outcomes can be maximized.",
+                  "zh": "通过……，负面影响可以得到缓解 / 积极结果可以得到最大化。"
                 }
               ]
             }
           ]
         },
         {
-          "id": "discuss-both",
-          "title": "双边讨论类",
+          "id": "cae",
+          "title": "CAE 论证链",
           "type": "template",
-          "tag": "题目给两个对立观点，选一边",
-          "intro": "开头要把两个观点都转述出来，再用 the former / latter argument is more convincing 表态选哪边（former = 前者，latter = 后者）。主体段写你选中的那边，让步段写另一边并削弱。",
-          "tense": "以一般现在时为主；举例可用过去时",
+          "tag": "任何一段需要展开解释时套用",
+          "intro": "C 条件 → A 行动 → E 效果。好坏类 Body 1、分析报告类 Body 1 都按这个顺序写满。不要把三步拆成口号，连成一段自然的解释。",
+          "tense": "一般现在时；举例可用过去时",
           "paragraphs": [
             {
-              "label": "① 开头：转述双方 + 表态",
-              "note": "两个观点各转述一句，最后一句固定用 the former / latter 亮出你选的一边。",
+              "label": "C · Condition 条件",
+              "note": "先写前提/背景，说明为什么这件事会发生。",
               "sentences": [
                 {
-                  "en": "In contemporary society, the issue of ____«主题短语» has sparked considerable discussion.",
-                  "zh": "在当代社会，……的问题引发了大量讨论。"
-                },
-                {
-                  "en": "A common viewpoint suggests that ____«观点A», while an alternative perspective posits that ____«观点B».",
-                  "zh": "一种常见观点认为……；另一种看法则主张……。"
-                },
-                {
-                  "en": "After a careful analysis of both positions, this essay will argue that the former/latter argument is more convincing.",
-                  "zh": "仔细分析双方立场后，本文认为前者 / 后者更有说服力。"
+                  "en": "In a context where ____«现状/背景»",
+                  "zh": "在……的现状下"
                 }
               ]
             },
             {
-              "label": "② 主体段：支持你选的一边",
-              "note": "句式与利弊类通用。",
+              "label": "A · Action 行动",
+              "note": "说明动作带来的直接作用。",
               "sentences": [
                 {
-                  "en": "The primary argument supporting this perspective centers on the fact that ____«观点一».",
-                  "zh": "支持这一立场的主要论点是……。"
-                },
-                {
-                  "en": "This is largely because ____«解释观点一», a notion that is widely accepted.",
-                  "zh": "这主要是因为……，这一点已被广泛认同。"
-                },
-                {
-                  "en": "A clear example of this is ____«例子», which clearly highlights this benefit.",
-                  "zh": "一个明显的例子是……，它清楚地体现了这一点。"
-                },
-                {
-                  "en": "Furthermore, it is worth noting that ____«观点二». This provides a secondary reason, as it shows ____«解释观点二».",
-                  "zh": "此外，值得一提的是……；这提供了第二个理由，说明……。"
+                  "en": "doing ____«某行为/措施» enables/allows ____«对象» to ____«效果»",
+                  "zh": "做……使……能够……"
                 }
               ]
             },
             {
-              "label": "③ 让步段：讨论另一边并反驳",
-              "note": "句式与利弊类通用。",
+              "label": "E · Effect 效果",
+              "note": "总结结果，并扣回本段观点。",
               "sentences": [
                 {
-                  "en": "On the other hand, proponents of the opposing view argue that ____«反方合理性观点», often citing the idea that ____«反方的解释».",
-                  "zh": "另一方面，反方主张……，常援引的理由是……。"
-                },
-                {
-                  "en": "While this point has some merit, it is less important than the fact that ____«削弱反方的关键事实».",
-                  "zh": "这一点虽有道理，但远不如……重要。"
-                },
-                {
-                  "en": "This is especially true when considering ____«解释». For instance, ____«例子».",
-                  "zh": "考虑到……时尤其如此。例如，……。"
+                  "en": "As a result, ____«总结结果». / This clearly demonstrates that ____«扣回观点».",
+                  "zh": "因此……。/ 这清楚地说明……。"
                 }
               ]
             },
             {
-              "label": "④ 结尾：重申立场",
-              "note": "while acknowledging the arguments on both sides 先让半步，再站稳。",
+              "label": "套用示例（好坏类 Body 1）",
+              "note": "把 C-A-E 连成一段，不要拆成三句口号。",
               "sentences": [
                 {
-                  "en": "In conclusion, while acknowledging the arguments on both sides, I maintain the belief that ____«你坚定的立场», due to the aforementioned evidence.",
-                  "zh": "总之，虽然承认双方各有论据，基于上述证据，我仍坚持认为……。"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "problem-solution",
-          "title": "问题解决类",
-          "type": "template",
-          "tag": "题目问：原因/问题 + 解决方案",
-          "intro": "回答题目的两个问题各占一个主体段：Body 1 分析原因或问题，Body 2 给方案。没有让步段，主体段公式换成「原因公式」和「方案公式」。",
-          "tense": "以一般现在时为主；例子可用过去时",
-          "paragraphs": [
-            {
-              "label": "① 开头：点出现象 + 预告结构",
-              "note": "固定三句：现象很严重 → 要先找根源再给方案 → 本文先分析后建议。",
-              "sentences": [
-                {
-                  "en": "The trend of ____«负面现象» has become a pressing issue in many societies, prompting widespread concern.",
-                  "zh": "……的趋势已成为许多社会的紧迫问题，引起普遍担忧。"
-                },
-                {
-                  "en": "To tackle this phenomenon, it is essential to first understand its origins and then propose viable solutions.",
-                  "zh": "要应对这一现象，必须先弄清其根源，再提出可行的解决方案。"
-                },
-                {
-                  "en": "This essay will first analyze the primary causes/problems of this issue and then suggest several effective measures.",
-                  "zh": "本文将先分析这一问题的主要原因，再提出几项有效措施。"
-                }
-              ]
-            },
-            {
-              "label": "② 主体段一：原因 / 问题",
-              "note": "公式：主因 → because 解释 → 研究或例子佐证 → 次因 + which often leads to 带出后果。",
-              "sentences": [
-                {
-                  "en": "The primary cause/problem stemming from ____«话题» is ____«原因一».",
-                  "zh": "由……带来的首要原因 / 问题是……。"
-                },
-                {
-                  "en": "This is largely because ____«解释», a fact that is widely acknowledged.",
-                  "zh": "这主要是因为……，这一事实已得到广泛承认。"
-                },
-                {
-                  "en": "A compelling illustration of this is ____«相关研究或例子».",
-                  "zh": "一个有力的例证是……。"
-                },
-                {
-                  "en": "Furthermore, a second contributing factor/problem is ____«原因二», which often leads to ____«直接后果».",
-                  "zh": "此外，第二个诱因是……，它常常导致……。"
-                }
-              ]
-            },
-            {
-              "label": "③ 主体段二：解决方案",
-              "note": "公式：最优方案 → viable because 说它为何可行 + 直接回应第一个问题 → 次方案 + a case in point 举例。",
-              "sentences": [
-                {
-                  "en": "To address these challenges, the most effective measure is ____«方案一».",
-                  "zh": "要解决这些挑战，最有效的办法是……。"
-                },
-                {
-                  "en": "This approach would be viable because ____«方案如何生效», which would directly tackle the first issue mentioned.",
-                  "zh": "这一做法之所以可行，是因为……，从而直接解决前面提到的第一个问题。"
-                },
-                {
-                  "en": "In addition, a second practical strategy would be to ____«方案二», a case in point being ____«举例论证».",
-                  "zh": "另外，第二个可行策略是……，一个典型例子是……。"
-                }
-              ]
-            },
-            {
-              "label": "④ 结尾：总结方案",
-              "note": "复杂但可解，把两个方案点名收尾。",
-              "sentences": [
-                {
-                  "en": "In conclusion, the problems associated with ____«话题» are complex but not impossible to solve. By implementing the measures proposed, such as ____«方案一» and ____«方案二», the negative impacts can be effectively reduced.",
-                  "zh": "总之，与……相关的问题虽然复杂，但并非无法解决。只要落实……和……等措施，负面影响就能得到有效缓解。"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "cause-effect",
-          "title": "原因影响类",
-          "type": "template",
-          "tag": "题目问：原因 + 影响",
-          "intro": "和问题解决类同一个骨架：Body 1 分析原因，Body 2 改写影响。影响段公式：最直接的影响 → this means that 解释 → 更深远的长期后果 + 举例。",
-          "tense": "以一般现在时为主；例子可用过去时",
-          "paragraphs": [
-            {
-              "label": "① 开头：点出现象 + 预告结构",
-              "note": "与问题解决类同款三句，只是把方案换成 effects。",
-              "sentences": [
-                {
-                  "en": "The phenomenon of ____«社会现象» has become increasingly prevalent in modern society, prompting widespread discussion.",
-                  "zh": "……的现象在现代社会日益普遍，引发广泛讨论。"
-                },
-                {
-                  "en": "It is essential to understand both the origins of this trend and the consequences it brings.",
-                  "zh": "理解这一趋势的成因及其带来的后果都十分必要。"
-                },
-                {
-                  "en": "This essay will first analyze the primary causes of this issue and then explore its significant effects.",
-                  "zh": "本文将先分析这一问题的主要原因，再探讨其重要影响。"
-                }
-              ]
-            },
-            {
-              "label": "② 主体段一：原因",
-              "note": "公式与问题解决类的原因段相同。",
-              "sentences": [
-                {
-                  "en": "The primary cause of ____«话题» is ____«原因一».",
-                  "zh": "……的首要原因是……。"
-                },
-                {
-                  "en": "This is largely because ____«解释», a fact that is widely acknowledged.",
-                  "zh": "这主要是因为……，这一事实已得到广泛承认。"
-                },
-                {
-                  "en": "A compelling illustration of this is ____«相关研究或例子». Furthermore, a second contributing factor is ____«原因二», which often leads to ____«直接后果».",
-                  "zh": "一个有力的例证是……。此外，第二个诱因是……，它常常导致……。"
-                }
-              ]
-            },
-            {
-              "label": "③ 主体段二：影响",
-              "note": "公式：最直接的影响 → this means that 解释 → 更深远的长期后果 + a case in point 举例。",
-              "sentences": [
-                {
-                  "en": "The consequences of this trend are equally significant. The most immediate effect is ____«影响一».",
-                  "zh": "这一趋势的影响同样重大。最直接的影响是……。"
-                },
-                {
-                  "en": "This means that ____«解释», which can have a serious impact on individuals/society.",
-                  "zh": "这意味着……，进而对个人 / 社会造成严重影响。"
-                },
-                {
-                  "en": "Moreover, a more profound, long-term consequence is ____«影响二», a case in point being ____«举例论证».",
-                  "zh": "此外，更深远的长期后果是……，一个典型例子是……。"
-                }
-              ]
-            },
-            {
-              "label": "④ 结尾：原因 + 影响各收一句",
-              "note": "把主因和最重的影响点名，最后一句呼吁重视。",
-              "sentences": [
-                {
-                  "en": "In conclusion, this issue is driven by factors such as ____«原因一», and in turn has led to several profound impacts, like ____«影响一». It is clear that the implications of this trend require close attention.",
-                  "zh": "总之，这一问题由……等因素驱动，又反过来造成了……等深远影响。显然，这一趋势的影响需要密切关注。"
+                  "en": "In a context where high school graduates lack real-world experience, travelling or working before university enables them to relate academic knowledge to reality. As a result, they develop stronger motivation for future study.",
+                  "zh": "在高中毕业生缺乏真实世界经验的情况下，上大学前去旅行或工作能让他们把书本知识和现实联系起来。因此，他们对未来的学习会更有动力。"
                 }
               ]
             }
@@ -812,15 +644,15 @@ window.__WRITING_DATA__ = {
             {
               "heading": "模板有骨架，这里只补填空",
               "paragraphs": [
-                "五类题型模板已经决定了段落顺序。缺的不是更多句式，而是「观点 / 解释 / 例子 / 方案」里要填的内容。下面按教育、科技、社会、环境各收 8 条：一条短短语 + 一句能直接改写进模板的例句。",
+                "两大万能模板已经决定了段落顺序：好坏类（利弊 / 同意 / 双边）和分析报告类（原因 / 问题 / 方案）。缺的不是更多句式，而是「观点 / 解释 / 例子 / 方案」里要填的内容。下面按教育、科技、社会、环境各收 8 条：一条短短语 + 一句能直接改写进模板的例句。",
                 "看题先对号入座：学校、留学、图书馆、父母施压 → 教育；手机、机器人、社交媒体、线上医疗 → 科技；收入、犯罪、广告、家庭、城市 → 社会；污染、绿地、回收、交通、淡水 → 环境。对不上就打开社会卡，多数题都能借到理由。"
               ]
             },
             {
               "heading": "往模板空位里怎么填",
               "paragraphs": [
-                "利弊分析 / 同意与否 / 双边讨论：短语填「观点一 / 观点二」；例句改几个词后填进 because 或 For instance。让步段从同一张卡另抽 1 条当反方，再用你的主观点削弱它。",
-                "问题解决：原因段用「导致…」那几条，方案段优先用「出台更严法规 / 鼓励公共交通 / 重复使用」这类。原因影响类同理：原因 1 条 + 影响 1 条就够写满两段。",
+                "好坏类：短语填「好处 1 / 好处 2」；例句改几个词后填进 CAE 或 For example。让步段从同一张卡另抽 1 条当反方，再用好处 2 拉回。",
+                "分析报告类：原因 / 问题段用「导致…」那几条，方案段优先用「出台更严法规 / 鼓励公共交通 / 重复使用」这类。混合题第二段改写积极或消极影响即可。",
                 "每类只有 8 条，够写 250 词。宁可用熟词写对，不要考场上换生词。背默模式遮中文，先盯短语，例句只作填空示范，不必整句死记。"
               ]
             }
@@ -830,7 +662,7 @@ window.__WRITING_DATA__ = {
           "id": "education",
           "title": "教育",
           "type": "phrases",
-          "intro": "对应题库：学校行为、在家教育、能力分组、留学交换、图书馆、父母施压、大学更难。短语填观点，例句改写后填 because / For instance。",
+          "intro": "对应题库：学校行为、在家教育、能力分组、留学交换、图书馆、父母施压、大学更难。短语填好处或原因，例句改写后填进 CAE / For example。",
           "items": [
             {
               "en": "all-round development",

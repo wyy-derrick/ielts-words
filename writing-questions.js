@@ -6,44 +6,44 @@ window.__WRITING_QUESTIONS__ = {
     {
       "id": "opinion",
       "name": "观点型",
-      "desc": "同意与否：亮明立场，主体段给理由和例证",
-      "tpl": "agree-disagree",
-      "tplName": "同意与否类"
+      "desc": "同意与否：套好坏类，开头亮立场，Body 2 让步拉回",
+      "tpl": "good-bad",
+      "tplName": "好坏类"
     },
     {
       "id": "development",
       "name": "好坏型",
-      "desc": "积极还是消极：判定趋势性质，利弊各占一段",
-      "tpl": "pros-cons",
-      "tplName": "利弊分析类"
+      "desc": "积极还是消极：套好坏类，判定趋势性质后让步拉回",
+      "tpl": "good-bad",
+      "tplName": "好坏类"
     },
     {
       "id": "comparison",
       "name": "比较型",
-      "desc": "利大于弊吗：两边都要写，但明确站队一边更重",
-      "tpl": "pros-cons",
-      "tplName": "利弊分析类"
+      "desc": "利大于弊吗：套好坏类，两边都写但明确站队一边更重",
+      "tpl": "good-bad",
+      "tplName": "好坏类"
     },
     {
       "id": "discussion",
       "name": "讨论型",
-      "desc": "讨论双方观点：两边陈述 + 自己的看法",
-      "tpl": "discuss-both",
-      "tplName": "双边讨论类"
+      "desc": "讨论双方观点：套好坏类，两边陈述后让步拉回自己的看法",
+      "tpl": "good-bad",
+      "tplName": "好坏类"
     },
     {
       "id": "report",
       "name": "报告型",
-      "desc": "原因 / 对策：分析成因，再给解决办法",
-      "tpl": "problem-solution",
-      "tplName": "问题解决类"
+      "desc": "原因 / 对策：套分析报告类，先成因再方案",
+      "tpl": "report-analysis",
+      "tplName": "分析报告类"
     },
     {
       "id": "mixed",
       "name": "混合型",
-      "desc": "先答原因，再判断积极消极，两问都要覆盖",
-      "tpl": "cause-effect",
-      "tplName": "原因影响类"
+      "desc": "原因 + 是否积极：套分析报告类，开头换成原因并判断积极/消极",
+      "tpl": "report-analysis",
+      "tplName": "分析报告类"
     }
   ],
   "questions": [
@@ -148,22 +148,22 @@ window.__WRITING_QUESTIONS__ = {
     { "id": "rp-fewer-cyclists", "type": "report", "tag": "自行车出行减少", "text": "More and more people do not ride the bicycle as a mode of transportation even though it has a lot of benefits. What are the causes of this? What can be done to encourage people to ride bicycles?" },
     { "id": "rp-museums-local", "type": "report", "tag": "本地博物馆参观", "text": "Museums and historical sites are mainly visited by tourists, not local people. Why is this the case? What can be done to encourage local people to visit these sites?" },
     { "id": "rp-species-decline", "type": "report", "tag": "生物多样性减少", "text": "In many countries, the number of animals and plants is declining. Why do you think this is happening? How can this issue be solved?" },
-    { "id": "rp-throwaway-society", "type": "report", "tag": "抛弃型社会", "tpl": "cause-effect", "text": "In many countries, people are living in a 'throw-away' society. They tend to use things for a short time and then throw them away. What do you think are the causes? What problems may it lead to?" },
+    { "id": "rp-throwaway-society", "type": "report", "tag": "抛弃型社会", "tpl": "report-analysis", "text": "In many countries, people are living in a 'throw-away' society. They tend to use things for a short time and then throw them away. What do you think are the causes? What problems may it lead to?" },
     { "id": "rp-elderly-digital", "type": "report", "tag": "老年人数字融入", "text": "Mobile phones and the Internet bring a lot of benefits to people nowadays. However, older people use them the least. In what aspects do mobile phones and the Internet benefit old people? How can we encourage older people to use them?" },
     { "id": "rp-consumer-goods", "type": "report", "tag": "消费主义环境破坏", "text": "The increase in the production of consumer goods results in damage to the natural environment. What are the causes of this? What can be done to solve this problem?" },
     { "id": "rp-overcrowded-cities", "type": "report", "tag": "城市过剩拥挤", "text": "In many countries today, major cities have become too big and overcrowded. Why is this? What measures could be taken to reduce this problem?" },
     { "id": "rp-generation-gap", "type": "report", "tag": "代际沟通减少", "text": "Nowadays, in many countries, young people don't communicate with older people as much as they used to. Why is this happening? How could this situation be improved?" },
-    { "id": "rp-value-of-arts", "type": "report", "tag": "艺术的价值", "tpl": "cause-effect", "text": "In today's world of advanced science and technology, we still greatly value our artists such as musicians, painters, and writers. What can arts tell us about life that science cannot?" },
+    { "id": "rp-value-of-arts", "type": "report", "tag": "艺术的价值", "tpl": "report-analysis", "text": "In today's world of advanced science and technology, we still greatly value our artists such as musicians, painters, and writers. What can arts tell us about life that science cannot?" },
     { "id": "rp-rising-crime", "type": "report", "tag": "犯罪上升对策", "text": "Crime appears to be rising in most countries in the world, especially among young people. What are the possible causes of this trend, and what solutions would be effective in reducing crime?" },
     { "id": "rp-recycling", "type": "report", "tag": "回收利用推广", "text": "Today, not many people recycle waste. Why is this the case? How can people be encouraged to recycle waste?" },
-    { "id": "rp-study-abroad", "type": "report", "tag": "留学利弊分析", "tpl": "pros-cons", "text": "Increasing numbers of students are choosing to study abroad. To what extent does this trend benefit the students themselves and the countries involved? What are the drawbacks?" },
+    { "id": "rp-study-abroad", "type": "report", "tag": "留学利弊分析", "tpl": "good-bad", "text": "Increasing numbers of students are choosing to study abroad. To what extent does this trend benefit the students themselves and the countries involved? What are the drawbacks?" },
 
     // ===== 混合型 =====
     { "id": "mx-architecture", "type": "mixed", "tag": "全球建筑趋同", "text": "In the past, buildings often reflected the culture of a society, but today, buildings around the world are becoming more and more similar. Why is this the case? Is it a positive or negative development?" },
     { "id": "mx-food-miles", "type": "mixed", "tag": "全球食品运输", "text": "Today's food travels thousands of miles before it reaches customers. Why is this the case? Is this a positive or negative development?" },
     { "id": "mx-househusbands", "type": "mixed", "tag": "父亲居家照护", "text": "These days, more fathers stay at home and take care of their children while mothers go out to work. What could be the reason for this? Is it a positive or negative development?" },
     { "id": "mx-cosmetic-surgery", "type": "mixed", "tag": "美容整形潮流", "text": "An increasing number of people are choosing to have cosmetic surgery in order to improve their appearance. Why do people have operations to change the way they look? Do you think this is a positive or negative development?" },
-    { "id": "mx-car-ownership", "type": "mixed", "tag": "城市交通问题", "tpl": "problem-solution", "text": "Car ownership has increased so rapidly over the past thirty years that many cities worldwide are now facing serious traffic problems. Is this truly the case? What measures can governments take to discourage people from using their cars?" },
+    { "id": "mx-car-ownership", "type": "mixed", "tag": "城市交通问题", "tpl": "report-analysis", "text": "Car ownership has increased so rapidly over the past thirty years that many cities worldwide are now facing serious traffic problems. Is this truly the case? What measures can governments take to discourage people from using their cars?" },
     { "id": "mx-western-clothes", "type": "mixed", "tag": "西式服装趋势", "text": "In many countries, people now wear western-style dresses such as suits and jeans rather than traditional clothing. Why is this? Is this a positive or negative development?" },
     { "id": "mx-instant-gratification", "type": "mixed", "tag": "即时满足趋势", "text": "Today, more and more people want things instantly (e.g. goods, services, news). Why is this the case? Is it a positive or negative development?" },
     { "id": "mx-ambition", "type": "mixed", "tag": "雄心与成功", "text": "Ambition is being emphasized in today's society. How important is it for people who want to succeed in life? Is it a positive or negative characteristic?" },
@@ -171,13 +171,13 @@ window.__WRITING_QUESTIONS__ = {
     { "id": "mx-househusband-trend", "type": "mixed", "tag": "男性育儿趋势", "text": "In many countries, more and more men are staying at home to look after their children while women work full-time. What are the reasons? Is it a positive or negative development?" },
     { "id": "mx-gender-subjects", "type": "mixed", "tag": "性别学科选择", "text": "In schools and universities, girls tend to choose the arts, while boys like science. What are the reasons for this trend? Do you think this tendency should be changed?" },
     { "id": "mx-car-vs-bike", "type": "mixed", "tag": "城市交通转变", "text": "In some cities, people are choosing cars instead of bicycles, while in others, riding bikes is replacing driving cars. What are the causes of these developments? Which development do you think is more positive?" },
-    { "id": "mx-city-cycling", "type": "mixed", "tag": "城市骑行推广", "tpl": "problem-solution", "text": "Some countries spend a lot of money making it easier to use bicycles in cities. Why is this? Is it the best solution to transport problems?" },
+    { "id": "mx-city-cycling", "type": "mixed", "tag": "城市骑行推广", "tpl": "report-analysis", "text": "Some countries spend a lot of money making it easier to use bicycles in cities. Why is this? Is it the best solution to transport problems?" },
     { "id": "mx-parental-pressure", "type": "mixed", "tag": "父母成功压力", "text": "Nowadays, parents put too much pressure on their children to succeed. What are the reasons for this? Is this a positive or negative development for children?" },
     { "id": "mx-less-ad-influence", "type": "mixed", "tag": "广告影响力下降", "text": "People are becoming less influenced by advertisements today. Why is this the case? Is it a positive or negative development?" },
     { "id": "mx-late-childbirth", "type": "mixed", "tag": "晚育现象利弊", "text": "In many countries, people decide to have children at a later age than in the past. Why? Do the advantages of this development outweigh the disadvantages?" },
     { "id": "mx-newspaper-influence", "type": "mixed", "tag": "报纸影响力", "text": "Nowadays, newspapers have an increasing influence on people's ideas and opinions. What are the reasons for this? Is it a negative or positive development?" },
     { "id": "mx-work-harder", "type": "mixed", "tag": "努力工作原因", "text": "In education and employment, some people work much harder than others. Why do they work much harder than others? Is it always a good thing to work hard?" },
-    { "id": "mx-foreign-films", "type": "mixed", "tag": "外国电影偏好", "tpl": "problem-solution", "text": "Many people prefer to watch foreign films rather than locally produced films. Why could this be? Should governments give more financial support to the local film industry?" },
+    { "id": "mx-foreign-films", "type": "mixed", "tag": "外国电影偏好", "tpl": "report-analysis", "text": "Many people prefer to watch foreign films rather than locally produced films. Why could this be? Should governments give more financial support to the local film industry?" },
     { "id": "mx-competitiveness", "type": "mixed", "tag": "竞争力影响", "text": "Competitiveness is considered to be an important quality for people in many societies. How do you think it affects individuals? Is it a positive or negative trend?" }
   ]
 };
